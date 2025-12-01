@@ -43,14 +43,35 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
-        <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
-          {ctaLabel}
-        </a>
-        <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
-          Ver método
-        </a>
-      </div>
-    </div>
+  <button
+    type="button"
+    data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+    data-cal-config='{"layout":"month_view"}'
+    class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
+  >
+    Reservar demo
+  </button>
+
+  <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
+    Ver método
+  </a>
+</div>
+
+<a
+  href="#"
+  data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+  data-cal-config='{"layout":"month_view"}'
+  class="mt-3 inline-block text-sm text-zinc-300 hover:text-white"
+>
+  ¿Estás en Madrid? Reserva presencial
+</a>
+
+    <div class="mt-5 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
+  <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
+    Piloto desde <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
+  </span>
+  <span>Precio final según industria, volumen y nº de creatividades.</span>
+</div>
 
     <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
       <div aria-hidden="true" class="absolute inset-0 opacity-30">
@@ -311,4 +332,23 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </footer>
   </main>
 </BaseLayout>
+
+<script is:inline>
+(function (C, A) {
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal, ar = arguments;
+    if (!cal.loaded) {
+      cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    cal.q.push(ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js");
+
+Cal("ui", { theme: "dark" });
+Cal("preload", { calLink: "syntheticaudiencelab/demo-videollamada-20-min" });
+Cal("preload", { calLink: "syntheticaudiencelab/demo-presencial-solo-madrid-45-min" });
+</script>
 
