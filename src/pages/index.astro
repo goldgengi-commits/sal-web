@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const brand = "Synthetic Audience Lab";
 const email = "syntheticaudiencelab@hotmail.com"; // cámbialo
-const ctaLabel = "Simular mi audiencia";
+const ctaLabel = "Contacta con nosotros";
 const ctaHref = `mailto:${email}?subject=Simulación%20Synthetic%20Audience%20Lab`;
 
 const showCase = true;
@@ -27,9 +27,11 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
   </header>
 
   <main class="mx-auto max-w-6xl px-6">
+
     <!-- 1) HERO -->
-    <section class="relative py-16 md:py-24">
-  <div class="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
+<section class="relative py-16 md:py-24">
+  <div class="grid items-center gap-10 md:grid-cols-2">
+    <!-- LEFT -->
     <div class="max-w-2xl">
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Tecnología premium · calma · precisión</p>
 
@@ -43,36 +45,40 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
-  <button
-    type="button"
-    data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-    data-cal-config='{"layout":"month_view"}'
-    class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
-  >
-    Reservar demo
-  </button>
+        <button
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-namespace="salDemo"
+          data-cal-config='{"layout":"month_view"}'
+          class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
+        >
+          Agendar demo
+        </button>
 
-  <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
-    Ver método
-  </a>
-</div>
+        <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
+          Ver método
+        </a>
+      </div>
 
-<a
-  href="#"
-  data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
-  data-cal-config='{"layout":"month_view"}'
-  class="mt-3 inline-block text-sm text-zinc-300 hover:text-white"
->
-  ¿Estás en Madrid? Reserva presencial
-</a>
+      <button
+        type="button"
+        data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+        data-cal-namespace="salMadrid"
+        data-cal-config='{"layout":"month_view"}'
+        class="mt-3 inline-flex text-sm text-zinc-300 hover:text-white"
+      >
+        ¿Estás en Madrid? Reserva presencial
+      </button>
 
-    <div class="mt-5 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
-  <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
-    Piloto desde <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
-  </span>
-  <span>Precio final según industria, volumen y nº de creatividades.</span>
-</div>
+      <div class="mt-5 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
+        <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
+          Piloto desde <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
+        </span>
+        <span>Precio final según industria, volumen y nº de creatividades.</span>
+      </div>
+    </div>
 
+    <!-- RIGHT -->
     <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
       <div aria-hidden="true" class="absolute inset-0 opacity-30">
         <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-cyan-500/30 blur-3xl"></div>
@@ -306,18 +312,35 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
     <!-- 8) CTA FINAL -->
     <section class="py-16 border-t border-zinc-900">
-      <div class="rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
-        <h2 class="text-2xl md:text-3xl font-semibold">Deja de adivinar. Empieza a entender.</h2>
-        <p class="mt-4 text-zinc-300 max-w-2xl">
-          Tu próxima campaña puede ser rentable antes de lanzarla. Si no lo es, mejor enterarte hoy.
-        </p>
-        <div class="mt-8">
-          <a href={ctaHref} class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
-            Solicitar simulación
-          </a>
-        </div>
-      </div>
-    </section>
+  <div class="rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
+    <h2 class="text-2xl md:text-3xl font-semibold">Deja de adivinar. Empieza a entender.</h2>
+    <p class="mt-4 text-zinc-300 max-w-2xl">
+      Tu próxima campaña puede ser rentable antes de lanzarla. Si no lo es, mejor enterarte hoy.
+    </p>
+
+    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+      <button
+        type="button"
+        data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+        data-cal-namespace="salDemo"
+        data-cal-config='{"layout":"month_view"}'
+        class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
+      >
+        Agendar demo
+      </button>
+
+      <button
+        type="button"
+        data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+        data-cal-namespace="salMadrid"
+        data-cal-config='{"layout":"month_view"}'
+        class="rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
+      >
+        Presencial (Madrid)
+      </button>
+    </div>
+  </div>
+</section>
 
     <!-- 9) FOOTER -->
     <footer class="py-10 text-xs text-zinc-500 border-t border-zinc-900">
@@ -334,21 +357,36 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </BaseLayout>
 
 <script is:inline>
-(function (C, A) {
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
   let d = C.document;
   C.Cal = C.Cal || function () {
-    let cal = C.Cal, ar = arguments;
+    let cal = C.Cal;
+    let ar = arguments;
     if (!cal.loaded) {
+      cal.ns = {};
       cal.q = cal.q || [];
       d.head.appendChild(d.createElement("script")).src = A;
       cal.loaded = true;
     }
-    cal.q.push(ar);
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else p(cal, ar);
+      return;
+    }
+    p(cal, ar);
   };
-})(window, "https://app.cal.com/embed/embed.js");
+})(window, "https://app.cal.com/embed/embed.js", "init");
 
-Cal("ui", { theme: "dark" });
-Cal("preload", { calLink: "syntheticaudiencelab/demo-videollamada-20-min" });
-Cal("preload", { calLink: "syntheticaudiencelab/demo-presencial-solo-madrid-45-min" });
+Cal("init", "salDemo", { origin: "https://cal.com" });
+Cal.ns["salDemo"]("ui", { theme: "dark", layout: "month_view" });
+
+Cal("init", "salMadrid", { origin: "https://cal.com" });
+Cal.ns["salMadrid"]("ui", { theme: "dark", layout: "month_view" });
 </script>
-
