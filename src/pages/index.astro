@@ -15,11 +15,11 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     <div class="text-sm tracking-wide text-zinc-300">{brand}</div>
 
     <nav class="hidden md:flex gap-8 text-sm text-zinc-300">
-      <a href="#problema" class="hover:text-white">Why</a>
-      <a href="#que" class="hover:text-white">What</a>
-      <a href="#como" class="hover:text-white">How</a>
-      <a href="#informe" class="hover:text-white">Informe</a>
-    </nav>
+  <a href="#problema" class="hover:text-white">Problema</a>
+  <a href="#que" class="hover:text-white">Qué es</a>
+  <a href="#como" class="hover:text-white">Cómo funciona</a>
+  <a href="#informe" class="hover:text-white">Informe</a>
+</nav>
 
     <a href={ctaHref} class="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:opacity-90">
       {ctaLabel}
@@ -28,51 +28,55 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
   <main class="mx-auto max-w-6xl px-6">
     <!-- 1) HERO -->
-    <section class="relative overflow-hidden py-16 md:py-24">
-      <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-        <div class="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
-        <div class="absolute top-20 right-[-120px] h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-3xl"></div>
-        <svg class="absolute inset-0 h-full w-full opacity-25" viewBox="0 0 1200 600" preserveAspectRatio="none">
+    <section class="relative py-16 md:py-24">
+  <div class="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
+    <div class="max-w-2xl">
+      <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Tecnología premium · calma · precisión</p>
+
+      <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-[1.05]">
+        Predice cómo reaccionará tu cliente<br class="hidden md:block" /> antes de lanzar nada.
+      </h1>
+
+      <p class="mt-6 text-lg text-zinc-300">
+        Synthetic Audience Lab genera perfiles sintéticos con comportamiento coherente para validar tus anuncios y mensajes
+        antes de invertir en publicidad.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
+          {ctaLabel}
+        </a>
+        <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
+          Ver método
+        </a>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
+      <div aria-hidden="true" class="absolute inset-0 opacity-30">
+        <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-cyan-500/30 blur-3xl"></div>
+        <div class="absolute top-20 right-[-90px] h-72 w-72 rounded-full bg-blue-500/25 blur-3xl"></div>
+        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 800 520" preserveAspectRatio="none">
           <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0" stop-color="rgb(56 189 248)" stop-opacity="0.35"/>
-              <stop offset="1" stop-color="rgb(59 130 246)" stop-opacity="0.20"/>
+            <linearGradient id="hg" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0" stop-color="rgb(56 189 248)" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="rgb(59 130 246)" stop-opacity="0.25"/>
             </linearGradient>
           </defs>
-          <path d="M0,360 C220,260 360,420 560,320 C760,220 900,360 1200,260 L1200,600 L0,600 Z" fill="url(#g)"/>
-          <path d="M0,280 C260,160 420,340 620,220 C820,100 940,260 1200,140" fill="none" stroke="url(#g)" stroke-width="18" opacity="0.55"/>
-          <path d="M0,210 C240,110 420,260 620,170 C820,80 980,190 1200,100" fill="none" stroke="url(#g)" stroke-width="10" opacity="0.35"/>
+          <path d="M0,330 C160,240 260,390 410,310 C560,230 660,320 800,250" fill="none" stroke="url(#hg)" stroke-width="16"/>
+          <path d="M0,260 C170,170 280,330 420,240 C560,150 690,260 800,180" fill="none" stroke="url(#hg)" stroke-width="10" opacity="0.7"/>
+          <path d="M0,200 C190,120 300,260 450,185 C600,110 720,190 800,130" fill="none" stroke="url(#hg)" stroke-width="8" opacity="0.45"/>
         </svg>
       </div>
 
-      <div class="max-w-3xl">
-        <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Tecnología premium · calma · precisión</p>
-
-        <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-[1.05]">
-          Predice cómo reaccionará tu cliente<br class="hidden md:block" /> antes de lanzar nada.
-        </h1>
-
-        <p class="mt-6 text-lg text-zinc-300">
-          {brand} genera perfiles sintéticos con comportamiento coherente para validar tus anuncios y mensajes
-          antes de invertir en publicidad.
-        </p>
-
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
-            {ctaLabel}
-          </a>
-          <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
-            Ver método
-          </a>
-        </div>
-
-        <div class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-300">
-          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Entrega: dataset + informe</span>
-          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Iteración rápida de mensajes</span>
-          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Señal antes de gastar</span>
-        </div>
+      <div class="relative">
+        <div class="text-sm text-zinc-300 font-medium">Flujo de información</div>
+        <div class="mt-2 text-xs text-zinc-500">Visual abstracto · baja opacidad · sin stock</div>
+        <div class="mt-6 aspect-[16/11] rounded-2xl border border-zinc-800 bg-white/5"></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- 2) PROBLEMA (WHY) -->
     <section id="problema" class="py-16 border-t border-zinc-900">
@@ -83,19 +87,43 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </p>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="font-semibold">🕒 Tiempo perdido</div>
-          <p class="mt-2 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas, aprendizaje caro.</p>
-        </div>
-        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="font-semibold">💸 Dinero malgastado</div>
-          <p class="mt-2 text-sm text-zinc-300">Creatividades equivocadas, targeting quemado, CPC inflado.</p>
-        </div>
-        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="font-semibold">🤯 Incertidumbre</div>
-          <p class="mt-2 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
-        </div>
+  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+    <div class="flex items-center gap-3">
+      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/>
+        </svg>
       </div>
+      <div class="font-semibold">Tiempo perdido</div>
+    </div>
+    <p class="mt-3 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas y aprendizaje caro.</p>
+  </div>
+
+  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+    <div class="flex items-center gap-3">
+      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="font-semibold">Dinero malgastado</div>
+    </div>
+    <p class="mt-3 text-sm text-zinc-300">Creatividades equivocadas, CPC inflado y presupuesto quemado.</p>
+  </div>
+
+  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+    <div class="flex items-center gap-3">
+      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a7 7 0 0 0-4 12c1 1 1 3 1 4h6c0-1 0-3 1-4a7 7 0 0 0-4-12Z"/>
+          <path d="M9 22h6"/>
+        </svg>
+      </div>
+      <div class="font-semibold">Incertidumbre</div>
+    </div>
+    <p class="mt-3 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
+  </div>
+</div>
     </section>
 
     <!-- 3) QUÉ ES (WHAT) -->
@@ -213,11 +241,11 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
         <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/40">
           <img
-            src="/report-preview.png"
-            alt="Preview del informe"
-            class="w-full rounded-xl border border-zinc-800 bg-white/5"
-            loading="lazy"
-          />
+  src="/report-preview.svg"
+  alt="Preview del informe"
+  class="w-full rounded-xl border border-zinc-800 bg-white/5"
+  loading="lazy"
+/>
           <p class="mt-3 text-xs text-zinc-500 px-2">
             Sube una imagen a <code class="text-zinc-300">/public/report-preview.png</code>.
           </p>
