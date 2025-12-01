@@ -2,13 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const brand = "Synthetic Audience Lab";
-
-// Actívalo SOLO cuando el caso sea real o lo declares explícitamente como "simulación".
-const SHOW_CASE_STUDY = true;
-const CASE_IS_SIMULATION = true; // si es un ejemplo, déjalo en true
-
+const email = "syntheticaudiencelab@hotmail.com"; // cámbialo
 const ctaLabel = "Simular mi audiencia";
-const ctaHref = "#contacto";
+const ctaHref = `mailto:${email}?subject=Simulación%20Synthetic%20Audience%20Lab`;
+
+const showCase = true;
+const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 ---
 
 <BaseLayout title={brand}>
@@ -16,10 +15,10 @@ const ctaHref = "#contacto";
     <div class="text-sm tracking-wide text-zinc-300">{brand}</div>
 
     <nav class="hidden md:flex gap-8 text-sm text-zinc-300">
-      <a href="#problema" class="hover:text-white">Problema</a>
-      <a href="#como" class="hover:text-white">Cómo funciona</a>
+      <a href="#problema" class="hover:text-white">Why</a>
+      <a href="#que" class="hover:text-white">What</a>
+      <a href="#como" class="hover:text-white">How</a>
       <a href="#informe" class="hover:text-white">Informe</a>
-      <a href="#paraquien" class="hover:text-white">Para quién</a>
     </nav>
 
     <a href={ctaHref} class="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:opacity-90">
@@ -28,9 +27,8 @@ const ctaHref = "#contacto";
   </header>
 
   <main class="mx-auto max-w-6xl px-6">
-    <!-- HERO -->
+    <!-- 1) HERO -->
     <section class="relative overflow-hidden py-16 md:py-24">
-      <!-- Fondo abstracto (sin imágenes externas) -->
       <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
         <div class="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
         <div class="absolute top-20 right-[-120px] h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-3xl"></div>
@@ -40,12 +38,9 @@ const ctaHref = "#contacto";
               <stop offset="0" stop-color="rgb(56 189 248)" stop-opacity="0.35"/>
               <stop offset="1" stop-color="rgb(59 130 246)" stop-opacity="0.20"/>
             </linearGradient>
-            <filter id="b">
-              <feGaussianBlur stdDeviation="18"/>
-            </filter>
           </defs>
-          <path d="M0,360 C220,260 360,420 560,320 C760,220 900,360 1200,260 L1200,600 L0,600 Z" fill="url(#g)" filter="url(#b)"/>
-          <path d="M0,280 C260,160 420,340 620,220 C820,100 940,260 1200,140" fill="none" stroke="url(#g)" stroke-width="18" opacity="0.5"/>
+          <path d="M0,360 C220,260 360,420 560,320 C760,220 900,360 1200,260 L1200,600 L0,600 Z" fill="url(#g)"/>
+          <path d="M0,280 C260,160 420,340 620,220 C820,100 940,260 1200,140" fill="none" stroke="url(#g)" stroke-width="18" opacity="0.55"/>
           <path d="M0,210 C240,110 420,260 620,170 C820,80 980,190 1200,100" fill="none" stroke="url(#g)" stroke-width="10" opacity="0.35"/>
         </svg>
       </div>
@@ -58,7 +53,7 @@ const ctaHref = "#contacto";
         </h1>
 
         <p class="mt-6 text-lg text-zinc-300">
-          {brand} genera miles de perfiles sintéticos con comportamiento coherente para validar tus anuncios y mensajes
+          {brand} genera perfiles sintéticos con comportamiento coherente para validar tus anuncios y mensajes
           antes de invertir en publicidad.
         </p>
 
@@ -66,72 +61,50 @@ const ctaHref = "#contacto";
           <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
             {ctaLabel}
           </a>
-
           <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
             Ver método
           </a>
         </div>
 
-        <p class="mt-6 text-sm text-zinc-500">
-          Sin fotos de stock. Sin humo. Señal antes de quemar presupuesto.
-        </p>
+        <div class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-300">
+          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Entrega: dataset + informe</span>
+          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Iteración rápida de mensajes</span>
+          <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Señal antes de gastar</span>
+        </div>
       </div>
     </section>
 
-    <!-- PROBLEMA -->
+    <!-- 2) PROBLEMA (WHY) -->
     <section id="problema" class="py-16 border-t border-zinc-900">
-      <h2 class="text-2xl md:text-3xl font-semibold">El problema</h2>
+      <h2 class="text-2xl md:text-3xl font-semibold">Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
-        Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse.
         Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición, no con señal.
+        SAL existe para reducir ese riesgo: probar antes de quemar.
       </p>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="flex items-center gap-3">
-            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/>
-              </svg>
-            </div>
-            <div class="font-semibold">Tiempo perdido</div>
-          </div>
-          <p class="mt-3 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas y aprendizaje caro.</p>
+          <div class="font-semibold">🕒 Tiempo perdido</div>
+          <p class="mt-2 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas, aprendizaje caro.</p>
         </div>
-
         <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="flex items-center gap-3">
-            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-            </div>
-            <div class="font-semibold">Dinero malgastado</div>
-          </div>
-          <p class="mt-3 text-sm text-zinc-300">Creatividades equivocadas, targeting quemado, CPC inflado.</p>
+          <div class="font-semibold">💸 Dinero malgastado</div>
+          <p class="mt-2 text-sm text-zinc-300">Creatividades equivocadas, targeting quemado, CPC inflado.</p>
         </div>
-
         <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-          <div class="flex items-center gap-3">
-            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2a7 7 0 0 0-4 12c1 1 1 3 1 4h6c0-1 0-3 1-4a7 7 0 0 0-4-12Z"/>
-                <path d="M9 22h6"/>
-              </svg>
-            </div>
-            <div class="font-semibold">Incertidumbre</div>
-          </div>
-          <p class="mt-3 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
+          <div class="font-semibold">🤯 Incertidumbre</div>
+          <p class="mt-2 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
         </div>
       </div>
     </section>
 
-    <!-- QUÉ ES -->
-    <section class="py-16 border-t border-zinc-900">
+    <!-- 3) QUÉ ES (WHAT) -->
+    <section id="que" class="py-16 border-t border-zinc-900">
       <h2 class="text-2xl md:text-3xl font-semibold">Qué es SAL</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
         Tu propio laboratorio de comportamiento humano — en minutos, no en meses.
-        Generamos perfiles sintéticos coherentes con tu ICP y simulamos reacción ante mensajes, ofertas y creatividades.
+        Creamos perfiles sintéticos coherentes con tu audiencia y probamos creatividades, textos y propuesta de valor
+        para decirte qué va a funcionar sin gastar en Ads.
       </p>
 
       <div class="mt-10 rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
@@ -145,87 +118,74 @@ const ctaHref = "#contacto";
       </div>
     </section>
 
-    <!-- CÓMO FUNCIONA -->
+    <!-- 4) CÓMO FUNCIONA (HOW) -->
     <section id="como" class="py-16 border-t border-zinc-900">
       <h2 class="text-2xl md:text-3xl font-semibold">Cómo funciona</h2>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="rounded-2xl border border-zinc-800 p-6">
-          <div class="text-sm text-zinc-400">Paso 1</div>
-          <div class="mt-2 text-lg font-semibold">Generamos tu audiencia</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Motivaciones, hábitos, fricciones cognitivas y segmentación útil.
-          </p>
+          <div class="text-sm text-zinc-400">1 — Audiencia</div>
+          <div class="mt-2 text-lg font-semibold">Generamos tu audiencia sintetizada</div>
+          <p class="mt-2 text-sm text-zinc-300">Motivaciones, psicología, hábitos digitales, fricciones cognitivas.</p>
         </div>
 
         <div class="rounded-2xl border border-zinc-800 p-6">
-          <div class="text-sm text-zinc-400">Paso 2</div>
-          <div class="mt-2 text-lg font-semibold">Probamos tus mensajes</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Simulamos interés, rechazo, curiosidad, clic e intención por segmento.
-          </p>
+          <div class="text-sm text-zinc-400">2 — Mensajes</div>
+          <div class="mt-2 text-lg font-semibold">Probamos tus mensajes “como el mundo real”</div>
+          <p class="mt-2 text-sm text-zinc-300">Simulamos clic, rechazo, emoción, curiosidad e intención.</p>
         </div>
 
         <div class="rounded-2xl border border-zinc-800 p-6">
-          <div class="text-sm text-zinc-400">Paso 3</div>
-          <div class="mt-2 text-lg font-semibold">Entregamos decisiones</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Ranking de ángulos + recomendaciones concretas. Menos opiniones, más señal.
-          </p>
+          <div class="text-sm text-zinc-400">3 — Decisiones</div>
+          <div class="mt-2 text-lg font-semibold">Te entregamos decisiones, no opiniones</div>
+          <p class="mt-2 text-sm text-zinc-300">Copy ganador, ángulo óptimo y recomendaciones concretas.</p>
         </div>
       </div>
     </section>
 
-    <!-- CASO -->
-    {SHOW_CASE_STUDY && (
+    <!-- 5) CASO DE ESTUDIO (PRUEBA SOCIAL) -->
+    {showCase && (
       <section class="py-16 border-t border-zinc-900">
         <div class="rounded-2xl border border-zinc-800 p-8 bg-zinc-950/40">
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-            <div class="max-w-2xl">
-              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
-                {CASE_IS_SIMULATION ? "Ejemplo (simulación)" : "Caso real"}
-              </p>
-              <h2 class="mt-3 text-2xl md:text-3xl font-semibold">
-                SaaS B2B identifica el mensaje ganador antes de gastar en Ads
-              </h2>
-              <p class="mt-4 text-zinc-300">
-                Audiencia sintética basada en roles, patrones psicológicos y fricción cognitiva.
-                La simulación prioriza el ángulo/copy con mejor señal.
-              </p>
-            </div>
+          <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
+            {caseIsSimulation ? "Ejemplo (simulación)" : "Caso real"}
+          </p>
+          <h2 class="mt-3 text-2xl md:text-3xl font-semibold">
+            SaaS B2B mejora conversión optimizando el mensaje antes de comprar tráfico
+          </h2>
 
-            <div class="grid grid-cols-2 gap-4 min-w-[260px]">
-              <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
-                <div class="text-xs text-zinc-400">Mejor CTA</div>
-                <div class="mt-1 text-2xl font-semibold">+36.7%</div>
-              </div>
-              <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
-                <div class="text-xs text-zinc-400">Rebote</div>
-                <div class="mt-1 text-2xl font-semibold">−7 pts</div>
-              </div>
-              <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
-                <div class="text-xs text-zinc-400">Tiempo en página</div>
-                <div class="mt-1 text-2xl font-semibold">+25.9%</div>
-              </div>
-              <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
-                <div class="text-xs text-zinc-400">Intención de clic</div>
-                <div class="mt-1 text-2xl font-semibold">41%</div>
-              </div>
+          <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
+              <div class="text-xs text-zinc-400">Clic en CTA</div>
+              <div class="mt-1 text-2xl font-semibold">+36.7%</div>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
+              <div class="text-xs text-zinc-400">Rebote</div>
+              <div class="mt-1 text-2xl font-semibold">−7 pts</div>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
+              <div class="text-xs text-zinc-400">Tiempo en página</div>
+              <div class="mt-1 text-2xl font-semibold">+25.9%</div>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 p-4 bg-white/5">
+              <div class="text-xs text-zinc-400">Intención de clic</div>
+              <div class="mt-1 text-2xl font-semibold">41%</div>
             </div>
           </div>
 
           <p class="mt-6 text-xs text-zinc-500">
-            Nota: si esto es simulación, decláralo. Si es real, enlaza evidencia (capturas, tracking, etc.). Si no, no lo pongas.
+            Si no es verificable como caso real, mantenlo como “simulación”. Mentir aquí es suicidio comercial.
           </p>
         </div>
       </section>
     )}
 
-    <!-- INFORME -->
+    <!-- 6) INFORME -->
     <section id="informe" class="py-16 border-t border-zinc-900">
       <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
-        Cada entrega incluye: análisis psicológico, simulaciones, fricción, creatividad/copy ganador y recomendación estratégica.
+        Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador
+        y recomendación estratégica.
       </p>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
@@ -238,7 +198,7 @@ const ctaHref = "#contacto";
           </ul>
 
           <div class="mt-6 flex gap-3">
-            <a href="#contacto" class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
+            <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
               {ctaLabel}
             </a>
             <a href="/ejemplo.pdf" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
@@ -247,49 +207,53 @@ const ctaHref = "#contacto";
           </div>
 
           <p class="mt-4 text-xs text-zinc-500">
-            Pon el PDF en <code class="text-zinc-300">/public/ejemplo.pdf</code> cuando lo tengas.
+            Sube tu PDF a <code class="text-zinc-300">/public/ejemplo.pdf</code>.
           </p>
         </div>
 
         <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/40">
-          <div class="aspect-[4/3] rounded-xl bg-white/5 border border-zinc-800 grid place-items-center text-sm text-zinc-400">
-            Preview del PDF (imagen)
-          </div>
+          <img
+            src="/report-preview.png"
+            alt="Preview del informe"
+            class="w-full rounded-xl border border-zinc-800 bg-white/5"
+            loading="lazy"
+          />
           <p class="mt-3 text-xs text-zinc-500 px-2">
-            Cuando tengas una captura, guárdala como <code class="text-zinc-300">/public/report-preview.png</code> y la ponemos aquí.
+            Sube una imagen a <code class="text-zinc-300">/public/report-preview.png</code>.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- PARA QUIÉN -->
-    <section id="paraquien" class="py-16 border-t border-zinc-900">
+    <!-- 7) PARA QUIÉN -->
+    <section class="py-16 border-t border-zinc-900">
       <h2 class="text-2xl md:text-3xl font-semibold">Para quién es</h2>
+
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="rounded-2xl border border-zinc-800 p-6">
           <div class="text-sm text-zinc-400">SaaS</div>
-          <div class="mt-2 font-semibold">Valida mensajes y propuesta</div>
-          <p class="mt-2 text-sm text-zinc-300">Optimiza hero, CTA y ángulos antes de pagar tráfico.</p>
+          <div class="mt-2 font-semibold">Valida PV, mensajes y hero</div>
+          <p class="mt-2 text-sm text-zinc-300">Sin gastar en Ads para descubrir lo obvio tarde.</p>
         </div>
         <div class="rounded-2xl border border-zinc-800 p-6">
           <div class="text-sm text-zinc-400">E-commerce</div>
           <div class="mt-2 font-semibold">Elige creatividades sin quemar</div>
-          <p class="mt-2 text-sm text-zinc-300">Encuentra el gancho y la objeción dominante por segmento.</p>
+          <p class="mt-2 text-sm text-zinc-300">Encuentra gancho/objeción dominante por segmento.</p>
         </div>
         <div class="rounded-2xl border border-zinc-800 p-6">
           <div class="text-sm text-zinc-400">Agencias</div>
           <div class="mt-2 font-semibold">Servicio premium defensible</div>
-          <p class="mt-2 text-sm text-zinc-300">Vendes método y señal, no “sensaciones”.</p>
+          <p class="mt-2 text-sm text-zinc-300">Vendes método + señal. No “sensaciones”.</p>
         </div>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
+    <!-- 8) CTA FINAL -->
     <section class="py-16 border-t border-zinc-900">
       <div class="rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
         <h2 class="text-2xl md:text-3xl font-semibold">Deja de adivinar. Empieza a entender.</h2>
         <p class="mt-4 text-zinc-300 max-w-2xl">
-          Tu próxima campaña puede tener señal positiva antes de lanzarla. Si no la tiene, mejor enterarte hoy.
+          Tu próxima campaña puede ser rentable antes de lanzarla. Si no lo es, mejor enterarte hoy.
         </p>
         <div class="mt-8">
           <a href={ctaHref} class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
@@ -299,25 +263,12 @@ const ctaHref = "#contacto";
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-16 border-t border-zinc-900">
-      <h2 class="text-2xl md:text-3xl font-semibold">Contacto</h2>
-      <p class="mt-4 text-zinc-300">
-        Envíame: tu producto, ICP y 3 mensajes/creatividades que quieras testear.
-      </p>
-      <div class="mt-6">
-        <a class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
-           href="mailto:syntheticaudiencelab@hotmail.com?subject=Simulaci%C3%B3n%20Synthetic%20Audience%20Lab">
-          Escribirme
-        </a>
-      </div>
-    </section>
-
+    <!-- 9) FOOTER -->
     <footer class="py-10 text-xs text-zinc-500 border-t border-zinc-900">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>© {new Date().getFullYear()} {brand}</div>
         <div class="flex gap-4">
-          <a class="hover:text-zinc-300" href="mailto:syntheticaudiencelab@hotmail.com">Email</a>
+          <a class="hover:text-zinc-300" href={`mailto:${email}`}>Email</a>
           <a class="hover:text-zinc-300" href="#" aria-label="LinkedIn">LinkedIn</a>
           <a class="hover:text-zinc-300" href="#" aria-label="Aviso legal">Aviso legal</a>
         </div>
@@ -325,3 +276,4 @@ const ctaHref = "#contacto";
     </footer>
   </main>
 </BaseLayout>
+
