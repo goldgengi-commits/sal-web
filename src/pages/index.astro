@@ -264,52 +264,62 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     )}
 
     <!-- 6) INFORME -->
-    <section id="informe" class="py-16 border-t border-zinc-900">
-      <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
-      <p class="mt-4 text-zinc-300 max-w-3xl">
-        Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador
-        y recomendación estratégica.
+<section id="informe" class="py-16 border-t border-zinc-900">
+  <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
+  <p class="mt-4 text-zinc-300 max-w-3xl">
+    Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador y recomendación estratégica.
+  </p>
+
+  <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+    <!-- LEFT: contenido -->
+    <div class="rounded-2xl border border-zinc-800 p-8 bg-zinc-950/30">
+      <ul class="space-y-3 text-zinc-200">
+        <li>• Drivers y fricciones por segmento</li>
+        <li>• Comparativa de mensajes y ángulos</li>
+        <li>• Ranking 0–10 por métrica</li>
+        <li>• Recomendaciones accionables</li>
+      </ul>
+
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-namespace="salDemo"
+          data-cal-config='{"layout":"month_view"}'
+          class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
+        >
+          Agendar demo
+        </button>
+
+        <a
+          href="/ejemplo.pdf"
+          target="_blank"
+          rel="noopener"
+          class="rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
+        >
+          Ver ejemplo (PDF)
+        </a>
+      </div>
+
+      <p class="mt-5 text-xs text-zinc-500">
+        Nota: los scores 0–10 son intención comparativa (p. ej. “Click Intent Score”), no métricas reales de plataforma.
       </p>
+    </div>
 
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <div class="rounded-2xl border border-zinc-800 p-6">
-          <ul class="space-y-2 text-sm text-zinc-300">
-            <li>• Drivers y fricciones por segmento</li>
-            <li>• Comparativa de mensajes y ángulos</li>
-            <li>• Ranking 1–10 por métrica</li>
-            <li>• Recomendaciones accionables</li>
-          </ul>
-
-          <div class="mt-6 flex gap-3">
-            <a href={ctaHref} class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90">
-              {ctaLabel}
-            </a>
-            <a
-  href="/ejemplo.pdf"
-  target="_blank"
-  rel="noopener"
-  class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
->
-  Ver ejemplo (PDF)
-</a>
-<p class="mt-4 text-xs text-zinc-500">
-  Nota: los scores 0–10 son <span class="text-zinc-300">intención comparativa</span> (p. ej. “Click Intent Score”),
-  no métricas reales de plataforma.
-</p>
-          </div>
-
-        <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/40">
-  <div class="aspect-[4/3] overflow-hidden rounded-xl border border-zinc-800 bg-white/5">
-    <img
-      src="/report-preview.png"
-      alt="Preview del informe"
-      class="h-full w-full object-cover"
-      loading="lazy"
-    />
+    <!-- RIGHT: preview controlado -->
+    <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/30">
+      <div class="aspect-[3/4] overflow-hidden rounded-xl border border-zinc-800 bg-white/5">
+        <img
+          src="/report-preview.png"
+          alt="Preview del informe"
+          class="h-full w-full object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-    </section>
 
     <!-- 7) PARA QUIÉN -->
     <section class="py-16 border-t border-zinc-900">
