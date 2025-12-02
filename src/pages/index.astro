@@ -36,13 +36,13 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Tecnología premium · calma · precisión</p>
 
       <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-[1.05]">
-        Predice cómo reaccionará tu cliente<br class="hidden md:block" /> antes de lanzar nada.
-      </h1>
+  Reduce el riesgo creativo antes de invertir en Ads.
+</h1>
 
-      <p class="mt-6 text-lg text-zinc-300">
-        Synthetic Audience Lab genera perfiles sintéticos con comportamiento coherente para validar tus anuncios y mensajes
-        antes de invertir en publicidad.
-      </p>
+<p class="mt-6 text-lg text-zinc-300">
+  Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal,
+  no con intuición.
+</p>
 
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <button
@@ -71,12 +71,16 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </button>
 
       <div class="mt-5 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
-        <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
-          Piloto desde <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
-        </span>
-        <span>Precio final según industria, volumen y nº de creatividades.</span>
-      </div>
-    </div>
+  <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
+    Piloto <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
+  </span>
+  <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
+    Incluye: 1 ICP · hasta 3 creatividades · hasta 2 segmentos
+  </span>
+  <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
+    Entrega: 5–7 días · 1 informe + 1 llamada de decisión
+  </span>
+</div>
 
     <!-- RIGHT -->
     <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
@@ -95,13 +99,6 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
           <path d="M0,200 C190,120 300,260 450,185 C600,110 720,190 800,130" fill="none" stroke="url(#hg)" stroke-width="8" opacity="0.45"/>
         </svg>
       </div>
-
-      <div class="relative">
-        <div class="text-sm text-zinc-300 font-medium">Flujo de información</div>
-        <div class="mt-2 text-xs text-zinc-500">Visual abstracto · baja opacidad · sin stock</div>
-        <div class="mt-6 aspect-[16/11] rounded-2xl border border-zinc-800 bg-white/5"></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -198,6 +195,32 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </div>
     </section>
 
+<section class="py-16 border-t border-zinc-900">
+  <h2 class="text-2xl md:text-3xl font-semibold">Cómo se valida</h2>
+  <p class="mt-4 text-zinc-300 max-w-3xl">
+    SAL no “adivina el futuro”. Reduce incertidumbre comparando variantes y entregando un ranking
+    con señal y explicación psicológica.
+  </p>
+
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="rounded-2xl border border-zinc-800 p-6">
+      <div class="text-sm text-zinc-400">Ranking comparativo</div>
+      <div class="mt-2 font-semibold">Elige ganadores por contraste</div>
+      <p class="mt-2 text-sm text-zinc-300">No vendemos “CTR real”: comparamos variantes bajo el mismo marco.</p>
+    </div>
+    <div class="rounded-2xl border border-zinc-800 p-6">
+      <div class="text-sm text-zinc-400">Explicación, no magia</div>
+      <div class="mt-2 font-semibold">Drivers y fricciones</div>
+      <p class="mt-2 text-sm text-zinc-300">Te decimos qué activa interés, qué genera rechazo y por qué.</p>
+    </div>
+    <div class="rounded-2xl border border-zinc-800 p-6">
+      <div class="text-sm text-zinc-400">Validación en tráfico</div>
+      <div class="mt-2 font-semibold">Cierre del bucle</div>
+      <p class="mt-2 text-sm text-zinc-300">Cuando implementas, confirmas con datos reales y ajustas la siguiente ronda.</p>
+    </div>
+  </div>
+</section>
+
     <!-- 5) CASO DE ESTUDIO (PRUEBA SOCIAL) -->
     {showCase && (
       <section class="py-16 border-t border-zinc-900">
@@ -226,12 +249,12 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
               <div class="text-xs text-zinc-400">Intención de clic</div>
               <div class="mt-1 text-2xl font-semibold">41%</div>
             </div>
+<p class="mt-6 text-xs text-zinc-500">
+  Ejemplo basado en simulación (no caso real). Resultados estimados para comparar variantes;
+  requieren validación con tráfico real.
+</p>
           </div>
 
-          <p class="mt-6 text-xs text-zinc-500">
-            Si no es verificable como caso real, mantenlo como “simulación”. Mentir aquí es suicidio comercial.
-          </p>
-        </div>
       </section>
     )}
 
@@ -264,12 +287,11 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 >
   Ver ejemplo (PDF)
 </a>
+<p class="mt-4 text-xs text-zinc-500">
+  Nota: los scores 0–10 son <span class="text-zinc-300">intención comparativa</span> (p. ej. “Click Intent Score”),
+  no métricas reales de plataforma.
+</p>
           </div>
-
-          <p class="mt-4 text-xs text-zinc-500">
-            Sube tu PDF a <code class="text-zinc-300">/public/ejemplo.pdf</code>.
-          </p>
-        </div>
 
         <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/40">
   <div class="aspect-[4/3] overflow-hidden rounded-xl border border-zinc-800 bg-white/5">
@@ -281,10 +303,6 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     />
   </div>
 
-  <p class="mt-3 text-xs text-zinc-500 px-2">
-    Preview del informe real.
-  </p>
-</div>
     </section>
 
     <!-- 7) PARA QUIÉN -->
