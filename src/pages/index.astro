@@ -54,7 +54,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
           Agendar demo
         </button>
 
-        <a href="#como" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
+        <a href="#cómo se valida" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
           Ver método
         </a>
       </div>
@@ -288,6 +288,41 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </section>
     )}
 
+<!-- PRIVACIDAD -->
+<section id="privacidad" class="py-16 border-t border-zinc-900">
+  <h2 class="text-2xl md:text-3xl font-semibold">Privacidad por diseño</h2>
+  <p class="mt-4 text-zinc-300 max-w-3xl">
+    Lo más importante: <span class="text-zinc-100 font-medium">todos nuestros datos son sintéticos</span>.
+    No utilizamos información personal ni rastreamos usuarios reales.
+  </p>
+
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="text-sm text-zinc-400">Sin PII</div>
+      <div class="mt-2 font-semibold">Cero datos personales</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        No trabajamos con emails, cookies identificables ni historiales de usuarios reales.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="text-sm text-zinc-400">Anónimo</div>
+      <div class="mt-2 font-semibold">Patrones, no identidades</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        Cada perfil es generado por IA y diseñado para reflejar comportamiento, no para representar personas reales.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="text-sm text-zinc-400">Seguro</div>
+      <div class="mt-2 font-semibold">Explora escenarios sin riesgo</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        Las empresas pueden evaluar mensajes y creatividades sin comprometer la privacidad de nadie.
+      </p>
+    </div>
+  </div>
+</section>
+
     <!-- 6) INFORME -->
 <section id="informe" class="py-16 border-t border-zinc-900">
   <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
@@ -371,6 +406,45 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </div>
     </section>
 
+<!-- FAQ -->
+<section id="faq" class="py-16 border-t border-zinc-900">
+  <h2 class="text-2xl md:text-3xl font-semibold">FAQ</h2>
+
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="font-semibold">¿Esto es CTR / conversión real?</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        No. Son <span class="text-zinc-100 font-medium">scores comparativos</span> (0–10) para evaluar variantes bajo el mismo marco.
+        Sirven para priorizar qué testear primero en tráfico real.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="font-semibold">¿Por qué a veces los resultados salen parecidos?</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        Porque las variantes pueden estar <span class="text-zinc-100 font-medium">muy cerca en fuerza</span>.
+        En ese caso no vendemos “ganador mágico”: entregamos ranking, explicación y la siguiente iteración recomendada
+        (cambiar ángulo, headline, fricción o prueba social) para separar señales.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="font-semibold">¿Qué necesitas de mí para el piloto?</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        URL/landing, definición del ICP, y hasta 3 mensajes o creatividades. El resto lo estructuramos nosotros.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+      <div class="font-semibold">¿Usáis datos personales o tracking?</div>
+      <p class="mt-2 text-sm text-zinc-300">
+        No. Trabajamos con <span class="text-zinc-100 font-medium">datos sintéticos</span>, anónimos y generados por IA.
+        Modelamos patrones, no personas.
+      </p>
+    </div>
+  </div>
+</section>
+
     <!-- 8) CTA FINAL -->
     <section class="py-16 border-t border-zinc-900">
   <div class="rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-blue-500/10 to-cyan-500/10">
@@ -408,10 +482,13 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
         <div>© {new Date().getFullYear()} {brand}</div>
         <div class="flex gap-4">
-          <a class="hover:text-zinc-300" href={`mailto:${email}`}>Email</a>
+          <a class="text-zinc-300 hover:text-white" href="mailto:syntheticaudiencelab@hotmail.com">syntheticaudiencelab@gmail.com</a>
           <a class="hover:text-zinc-300" href="#" aria-label="LinkedIn">LinkedIn</a>
           <a class="hover:text-zinc-300" href="#" aria-label="Aviso legal">Aviso legal</a>
         </div>
+<p class="mt-3 text-xs text-zinc-500">
+  Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni rastreamos usuarios reales.
+</p>
       </div>
     </footer>
   </main>
