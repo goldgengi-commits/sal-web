@@ -33,14 +33,23 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
       <div class="flex items-center gap-3">
         <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-namespace="salDemo"
-          data-cal-config='{"layout":"month_view"}'
-          class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-950 hover:opacity-90"
-        >
-          Agendar demo
-        </button>
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+  data-cal-namespace="salDemo"
+  data-cal-config='{"layout":"month_view"}'
+  class="group relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-indigo-600 via-blue-600 to-fuchsia-600 shadow-[0_18px_60px_-35px_rgba(99,102,241,0.9)]"
+>
+  <span aria-hidden="true" class="pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+    style="background: radial-gradient(70% 140% at 30% 10%, rgba(255,255,255,0.18), transparent 60%);">
+  </span>
+
+  <span class="relative z-10 inline-flex items-center gap-2 rounded-full bg-zinc-950/35 px-4 py-2 text-sm font-semibold text-white backdrop-blur">
+    Agendar demo
+    <svg class="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18l6-6-6-6"/><path d="M15 12H3"/>
+    </svg>
+  </span>
+</button>
 
         <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
           Contacto
@@ -73,14 +82,23 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
       <div class="mt-10 flex flex-col sm:flex-row gap-3">
         <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-namespace="salDemo"
-          data-cal-config='{"layout":"month_view"}'
-          class="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
-        >
-          Agendar demo
-        </button>
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+  data-cal-namespace="salDemo"
+  data-cal-config='{"layout":"month_view"}'
+  class="group relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-indigo-600 via-blue-600 to-fuchsia-600 shadow-[0_18px_60px_-35px_rgba(99,102,241,0.9)]"
+>
+  <span aria-hidden="true" class="pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+    style="background: radial-gradient(70% 140% at 30% 10%, rgba(255,255,255,0.18), transparent 60%);">
+  </span>
+
+  <span class="relative z-10 inline-flex items-center gap-2 rounded-full bg-zinc-950/35 px-6 py-3 text-sm font-semibold text-white backdrop-blur">
+    Agendar demo
+    <svg class="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18l6-6-6-6"/><path d="M15 12H3"/>
+    </svg>
+  </span>
+</button>
 
         <a href="#validacion" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
           Ver método
@@ -359,68 +377,77 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     <!-- 5) CASO DE ESTUDIO (PRUEBA SOCIAL) -->
 {showCase && (
   <section id="ejemplo" class="py-16 border-t border-zinc-900">
-    <div class="rounded-2xl border border-zinc-800 p-8 bg-zinc-950/40">
-      <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
-        {caseIsSimulation ? "Ejemplo (simulación)" : "Caso real"}
-      </p>
-
-      <h2 class="mt-3 text-2xl md:text-3xl font-semibold">
-        SaaS B2B mejora conversión optimizando el mensaje antes de comprar tráfico
-      </h2>
-
-      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- CARD 1 -->
-        <div class="rounded-2xl border border-zinc-800 p-4 bg-gradient-to-br from-indigo-600/16 via-blue-600/8 to-fuchsia-600/16 relative overflow-hidden">
-          <div aria-hidden="true" class="absolute inset-0 opacity-80 pointer-events-none">
-            <div class="absolute -top-16 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-fuchsia-500/12 blur-2xl"></div>
-            <div class="absolute -bottom-16 right-[-40px] h-40 w-40 rounded-full bg-indigo-500/12 blur-2xl"></div>
-          </div>
-          <div class="relative">
-            <div class="text-xs text-zinc-300">Clic en CTA</div>
-            <div class="mt-1 text-2xl font-semibold text-white">+36.7%</div>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="rounded-2xl border border-zinc-800 p-4 bg-gradient-to-br from-indigo-600/14 via-blue-600/7 to-fuchsia-600/14 relative overflow-hidden">
-          <div aria-hidden="true" class="absolute inset-0 opacity-80 pointer-events-none">
-            <div class="absolute -top-16 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-2xl"></div>
-            <div class="absolute -bottom-16 right-[-40px] h-40 w-40 rounded-full bg-fuchsia-500/10 blur-2xl"></div>
-          </div>
-          <div class="relative">
-            <div class="text-xs text-zinc-300">Rebote</div>
-            <div class="mt-1 text-2xl font-semibold text-white">−7 pts</div>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="rounded-2xl border border-zinc-800 p-4 bg-gradient-to-br from-indigo-600/14 via-blue-600/7 to-fuchsia-600/14 relative overflow-hidden">
-          <div aria-hidden="true" class="absolute inset-0 opacity-80 pointer-events-none">
-            <div class="absolute -top-16 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-2xl"></div>
-            <div class="absolute -bottom-16 right-[-40px] h-40 w-40 rounded-full bg-indigo-500/10 blur-2xl"></div>
-          </div>
-          <div class="relative">
-            <div class="text-xs text-zinc-300">Tiempo en página</div>
-            <div class="mt-1 text-2xl font-semibold text-white">+25.9%</div>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="rounded-2xl border border-zinc-800 p-4 bg-gradient-to-br from-indigo-600/16 via-blue-600/8 to-fuchsia-600/16 relative overflow-hidden">
-          <div aria-hidden="true" class="absolute inset-0 opacity-80 pointer-events-none">
-            <div class="absolute -top-16 left-1/2 h-40 w-64 -translate-x-1/2 rounded-full bg-indigo-500/12 blur-2xl"></div>
-            <div class="absolute -bottom-16 right-[-40px] h-40 w-40 rounded-full bg-fuchsia-500/12 blur-2xl"></div>
-          </div>
-          <div class="relative">
-            <div class="text-xs text-zinc-300">Intención de clic</div>
-            <div class="mt-1 text-2xl font-semibold text-white">41%</div>
-          </div>
-        </div>
+    <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/30">
+      {/* glow general */}
+      <div aria-hidden="true" class="absolute inset-0">
+        <div class="absolute -top-28 left-1/2 h-80 w-[46rem] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+        <div class="absolute -bottom-28 right-[-120px] h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/35"></div>
       </div>
 
-      <p class="mt-6 text-xs text-zinc-500 max-w-3xl">
-        Ejemplo basado en simulación (no caso real). Resultados estimados para comparar variantes; requieren validación con tráfico real.
-      </p>
+      <div class="relative p-8">
+        <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
+          {caseIsSimulation ? "Ejemplo (simulación)" : "Caso real"}
+        </p>
+
+        <h2 class="mt-3 text-2xl md:text-3xl font-semibold">
+          SaaS B2B mejora conversión optimizando el mensaje antes de comprar tráfico
+        </h2>
+
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {/* CARD 1 */}
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-5 bg-gradient-to-br from-indigo-600/18 via-blue-600/8 to-fuchsia-600/18">
+            <div aria-hidden="true" class="absolute inset-0 opacity-90 pointer-events-none">
+              <div class="absolute -top-16 left-1/2 h-44 w-72 -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-2xl"></div>
+              <div class="absolute -bottom-16 right-[-40px] h-44 w-44 rounded-full bg-indigo-500/10 blur-2xl"></div>
+            </div>
+            <div class="relative">
+              <div class="text-xs text-zinc-200/90">Clic en CTA</div>
+              <div class="mt-2 text-3xl font-semibold text-white">+36.7%</div>
+            </div>
+          </div>
+
+          {/* CARD 2 */}
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-5 bg-gradient-to-br from-indigo-600/16 via-blue-600/7 to-fuchsia-600/16">
+            <div aria-hidden="true" class="absolute inset-0 opacity-90 pointer-events-none">
+              <div class="absolute -top-16 left-1/2 h-44 w-72 -translate-x-1/2 rounded-full bg-indigo-500/9 blur-2xl"></div>
+              <div class="absolute -bottom-16 right-[-40px] h-44 w-44 rounded-full bg-fuchsia-500/9 blur-2xl"></div>
+            </div>
+            <div class="relative">
+              <div class="text-xs text-zinc-200/90">Rebote</div>
+              <div class="mt-2 text-3xl font-semibold text-white">−7 pts</div>
+            </div>
+          </div>
+
+          {/* CARD 3 */}
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-5 bg-gradient-to-br from-indigo-600/16 via-blue-600/7 to-fuchsia-600/16">
+            <div aria-hidden="true" class="absolute inset-0 opacity-90 pointer-events-none">
+              <div class="absolute -top-16 left-1/2 h-44 w-72 -translate-x-1/2 rounded-full bg-fuchsia-500/9 blur-2xl"></div>
+              <div class="absolute -bottom-16 right-[-40px] h-44 w-44 rounded-full bg-indigo-500/9 blur-2xl"></div>
+            </div>
+            <div class="relative">
+              <div class="text-xs text-zinc-200/90">Tiempo en página</div>
+              <div class="mt-2 text-3xl font-semibold text-white">+25.9%</div>
+            </div>
+          </div>
+
+          {/* CARD 4 */}
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-5 bg-gradient-to-br from-indigo-600/18 via-blue-600/8 to-fuchsia-600/18">
+            <div aria-hidden="true" class="absolute inset-0 opacity-90 pointer-events-none">
+              <div class="absolute -top-16 left-1/2 h-44 w-72 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-2xl"></div>
+              <div class="absolute -bottom-16 right-[-40px] h-44 w-44 rounded-full bg-fuchsia-500/10 blur-2xl"></div>
+            </div>
+            <div class="relative">
+              <div class="text-xs text-zinc-200/90">Intención de clic</div>
+              <div class="mt-2 text-3xl font-semibold text-white">41%</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-6 text-xs text-zinc-400 max-w-3xl">
+          Ejemplo basado en simulación (no caso real). Resultados estimados para comparar variantes; requieren validación con tráfico real.
+        </p>
+      </div>
     </div>
   </section>
 )}
@@ -480,14 +507,23 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
   <div class="mt-auto pt-7">
     <div class="flex flex-col sm:flex-row gap-3">
       <button
-        type="button"
-        data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-        data-cal-namespace="salDemo"
-        data-cal-config='{"layout":"month_view"}'
-        class="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-zinc-950 hover:opacity-90"
-      >
-        Agendar demo
-      </button>
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+  data-cal-namespace="salDemo"
+  data-cal-config='{"layout":"month_view"}'
+  class="group relative inline-flex items-center justify-center rounded-full p-[2px] bg-gradient-to-r from-indigo-600 via-blue-600 to-fuchsia-600 shadow-[0_18px_60px_-35px_rgba(217,70,239,0.9)]"
+>
+  <span aria-hidden="true" class="pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+    style="background: radial-gradient(70% 140% at 30% 10%, rgba(255,255,255,0.18), transparent 60%);">
+  </span>
+
+  <span class="relative z-10 inline-flex items-center gap-2 rounded-full bg-zinc-950/35 px-6 py-3 text-sm font-semibold text-white backdrop-blur">
+    Agendar demo
+    <svg class="h-4 w-4 opacity-80 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18l6-6-6-6"/><path d="M15 12H3"/>
+    </svg>
+  </span>
+</button>
 
       <a
         href="/ejemplo.pdf"
