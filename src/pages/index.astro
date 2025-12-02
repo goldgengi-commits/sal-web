@@ -111,28 +111,89 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </div>
 
     <!-- RIGHT (visual) -->
-    <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
-      <div aria-hidden="true" class="absolute inset-0 opacity-30">
-        <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-cyan-500/30 blur-3xl"></div>
-        <div class="absolute top-20 right-[-90px] h-72 w-72 rounded-full bg-blue-500/25 blur-3xl"></div>
-        <svg class="absolute inset-0 h-full w-full" viewBox="0 0 800 520" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="hg" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0" stop-color="rgb(56 189 248)" stop-opacity="0.55"/>
-              <stop offset="1" stop-color="rgb(59 130 246)" stop-opacity="0.25"/>
-            </linearGradient>
-          </defs>
-          <path d="M0,330 C160,240 260,390 410,310 C560,230 660,320 800,250" fill="none" stroke="url(#hg)" stroke-width="16"/>
-          <path d="M0,260 C170,170 280,330 420,240 C560,150 690,260 800,180" fill="none" stroke="url(#hg)" stroke-width="10" opacity="0.7"/>
-          <path d="M0,200 C190,120 300,260 450,185 C600,110 720,190 800,130" fill="none" stroke="url(#hg)" stroke-width="8" opacity="0.45"/>
-        </svg>
-      </div>
+<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
+  <div aria-hidden="true" class="absolute inset-0">
+    <!-- subtle grid -->
+    <div class="absolute inset-0 opacity-[0.22]"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.10) 1px, transparent 0); background-size: 18px 18px;"
+    ></div>
 
-      <div class="relative">
-        <div class="aspect-[16/11] rounded-2xl border border-zinc-800 bg-white/5"></div>
+    <!-- scanline -->
+    <div class="absolute left-0 right-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400/35 to-transparent opacity-60"></div>
+
+    <!-- restrained glow (not blob city) -->
+    <div class="absolute -top-24 left-1/2 h-64 w-[26rem] -translate-x-1/2 rounded-full bg-cyan-500/15 blur-3xl"></div>
+    <div class="absolute -bottom-28 right-[-80px] h-64 w-64 rounded-full bg-blue-500/12 blur-3xl"></div>
+
+    <!-- data paths -->
+    <svg class="absolute inset-0 h-full w-full opacity-60" viewBox="0 0 800 520" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="salPath" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="rgb(34 211 238)" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="rgb(59 130 246)" stop-opacity="0.20"/>
+        </linearGradient>
+        <linearGradient id="salPath2" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="rgb(125 211 252)" stop-opacity="0.25"/>
+          <stop offset="1" stop-color="rgb(96 165 250)" stop-opacity="0.10"/>
+        </linearGradient>
+      </defs>
+      <path d="M-20,350 C180,220 280,420 440,300 C610,175 720,330 820,220" fill="none" stroke="url(#salPath)" stroke-width="10"/>
+      <path d="M-20,260 C160,160 300,320 460,230 C610,140 720,260 820,170" fill="none" stroke="url(#salPath2)" stroke-width="7"/>
+      <path d="M-20,200 C210,120 320,260 490,185 C650,115 740,190 820,130" fill="none" stroke="url(#salPath2)" stroke-width="5" opacity="0.9"/>
+      <!-- tiny nodes -->
+      <circle cx="250" cy="250" r="3" fill="rgba(34,211,238,0.55)"/>
+      <circle cx="420" cy="305" r="2.5" fill="rgba(59,130,246,0.45)"/>
+      <circle cx="560" cy="210" r="2.5" fill="rgba(34,211,238,0.40)"/>
+    </svg>
+  </div>
+
+  <div class="relative">
+    <div class="aspect-[16/11] rounded-2xl border border-zinc-800 bg-white/5 overflow-hidden">
+      <div class="h-full w-full">
+        <!-- inner frame to feel like an instrument panel -->
+        <div class="h-full w-full p-5">
+          <div class="flex items-center justify-between text-xs text-zinc-400">
+            <span>Signal</span>
+            <span>Lab View</span>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-3">
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950/40 p-3">
+              <div class="text-[11px] text-zinc-500">Variantes</div>
+              <div class="mt-1 text-sm font-semibold text-zinc-200">3–8</div>
+            </div>
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950/40 p-3">
+              <div class="text-[11px] text-zinc-500">Segmentos</div>
+              <div class="mt-1 text-sm font-semibold text-zinc-200">1–2</div>
+            </div>
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950/40 p-3">
+              <div class="text-[11px] text-zinc-500">Señal</div>
+              <div class="mt-1 text-sm font-semibold text-zinc-200">Ranking</div>
+            </div>
+          </div>
+
+          <div class="mt-5 rounded-xl border border-zinc-800 bg-zinc-950/35 p-4">
+            <div class="flex items-center justify-between text-[11px] text-zinc-500">
+              <span>Comparativa</span>
+              <span>0–10</span>
+            </div>
+            <div class="mt-3 space-y-2">
+              <div class="h-2 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[72%] bg-cyan-400/35"></div>
+              </div>
+              <div class="h-2 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[58%] bg-blue-400/30"></div>
+              </div>
+              <div class="h-2 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[41%] bg-cyan-400/25"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
     <!-- 2) PROBLEMA (WHY) -->
