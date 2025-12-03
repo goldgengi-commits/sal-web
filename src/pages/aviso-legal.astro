@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const brand = "Synthetic Audience Lab";
+const email = "syntheticaudiencelab@hotmail.com"; // cámbialo cuando tengas el definitivo
+
+// TODO: rellena esto con datos REALES
+const legalName = "TU NOMBRE / RAZÓN SOCIAL";
+const idNumber = "NIF/CIF/ID (si aplica)";
+const address = "Dirección (o al menos localidad/país, según tu caso)";
+---
+
+<BaseLayout title={`Aviso legal · ${brand}`}>
+  <main class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-semibold">Aviso legal</h1>
+    <p class="mt-4 text-zinc-300">
+      Esta web es titularidad de <span class="text-white">{legalName}</span>.
+    </p>
+
+    <section class="mt-10 space-y-3 text-zinc-300">
+      <h2 class="text-xl font-semibold text-white">1) Información del titular</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><span class="text-white">Nombre / razón social:</span> {legalName}</li>
+        <li><span class="text-white">Identificación:</span> {idNumber}</li>
+        <li><span class="text-white">Domicilio:</span> {address}</li>
+        <li><span class="text-white">Email de contacto:</span> <a class="underline" href={`mailto:${email}`}>{email}</a></li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-white mt-8">2) Condiciones de uso</h2>
+      <p>
+        El acceso a este sitio implica la aceptación de estas condiciones. El usuario se compromete a un uso lícito y
+        a no realizar acciones que puedan dañar el sitio o a terceros.
+      </p>
+
+      <h2 class="text-xl font-semibold text-white mt-8">3) Propiedad intelectual</h2>
+      <p>
+        Salvo indicación contraria, los contenidos, textos y elementos visuales del sitio pertenecen a {brand}.
+        Queda prohibida su reproducción sin autorización.
+      </p>
+
+      <h2 class="text-xl font-semibold text-white mt-8">4) Limitación de responsabilidad</h2>
+      <p>
+        El titular no garantiza la ausencia de errores ni la disponibilidad ininterrumpida. El uso de la información
+        se realiza bajo responsabilidad del usuario.
+      </p>
+
+      <h2 class="text-xl font-semibold text-white mt-8">5) Datos y privacidad (resumen)</h2>
+      <p>
+        Trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni rastreamos usuarios reales.
+        Cada perfil es generado por IA, anónimo, y refleja patrones de comportamiento, no identidades.
+      </p>
+      <p class="text-sm text-zinc-400">
+        Nota: si recoges datos (email/formularios/agenda), crea también una página “Privacidad” con el detalle.
+      </p>
+    </section>
+
+    <a class="mt-12 inline-block rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-900" href="/">
+      Volver
+    </a>
+  </main>
+</BaseLayout>
