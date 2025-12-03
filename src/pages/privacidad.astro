@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const brand = "Synthetic Audience Lab";
+const email = "syntheticaudiencelab@hotmail.com"; // cámbialo cuando tengas el final
+
+// Rellena con datos reales
+const legalName = "TU NOMBRE / RAZÓN SOCIAL";
+const idNumber = "NIF/CIF/ID (si aplica)";
+const address = "Madrid, España (o dirección legal si aplica)";
+
+// Si usas Cal.com (tú lo usas)
+const schedulingProvider = "Cal.com";
+const schedulingPrivacyUrl = "https://cal.com/privacy";
+---
+
+<BaseLayout title={`Privacidad · ${brand}`}>
+  <main class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-semibold">Política de privacidad</h1>
+    <p class="mt-4 text-zinc-300">
+      Esta política explica cómo tratamos los datos personales cuando contactas con {brand} o agendas una demo.
+    </p>
+
+    <section class="mt-10 space-y-6 text-zinc-300">
+      <div>
+        <h2 class="text-xl font-semibold text-white">1) Responsable del tratamiento</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li><span class="text-white">Responsable:</span> {legalName}</li>
+          <li><span class="text-white">Identificación:</span> {idNumber}</li>
+          <li><span class="text-white">Domicilio:</span> {address}</li>
+          <li><span class="text-white">Contacto:</span> <a class="underline" href={`mailto:${email}`}>{email}</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">2) Qué datos tratamos</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li><span class="text-white">Si escribes por email:</span> tu dirección de email y el contenido del mensaje.</li>
+          <li><span class="text-white">Si agendas una demo:</span> los datos que introduzcas en el formulario de agenda (p. ej., nombre, email, empresa, notas), además de metadatos de la cita (fecha/hora).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">3) Finalidades</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Gestionar solicitudes de información.</li>
+          <li>Coordinar y realizar demos/reuniones.</li>
+          <li>Responder a dudas técnicas/comerciales sobre el servicio.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">4) Base jurídica</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li><span class="text-white">Consentimiento</span> (cuando nos contactas o agendas una demo).</li>
+          <li><span class="text-white">Interés legítimo</span> (gestionar la relación comercial y comunicaciones puntuales, cuando aplique).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">5) Destinatarios y encargados</h2>
+        <p class="mt-2">
+          Para la gestión de agenda, podemos usar {schedulingProvider}. En ese caso, {schedulingProvider} actúa como proveedor/encargado según su propia política.
+          Puedes consultarla aquí: <a class="underline" href={schedulingPrivacyUrl} target="_blank" rel="noopener">{schedulingPrivacyUrl}</a>.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">6) Conservación</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Emails: el tiempo necesario para gestionar la solicitud y, si hay relación comercial, durante los plazos aplicables.</li>
+          <li>Citas: mientras sea necesario para gestionar la demo y seguimiento razonable.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">7) Derechos</h2>
+        <p class="mt-2">
+          Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a
+          <a class="underline" href={`mailto:${email}`}>{email}</a>.
+          Si lo consideras oportuno, puedes reclamar ante la Agencia Española de Protección de Datos (AEPD).
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+        <h2 class="text-lg font-semibold text-white">Dato clave: trabajamos con datos sintéticos</h2>
+        <p class="mt-3 text-zinc-300">
+          No utilizamos información personal ni rastreamos usuarios reales para generar audiencias. Cada perfil es generado por IA,
+          completamente anónimo y diseñado para reflejar patrones de comportamiento, no identidades.
+        </p>
+      </div>
+
+      <div class="text-sm text-zinc-400">
+        Última actualización: {new Date().getFullYear()}.
+        Consulta también <a class="underline" href="/cookies">Cookies</a>.
+      </div>
+    </section>
+
+    <a class="mt-12 inline-block rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-900" href="/">
+      Volver
+    </a>
+  </main>
+</BaseLayout>

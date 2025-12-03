@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const brand = "Synthetic Audience Lab";
+const email = "syntheticaudiencelab@hotmail.com";
+
+// Ajusta según lo que uses de verdad
+const usesAnalytics = false; // pon true si metes Analytics/Pixel
+---
+
+<BaseLayout title={`Cookies · ${brand}`}>
+  <main class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-semibold">Política de cookies</h1>
+    <p class="mt-4 text-zinc-300">
+      Esta web puede utilizar cookies y tecnologías similares para funcionar correctamente y protegerse contra abusos.
+    </p>
+
+    <section class="mt-10 space-y-6 text-zinc-300">
+      <div>
+        <h2 class="text-xl font-semibold text-white">1) Qué son las cookies</h2>
+        <p class="mt-2">
+          Son pequeños archivos que un sitio web puede guardar en tu dispositivo para habilitar funcionalidades, seguridad y, en algunos casos, analítica.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">2) Cookies técnicas (necesarias)</h2>
+        <p class="mt-2">
+          Podemos usar servicios de infraestructura/seguridad (p. ej., Cloudflare) que, dependiendo de la configuración, pueden establecer cookies necesarias
+          para mitigación de bots o limitación de tráfico.
+        </p>
+
+        <div class="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+          <div class="text-sm font-semibold text-white">Ejemplos típicos</div>
+          <ul class="mt-3 list-disc pl-5 space-y-1 text-sm text-zinc-300">
+            <li><span class="text-white">__cf_bm</span>: cookie vinculada a productos anti-bot (si están habilitados).</li>
+            <li><span class="text-white">_cfuvid</span>: puede usarse para aplicar rate limiting/distinguir sesiones en ciertos contextos.</li>
+          </ul>
+          <p class="mt-3 text-xs text-zinc-400">
+            Nota: estas cookies dependen de la configuración y pueden no aparecer siempre.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">3) Cookies de terceros (agenda)</h2>
+        <p class="mt-2">
+          Si abres el sistema de agenda (Cal.com) dentro de la web, podrían establecerse cookies o identificadores técnicos propios del proveedor para que el servicio funcione.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">4) Cookies analíticas / marketing</h2>
+        {usesAnalytics ? (
+          <p class="mt-2">
+            Si activamos analítica/marketing, te pediremos consentimiento antes de instalarlas y podrás gestionarlo desde el banner o configuración.
+          </p>
+        ) : (
+          <p class="mt-2">
+            Actualmente no usamos cookies analíticas ni de marketing (si en el futuro se añaden, se informará y se solicitará consentimiento cuando aplique).
+          </p>
+        )}
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold text-white">5) Cómo gestionar cookies</h2>
+        <p class="mt-2">
+          Puedes borrar o bloquear cookies desde la configuración de tu navegador. Si deshabilitas cookies técnicas, algunas funciones podrían no funcionar.
+        </p>
+      </div>
+
+      <div class="text-sm text-zinc-400">
+        Consulta también <a class="underline" href="/privacidad">Privacidad</a>. Contacto: <a class="underline" href={`mailto:${email}`}>{email}</a>.
+      </div>
+    </section>
+
+    <a class="mt-12 inline-block rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-900" href="/">
+      Volver
+    </a>
+  </main>
+</BaseLayout>
