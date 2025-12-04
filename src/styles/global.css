@@ -30,16 +30,64 @@
 }
 
 /* Micro-animación para CTAs degradados */
+/* === SAL – Botones CTA unificados === */
+
 .sal-cta {
-  background-size: 180% 180%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px; /* forma pill */
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f9fafb;
+  position: relative;
+
+  /* Degradado abstracto, oscuro */
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(129, 140, 248, 0.32), transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.28), transparent 60%),
+    linear-gradient(145deg, #020617, #020617 35%, #020617 70%, #020617);
+  background-color: #020617;
+  background-size: 220% 220%;
+  background-position: 20% 25%;
+
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 18px 50px -32px rgba(15, 23, 42, 0.95);
+
   transition:
+    transform 0.22s ease-out,
+    box-shadow 0.22s ease-out,
+    filter 0.22s ease-out,
     background-position 0.35s ease-out,
-    box-shadow 0.25s ease-out,
-    transform 0.25s ease-out;
+    border-color 0.22s ease-out;
 }
 
 .sal-cta:hover {
-  background-position: 100% 0%;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.03);
+  background-position: 85% 80%;
+  box-shadow: 0 22px 70px -36px rgba(15, 23, 42, 0.98);
+  border-color: rgba(226, 232, 240, 0.85);
+  filter: brightness(1.05);
+}
+
+.sal-cta:active {
+  transform: translateY(0) scale(0.98);
+  filter: brightness(0.95);
+}
+
+.sal-cta:focus-visible {
+  outline: 2px solid rgba(129, 140, 248, 0.9);
+  outline-offset: 3px;
+}
+
+/* Variante secundaria: mismo "pop", base gris oscura */
+.sal-cta-secondary {
+  background-image: none;
+  background-color: rgba(9, 9, 11, 0.95);
+  border-color: rgba(113, 128, 150, 0.75);
+}
+
+.sal-cta-secondary:hover {
+  border-color: rgba(226, 232, 240, 0.85);
 }

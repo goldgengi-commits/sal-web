@@ -37,7 +37,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
   data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
   data-cal-namespace="salDemo"
   data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition"
+  class="sal-cta"
 >
   Agendar demo
 </button>
@@ -418,39 +418,26 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
       <div class="mt-auto pt-7">
         <div class="flex flex-col sm:flex-row gap-3">
-          <!-- BOTÓN 1: Agendar demo (gradiente completo + animación) -->
-          <button
-            type="button"
-            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-            data-cal-namespace="salDemo"
-            data-cal-config='{"layout":"month_view"}'
-            class="inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold text-white
-       bg-gradient-to-r from-indigo-900 via-indigo-700 to-fuchsia-800
-       shadow-[0_18px_50px_-30px_rgba(15,23,42,0.9)]
-       transition duration-200 ease-out
-       hover:scale-[1.03] hover:shadow-[0_22px_70px_-35px_rgba(15,23,42,0.95)]
-       active:scale-[0.97] active:brightness-95
-       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-          >
-            Agendar demo
-          </button>
+          <!-- BOTÓN 1: Agendar demo -->
+<button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+  data-cal-namespace="salDemo"
+  data-cal-config='{"layout":"month_view"}'
+  class="sal-cta"
+>
+  Agendar demo
+</button>
 
-          <!-- BOTÓN 2: Ver ejemplo (PDF) con mismo “pop”, base gris oscura -->
-          <a
-            href="/ejemplo.pdf"
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold text-white
-                   bg-zinc-950/70 border border-zinc-700/80
-                   shadow-[0_18px_40px_-32px_rgba(15,23,42,0.9)]
-                   transition duration-200 ease-out
-                   hover:bg-zinc-900/90 hover:border-zinc-300/70
-                   hover:scale-[1.03] hover:shadow-[0_22px_70px_-38px_rgba(148,163,184,0.45)]
-                   active:scale-[0.97] active:brightness-95
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
-          >
-            Ver ejemplo (PDF)
-          </a>
+<!-- BOTÓN 2: Ver ejemplo (PDF) -->
+<a
+  href="/ejemplo.pdf"
+  target="_blank"
+  rel="noopener"
+  class="sal-cta sal-cta-secondary"
+>
+  Ver ejemplo (PDF)
+</a>
         </div>
 
         <p class="mt-5 text-xs text-zinc-500 max-w-md">
@@ -576,7 +563,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
           data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
           data-cal-namespace="salMadrid"
           data-cal-config='{"layout":"month_view"}'
-          class="rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
+          class="sal-cta sal-cta-secondary"
         >
           Presencial (Madrid)
         </button>
