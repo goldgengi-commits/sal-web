@@ -396,7 +396,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </section>
 
     <!-- 6) INFORME -->
-<section id="informe" class="py-16 border-t border-zinc-900">
+<section id="informe" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
   <p class="mt-4 text-zinc-300 max-w-3xl">
     Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador y
@@ -405,7 +405,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
   <div class="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-stretch">
     <!-- LEFT: contenido + botones -->
-    <div class="relative rounded-3xl border border-zinc-800 bg-zinc-950/40 p-8 flex flex-col">
+    <div class="relative h-full min-h-[360px] rounded-3xl border border-zinc-800 bg-zinc-950/40 p-8 flex flex-col">
       <div>
         <h3 class="text-sm font-semibold text-zinc-100">Qué incluye cada simulación</h3>
         <ul class="mt-4 space-y-3 text-sm text-zinc-200">
@@ -418,31 +418,36 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
       <div class="mt-auto pt-7">
         <div class="flex flex-col sm:flex-row gap-3">
-          <!-- BOTÓN degradado: agendar demo -->
+          <!-- BOTÓN 1: Agendar demo (gradiente completo + animación) -->
           <button
             type="button"
             data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
             data-cal-namespace="salDemo"
             data-cal-config='{"layout":"month_view"}'
-            class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white
-                   bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500
-                   shadow-[0_18px_50px_-30px_rgba(56,189,248,0.85)]
-                   transition transform duration-200 ease-out
-                   hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_22px_70px_-35px_rgba(56,189,248,0.95)]
+            class="inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold text-white
+                   bg-gradient-to-r from-indigo-700 via-indigo-500 to-fuchsia-700
+                   shadow-[0_18px_50px_-30px_rgba(15,23,42,0.9)]
+                   transition duration-200 ease-out
+                   hover:scale-[1.03] hover:shadow-[0_22px_70px_-35px_rgba(15,23,42,0.95)]
                    active:scale-[0.97] active:brightness-95
-                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             Agendar demo
           </button>
 
-          <!-- BOTÓN secundario: ver PDF -->
+          <!-- BOTÓN 2: Ver ejemplo (PDF) con mismo “pop”, base gris oscura -->
           <a
             href="/ejemplo.pdf"
             target="_blank"
             rel="noopener"
-            class="inline-flex items-center justify-center rounded-2xl border border-zinc-800 px-6 py-3
-                   text-sm font-semibold text-zinc-100 hover:bg-zinc-900 hover:border-zinc-600
-                   transition"
+            class="inline-flex items-center justify-center rounded-2xl px-7 py-3 text-sm font-semibold text-white
+                   bg-zinc-950/70 border border-zinc-700/80
+                   shadow-[0_18px_40px_-32px_rgba(15,23,42,0.9)]
+                   transition duration-200 ease-out
+                   hover:bg-zinc-900/90 hover:border-zinc-300/70
+                   hover:scale-[1.03] hover:shadow-[0_22px_70px_-38px_rgba(148,163,184,0.45)]
+                   active:scale-[0.97] active:brightness-95
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
           >
             Ver ejemplo (PDF)
           </a>
@@ -455,16 +460,15 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </div>
     </div>
 
-    <!-- RIGHT: preview -->
-    <div class="relative rounded-3xl border border-zinc-800 bg-zinc-950/40 p-4 flex items-center justify-center">
-      <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950">
-        <!-- Glow suave detrás de la imagen -->
-        <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
-          <div class="absolute -top-24 left-1/3 h-40 w-40 rounded-full bg-indigo-500/25 blur-3xl"></div>
-          <div class="absolute bottom-[-40px] right-[-20px] h-48 w-48 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+    <!-- RIGHT: preview, dos “cuadrados” alineados + destellos en el marco -->
+    <div class="relative h-full min-h-[360px] rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 flex items-center justify-center">
+      <div class="relative w-full max-w-md h-full max-h-[420px] rounded-2xl border border-zinc-800 bg-zinc-950 overflow-hidden">
+        <!-- Destellos en el marco que recubre la imagen -->
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+          <div class="absolute -top-16 left-1/2 h-40 w-56 -translate-x-1/2 rounded-full bg-indigo-500/25 blur-3xl"></div>
+          <div class="absolute bottom-[-24px] right-[-16px] h-44 w-44 rounded-full bg-fuchsia-500/25 blur-3xl"></div>
         </div>
 
-        <!-- Imagen del informe -->
         <img
           src="/report-preview.png"
           alt="Ejemplo de informe de simulación de audiencia sintética"
@@ -475,7 +479,6 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </div>
   </div>
 </section>
-
 
     <!-- 7) PARA QUIÉN -->
 <section id="para-quien" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
