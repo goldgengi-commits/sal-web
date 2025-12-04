@@ -606,34 +606,36 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 <!-- 9) FOOTER -->
 <footer class="border-t border-zinc-900 py-10">
   <div class="mx-auto max-w-6xl px-6">
-    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <!-- Marca -->
-      <div class="text-sm text-zinc-400">© 2025 {brand}</div>
+    <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+      <!-- Columna izquierda: marca + enlaces -->
+      <div class="space-y-3">
+        <div class="text-sm text-zinc-400">© 2025 {brand}</div>
 
-      <!-- Enlaces -->
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-        <a class="text-zinc-300 hover:text-white" href={ctaHref}>Email</a>
-        <a
-          class="text-zinc-300 hover:text-white"
-          href="https://www.linkedin.com/in/pablo-fernández-polo"
-          target="_blank"
-          rel="noopener"
-        >
-          LinkedIn
-        </a>
-        <a class="text-zinc-300 hover:text-white" href="/privacidad">Privacidad</a>
-        <a class="text-zinc-300 hover:text-white" href="/cookies">Cookies</a>
-        <a
-          class="text-zinc-300 hover:text-white whitespace-nowrap"
-          href="/aviso-legal"
-        >
-          Aviso legal
-        </a>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a class="text-zinc-300 hover:text-white" href={ctaHref}>Email</a>
+          <a
+            class="text-zinc-300 hover:text-white"
+            href="https://www.linkedin.com/in/pablo-fernández-polo"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+          <a class="text-zinc-300 hover:text-white" href="/privacidad">Privacidad</a>
+          <a class="text-zinc-300 hover:text-white" href="/cookies">Cookies</a>
+          <a
+            class="text-zinc-300 hover:text-white whitespace-nowrap"
+            href="/aviso-legal"
+          >
+            Aviso legal
+          </a>
+        </div>
       </div>
 
-      <!-- Mensaje de privacidad -->
-      <p class="text-xs text-zinc-500 md:text-right md:max-w-[520px]">
-        Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni rastreamos usuarios reales.
+      <!-- Columna derecha: mensaje de privacidad -->
+      <p class="text-xs text-zinc-500 md:text-right md:max-w-sm">
+        Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni
+        rastreamos usuarios reales.
       </p>
     </div>
   </div>
