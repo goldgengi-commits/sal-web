@@ -71,44 +71,51 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
         Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal, no con intuición.
       </p>
 
-      <div class="mt-10 flex flex-col sm:flex-row gap-3">
+            <div class="mt-8 space-y-3">
+        {/* Fila principal de CTAs */}
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button
+            type="button"
+            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+            data-cal-namespace="salDemo"
+            data-cal-config='{"layout":"month_view"}'
+            class="sal-cta"
+          >
+            Agendar demo
+          </button>
+
+          <a
+            href="#como"
+            class="rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900 transition"
+          >
+            Ver método
+          </a>
+        </div>
+
+        {/* Botón Madrid: más pequeño */}
         <button
-  type="button"
-  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-  data-cal-namespace="salDemo"
-  data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-2xl border border-violet-500/35 bg-zinc-950/55 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition"
->
-  Agendar demo
-</button>
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+          data-cal-namespace="salMadrid"
+          data-cal-config='{"layout":"month_view"}'
+          class="sal-cta-secondary inline-flex self-start px-4 py-2 text-xs sm:text-sm"
+        >
+          ¿Estás en Madrid? Reserva presencial
+        </button>
 
-        <a href="#validacion" class="rounded-2xl border border-zinc-800 px-5 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900">
-          Ver método
-        </a>
+        {/* Pills de precio / alcance / plazos */}
+        <div class="flex flex-wrap gap-2 text-xs text-zinc-200">
+          <span class="rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-1">
+            Piloto 2.500€ + IVA
+          </span>
+          <span class="rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-1">
+            Incluye: 1 ICP · hasta 3 creatividades · hasta 2 segmentos
+          </span>
+          <span class="rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-1">
+            Entrega: 5–7 días · 1 informe + 1 llamada de decisión
+          </span>
+        </div>
       </div>
-
-      <button
-        type="button"
-        data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
-        data-cal-namespace="salMadrid"
-        data-cal-config='{"layout":"month_view"}'
-        class="sal-cta"
-      >
-        ¿Estás en Madrid? Reserva presencial
-      </button>
-
-      <div class="sal-cta-secondary">
-        <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
-          Piloto <span class="text-zinc-200 font-medium">2.500€ + IVA</span>
-        </span>
-        <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
-          Incluye: 1 ICP · hasta 3 creatividades · hasta 2 segmentos
-        </span>
-        <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">
-          Entrega: 5–7 días · 1 informe + 1 llamada de decisión
-        </span>
-      </div>
-    </div>
 
         <!-- RIGHT (visual nuevo) -->
     <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
