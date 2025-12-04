@@ -110,106 +110,60 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
       </div>
     </div>
 
-    <!-- RIGHT (visual) -->
-<!-- RIGHT (visual) -->
-<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 sal-card-floating">
-  <div aria-hidden="true" class="absolute inset-0">
-    <!-- dot grid (muy sutil) -->
-    <div
-      class="absolute inset-0 opacity-[0.16] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_75%)]"
-      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.10) 1px, transparent 0); background-size: 18px 18px;"
-    ></div>
+        <!-- RIGHT (visual nuevo) -->
+    <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
+      <!-- Glow de fondo -->
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
+        <div class="absolute -top-32 left-1/4 h-56 w-56 rounded-full bg-indigo-500/25 blur-3xl"></div>
+        <div class="absolute top-24 right-[-60px] h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+        <div class="absolute bottom-[-80px] left-1/2 h-64 w-[28rem] -translate-x-1/2 rounded-full bg-sky-500/15 blur-3xl"></div>
+      </div>
 
-    <!-- controlled glow (misma paleta que CTA) -->
-    <div class="absolute -top-28 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-fuchsia-500/14 blur-3xl"></div>
-    <div class="absolute -bottom-32 right-[-90px] h-72 w-72 rounded-full bg-indigo-500/14 blur-3xl"></div>
+      <!-- Tarjeta principal -->
+      <div class="relative space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.18em] text-zinc-400">
+              Simulación · 8.000 perfiles
+            </p>
+            <h3 class="mt-1 text-lg font-semibold text-zinc-50">
+              SaaS B2B · Test de mensaje
+            </h3>
+          </div>
+          <span class="inline-flex items-center rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
+            +21,8% conv.
+          </span>
+        </div>
 
-    <!-- circuito / trazas (sin ondas) -->
-    <svg class="absolute inset-0 h-full w-full opacity-70" viewBox="0 0 800 520" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="trace" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="rgb(99 102 241)" stop-opacity="0.35" />
-          <stop offset="1" stop-color="rgb(217 70 239)" stop-opacity="0.25" />
-        </linearGradient>
-        <linearGradient id="trace2" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="rgb(129 140 248)" stop-opacity="0.22" />
-          <stop offset="1" stop-color="rgb(232 121 249)" stop-opacity="0.16" />
-        </linearGradient>
-        <filter id="softGlow">
-          <feGaussianBlur stdDeviation="2.2" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
+        <!-- Mini “dashboard” -->
+        <div class="grid grid-cols-3 gap-3 text-[11px]">
+          <div class="rounded-2xl border border-zinc-800/80 bg-zinc-950/70 px-3 py-3">
+            <div class="text-zinc-400">Clic en CTA</div>
+            <div class="mt-1 text-sm font-semibold text-zinc-50">+36,7%</div>
+            <p class="mt-1 text-[10px] text-zinc-500">Variante C vs A/B</p>
+          </div>
 
-      <g filter="url(#softGlow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M60 120 L180 120 L180 210 L310 210" stroke="url(#trace)" stroke-width="3"/>
-        <path d="M120 360 L240 360 L240 290 L360 290 L360 180" stroke="url(#trace2)" stroke-width="2.5"/>
-        <path d="M520 110 L650 110 L650 210 L740 210" stroke="url(#trace)" stroke-width="3"/>
-        <path d="M470 420 L580 420 L580 320 L710 320" stroke="url(#trace2)" stroke-width="2.5"/>
-        <path d="M80 250 L210 250 L210 330 L330 330" stroke="url(#trace2)" stroke-width="2.25" opacity="0.9"/>
-        <path d="M420 160 L520 160 L520 250 L610 250 L610 290" stroke="url(#trace)" stroke-width="2.75"/>
-        <path d="M390 360 L470 360 L470 260 L560 260" stroke="url(#trace2)" stroke-width="2.25"/>
-        <path d="M250 140 L250 80 L420 80" stroke="url(#trace2)" stroke-width="2.25" opacity="0.8"/>
-      </g>
+          <div class="rounded-2xl border border-zinc-800/80 bg-zinc-950/70 px-3 py-3">
+            <div class="text-zinc-400">Rechazo</div>
+            <div class="mt-1 text-sm font-semibold text-zinc-50">−7 pts</div>
+            <p class="mt-1 text-[10px] text-zinc-500">Menos fricción cognitiva</p>
+          </div>
 
-      <!-- nodos -->
-      <g>
-        <circle cx="180" cy="120" r="4" fill="rgba(99,102,241,0.45)"/>
-        <circle cx="180" cy="210" r="3.5" fill="rgba(217,70,239,0.35)"/>
-        <circle cx="360" cy="290" r="3.5" fill="rgba(99,102,241,0.32)"/>
-        <circle cx="650" cy="110" r="4" fill="rgba(217,70,239,0.35)"/>
-        <circle cx="580" cy="420" r="4" fill="rgba(99,102,241,0.35)"/>
-        <circle cx="520" cy="250" r="3.5" fill="rgba(217,70,239,0.26)"/>
-        <circle cx="610" cy="250" r="3.5" fill="rgba(99,102,241,0.26)"/>
-      </g>
-    </svg>
+          <div class="rounded-2xl border border-zinc-800/80 bg-zinc-950/70 px-3 py-3">
+            <div class="text-zinc-400">Tiempo en página</div>
+            <div class="mt-1 text-sm font-semibold text-zinc-50">+25,9%</div>
+            <p class="mt-1 text-[10px] text-zinc-500">Más exploración útil</p>
+          </div>
+        </div>
 
-    <!-- viñeta para “premium finish” -->
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/40"></div>
-  </div>
+        <!-- Línea / detalle -->
+        <div class="mt-2 h-px w-full bg-gradient-to-r from-transparent via-sky-500/40 to-transparent"></div>
 
-  <div class="relative">
-    <div class="aspect-[16/11] overflow-hidden rounded-2xl border border-zinc-800 bg-white/5">
-      <!-- prisma -->
-      <svg class="absolute inset-0 h-full w-full" viewBox="0 0 800 550" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="prismEdge" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stop-color="rgb(99 102 241)" stop-opacity="0.55"/>
-            <stop offset="1" stop-color="rgb(217 70 239)" stop-opacity="0.35"/>
-          </linearGradient>
-          <linearGradient id="prismFill" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0" stop-color="rgb(99 102 241)" stop-opacity="0.10"/>
-            <stop offset="1" stop-color="rgb(217 70 239)" stop-opacity="0.08"/>
-          </linearGradient>
-        </defs>
-
-        <!-- “shard” central -->
-        <polygon
-          points="260,90 520,60 610,210 500,470 240,420 180,210"
-          fill="url(#prismFill)"
-          stroke="url(#prismEdge)"
-          stroke-width="2.5"
-        />
-
-        <!-- cortes internos (geométrico, no ondas) -->
-        <path d="M260 90 L500 470" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-        <path d="M520 60 L240 420" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-        <path d="M180 210 L610 210" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-        <!-- highlight diagonal -->
-        <path d="M210 160 L560 120" stroke="rgba(232,121,249,0.20)" stroke-width="2" />
-      </svg>
-
-      <!-- micro-lines (impacto sutil) -->
-      <div aria-hidden="true" class="absolute inset-0 opacity-50 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_80%)]"
-           style="background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-                  background-size: 44px 44px;">
+        <p class="text-[11px] text-zinc-500">
+          Datos sintéticos · 3 variaciones de mensaje · ranking por intención, rechazo y fricción cognitiva.
+        </p>
       </div>
     </div>
-  </div>
 </div>
 </section>
 
@@ -442,65 +396,83 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </section>
 
     <!-- 6) INFORME -->
-<section id="informe" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+<section id="informe" class="py-16 border-t border-zinc-900">
   <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
   <p class="mt-4 text-zinc-300 max-w-3xl">
-    Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador y recomendación estratégica.
+    Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador y
+    recomendación estratégica para tomar decisiones, no opiniones.
   </p>
 
- <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-    <!-- LEFT: contenido -->
-    <div class="rounded-2xl border border-zinc-800 p-8 bg-zinc-950/30 h-full flex flex-col">
-  <ul class="space-y-3 text-zinc-200">
-    <li>• Drivers y fricciones por segmento</li>
-    <li>• Comparativa de mensajes y ángulos</li>
-    <li>• Ranking 0–10 por métrica</li>
-    <li>• Recomendaciones accionables</li>
-  </ul>
+  <div class="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-stretch">
+    <!-- LEFT: contenido + botones -->
+    <div class="relative rounded-3xl border border-zinc-800 bg-zinc-950/40 p-8 flex flex-col">
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-100">Qué incluye cada simulación</h3>
+        <ul class="mt-4 space-y-3 text-sm text-zinc-200">
+          <li>• Drivers y fricciones por segmento.</li>
+          <li>• Comparativa de mensajes, ángulos y creatividades.</li>
+          <li>• Ranking 0–10 por métrica (clic, demo, rechazo...).</li>
+          <li>• Explicación psicológica y recomendaciones accionables.</li>
+        </ul>
+      </div>
 
-  <button
-  type="button"
-  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-  data-cal-namespace="salDemo"
-  data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white
-         bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500
-         shadow-[0_18px_50px_-30px_rgba(56,189,248,0.85)]
-         transition transform duration-200 ease-out
-         hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_22px_70px_-35px_rgba(56,189,248,0.95)]
-         active:scale-[0.97] active:brightness-95
-         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
->
-  Agendar demo
-</button>
+      <div class="mt-auto pt-7">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <!-- BOTÓN degradado: agendar demo -->
+          <button
+            type="button"
+            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+            data-cal-namespace="salDemo"
+            data-cal-config='{"layout":"month_view"}'
+            class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white
+                   bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500
+                   shadow-[0_18px_50px_-30px_rgba(56,189,248,0.85)]
+                   transition transform duration-200 ease-out
+                   hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_22px_70px_-35px_rgba(56,189,248,0.95)]
+                   active:scale-[0.97] active:brightness-95
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+          >
+            Agendar demo
+          </button>
 
-      <a
-        href="/ejemplo.pdf"
-        target="_blank"
-        rel="noopener"
-        class="rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-semibold text-zinc-100 hover:bg-zinc-900"
-      >
-        Ver ejemplo (PDF)
-      </a>
+          <!-- BOTÓN secundario: ver PDF -->
+          <a
+            href="/ejemplo.pdf"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center rounded-2xl border border-zinc-800 px-6 py-3
+                   text-sm font-semibold text-zinc-100 hover:bg-zinc-900 hover:border-zinc-600
+                   transition"
+          >
+            Ver ejemplo (PDF)
+          </a>
+        </div>
+
+        <p class="mt-5 text-xs text-zinc-500 max-w-md">
+          Nota: los scores 0–10 son intención comparativa (por ejemplo, “Click Intent Score”), no métricas reales de
+          plataforma. Sirven para priorizar variantes antes de invertir en tráfico.
+        </p>
+      </div>
     </div>
 
-    <p class="mt-5 text-xs text-zinc-500">
-      Nota: los scores 0–10 son intención comparativa (p. ej. “Click Intent Score”), no métricas reales de plataforma.
-    </p>
-  </div>
-</div>
+    <!-- RIGHT: preview -->
+    <div class="relative rounded-3xl border border-zinc-800 bg-zinc-950/40 p-4 flex items-center justify-center">
+      <div class="relative w-full max-w-md aspect-[3/4] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950">
+        <!-- Glow suave detrás de la imagen -->
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
+          <div class="absolute -top-24 left-1/3 h-40 w-40 rounded-full bg-indigo-500/25 blur-3xl"></div>
+          <div class="absolute bottom-[-40px] right-[-20px] h-48 w-48 rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+        </div>
 
-    <!-- RIGHT: preview controlado -->
-    <div class="rounded-2xl border border-zinc-800 p-3 bg-zinc-950/30 h-full">
-  <div class="h-[420px] overflow-hidden rounded-xl border border-zinc-800 bg-white/5">
-    <img
-      src="/report-preview.png"
-      alt="Preview del informe"
-      class="h-full w-full object-cover object-top"
-      loading="lazy"
-    />
-  </div>
-</div>
+        <!-- Imagen del informe -->
+        <img
+          src="/report-preview.png"
+          alt="Ejemplo de informe de simulación de audiencia sintética"
+          class="relative z-10 h-full w-full object-contain"
+          loading="lazy"
+        />
+      </div>
+    </div>
   </div>
 </section>
 
