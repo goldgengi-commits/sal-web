@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+/* === SAL – Animaciones suaves === */
+
+/* Fade-up para secciones */
+.sal-animate-fade-up {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+  will-change: opacity, transform;
+}
+
+.sal-animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Flotación lenta para la tarjeta visual del hero */
+.sal-card-floating {
+  animation: sal-card-floating 16s ease-in-out infinite;
+}
+
+@keyframes sal-card-floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Micro-animación para CTAs degradados */
+.sal-cta {
+  background-size: 180% 180%;
+  transition:
+    background-position 0.35s ease-out,
+    box-shadow 0.25s ease-out,
+    transform 0.25s ease-out;
+}
+
+.sal-cta:hover {
+  background-position: 100% 0%;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}

@@ -53,7 +53,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
   <main class="mx-auto max-w-6xl px-6">
 
 <!-- 1) HERO -->
-<section class="relative py-16 md:py-24">
+<section class="relative py-16 md:py-24 sal-animate-fade-up">
   <div class="grid items-center gap-10 md:grid-cols-2">
     <!-- LEFT -->
     <div class="max-w-2xl">
@@ -111,7 +111,8 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </div>
 
     <!-- RIGHT (visual) -->
-<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6">
+<!-- RIGHT (visual) -->
+<div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 sal-card-floating">
   <div aria-hidden="true" class="absolute inset-0">
     <!-- dot grid (muy sutil) -->
     <div
@@ -213,7 +214,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </section>
 
     <!-- 2) PROBLEMA (WHY) -->
-    <section id="problema" class="py-16 border-t border-zinc-900">
+<section id="problema" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
       <h2 class="text-2xl md:text-3xl font-semibold">Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
         Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición, no con señal.
@@ -261,7 +262,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </section>
 
     <!-- 3) QUÉ ES (WHAT) -->
-    <section id="que-es" class="py-16 border-t border-zinc-900">
+    <section id="que-es" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
       <h2 class="text-2xl md:text-3xl font-semibold">Qué es Synthetic Audience Lab</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
         Tu propio laboratorio de comportamiento humano — en minutos, no en meses.
@@ -330,7 +331,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </section>
 
 <!-- 4) VALIDACIÓN -->
-<section id="validacion" class="py-16 border-t border-zinc-900">
+<section id="validacion" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">Cómo se valida</h2>
   <p class="mt-4 text-zinc-300 max-w-3xl">
     Synthetic Audience Lab no “adivina el futuro”. Reduce incertidumbre comparando variantes y entregando un ranking
@@ -358,7 +359,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
     <!-- 5) EJEMPLO (SIMULACIÓN) -->
 {showCase && (
-  <section id="ejemplo" class="py-16 border-t border-zinc-900">
+  <section id="ejemplo" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
     <div class="mx-auto max-w-7xl px-6">
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
         {caseIsSimulation ? "Ejemplo (simulación)" : "Caso real"}
@@ -406,7 +407,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 )}
 
 <!-- PRIVACIDAD -->
-<section id="privacidad" class="py-16 border-t border-zinc-900">
+<section id="privacidad" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">Privacidad por diseño</h2>
   <p class="mt-4 text-zinc-300 max-w-3xl">
     Lo más importante: <span class="text-zinc-100 font-medium">todos nuestros datos son sintéticos</span>.
@@ -441,7 +442,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </section>
 
     <!-- 6) INFORME -->
-<section id="informe" class="py-16 border-t border-zinc-900">
+<section id="informe" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">Recibe un informe como este</h2>
   <p class="mt-4 text-zinc-300 max-w-3xl">
     Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad ganadora, copy ganador y recomendación estratégica.
@@ -462,7 +463,13 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
   data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
   data-cal-namespace="salDemo"
   data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-2xl border border-violet-500/35 bg-zinc-950/55 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition"
+  class="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white
+         bg-gradient-to-r from-indigo-500 via-sky-500 to-fuchsia-500
+         shadow-[0_18px_50px_-30px_rgba(56,189,248,0.85)]
+         transition transform duration-200 ease-out
+         hover:scale-[1.03] hover:brightness-110 hover:shadow-[0_22px_70px_-35px_rgba(56,189,248,0.95)]
+         active:scale-[0.97] active:brightness-95
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
 >
   Agendar demo
 </button>
@@ -499,7 +506,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
 
     <!-- 7) PARA QUIÉN -->
-<section id="para-quien" class="py-16 border-t border-zinc-900">
+<section id="para-quien" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">Para quién es</h2>
 
   <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -525,7 +532,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 
 
 <!-- FAQ -->
-<section id="faq" class="py-16 border-t border-zinc-900">
+<section id="faq" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <h2 class="text-2xl md:text-3xl font-semibold">FAQ</h2>
 
   <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -564,7 +571,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 </section>
 
     <!-- 8) CTA FINAL -->
-<section class="py-16 border-t border-zinc-900">
+<section class="py-16 border-t border-zinc-900 sal-animate-fade-up">
   <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-indigo-600/20 via-blue-600/10 to-fuchsia-600/20">
     <div aria-hidden="true" class="absolute inset-0">
       <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
