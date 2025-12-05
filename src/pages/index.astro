@@ -70,34 +70,44 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
         intuición.
       </p>
 
-      <!-- CTAs principales (incluye Madrid en la misma fila en desktop) -->
-      <div class="mt-6 flex flex-col sm:flex-row sm:flex-wrap gap-3">
-        <!-- Agendar demo -->
+            <!-- CTAs hero -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <!-- Botón principal: demo online -->
         <button
           type="button"
           data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
           data-cal-namespace="salDemo"
           data-cal-config='{"layout":"month_view"}'
-          class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-sm font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition"
+          class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white
+                 bg-[radial-gradient(circle_at_0%_0%,rgba(129,140,248,0.35),transparent_55%),linear-gradient(120deg,#020617,#111827,#020617)]
+                 shadow-[0_18px_60px_-30px_rgba(129,140,248,0.85)]
+                 transition-transform duration-150 ease-out hover:-translate-y-[1px] hover:scale-[1.01]"
         >
           Agendar demo
         </button>
 
-        <!-- Ver método -->
+        <!-- Botón secundario: ver método -->
         <a
           href="#validacion"
-          class="inline-flex items-center justify-center rounded-2xl border border-zinc-800 px-6 py-3 text-sm font-medium text-zinc-100 hover:bg-zinc-900 transition"
+          class="inline-flex items-center justify-center rounded-full border border-zinc-700/80 bg-zinc-950/60 px-6 py-3
+                 text-sm font-medium text-zinc-100 hover:bg-zinc-900/80 hover:border-zinc-500/80
+                 transition-transform duration-150 ease-out hover:-translate-y-[1px]"
         >
           Ver método
         </a>
+      </div>
 
-        <!-- Madrid presencial -->
+      <!-- CTA Madrid debajo -->
+      <div class="mt-3">
         <button
           type="button"
           data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
           data-cal-namespace="salMadrid"
           data-cal-config='{"layout":"month_view"}'
-          class="inline-flex items-center justify-center rounded-full border border-violet-500/45 bg-zinc-950/65 px-5 py-2 text-xs font-medium text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/80 hover:border-violet-400/65 transition"
+          class="inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-medium text-zinc-100
+                 bg-[linear-gradient(135deg,rgba(129,140,248,0.18),rgba(59,130,246,0.16),rgba(139,92,246,0.18))]
+                 border border-indigo-500/40 shadow-[0_18px_60px_-40px_rgba(79,70,229,0.7)]
+                 transition-transform duration-150 ease-out hover:-translate-y-[1px] hover:scale-[1.01] cursor-pointer"
         >
           ¿Estás en Madrid? Reserva presencial
         </button>
