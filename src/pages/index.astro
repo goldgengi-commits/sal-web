@@ -56,7 +56,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 <section class="relative py-16 md:py-24">
   <div class="grid items-start gap-10 md:grid-cols-[1.15fr_0.85fr]">
     <!-- LEFT: texto + CTAs -->
-    <div class="max-w-2xl space-y-6 sal-animate-fade-up">
+    <div class="max-w-2xl sal-animate-fade-up">
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
         IA aplicada a marketing para priorizar creatividades antes de gastar en Ads.
       </p>
@@ -65,45 +65,44 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
         Reduce el riesgo creativo antes de invertir en Ads.
       </h1>
 
-      <p class="text-lg text-zinc-300">
+      <p class="mt-4 text-lg text-zinc-300">
         Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal, no con
         intuición.
       </p>
 
-            <!-- CTAs principales (déjalos así) -->
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <button
-              type="button"
-              data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-              data-cal-namespace="salDemo"
-              data-cal-config='{"layout":"month_view"}'
-              class="sal-cta"
-            >
-              Agendar demo
-            </button>
+      <!-- CTAs principales -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <button
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-namespace="salDemo"
+          data-cal-config='{"layout":"month_view"}'
+          class="sal-cta"
+        >
+          Agendar demo
+        </button>
 
-            <a
-              href="#validacion"
-              class="sal-cta sal-cta-secondary"
-            >
-              Ver método
-            </a>
-          </div>
-
-          <!-- CTA Madrid en línea propia -->
-          <p class="mt-4 text-sm text-zinc-400">
-            ¿Estás en Madrid?
-            <button
-              type="button"
-              data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
-              data-cal-namespace="salMadrid"
-              data-cal-config='{"layout":"month_view"}'
-              class="inline-flex items-center text-sm font-medium text-zinc-300 hover:text-white underline underline-offset-4 transition"
-            >
-              Reserva presencial
-            </button>
-             </p>
+        <a
+          href="#validacion"
+          class="sal-cta sal-cta-secondary"
+        >
+          Ver método
+        </a>
       </div>
+
+      <!-- CTA Madrid en línea propia -->
+      <p class="mt-4 text-sm text-zinc-400">
+        ¿Estás en Madrid?
+        <button
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+          data-cal-namespace="salMadrid"
+          data-cal-config='{"layout":"month_view"}'
+          class="inline-flex items-center text-sm font-medium text-zinc-300 hover:text-white underline underline-offset-4 transition"
+        >
+          Reserva presencial
+        </button>
+      </p>
 
       <!-- Chips de pricing / alcance -->
       <div class="mt-5 flex flex-wrap gap-2 text-xs text-zinc-200">
@@ -120,7 +119,7 @@ const caseIsSimulation = true; // pon false cuando sea caso real demostrable
     </div>
 
     <!-- RIGHT: dashboard / simulación -->
-    <div class="sal-animate-fade-up">
+    <div class="sal-animate-fade-up md:translate-y-2">
       <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70 p-6 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]">
         <!-- glow -->
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
