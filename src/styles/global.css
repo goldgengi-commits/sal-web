@@ -122,3 +122,14 @@
 .sal-cta-nav:active {
   transform: translateY(0) scale(0.97);
 }
+
+/* Gradiente oscuro y abstracto para métricas numéricas */
+.sal-metric-gradient {
+  background:
+    radial-gradient(140% 220% at 15% 0%, rgba(129, 140, 248, 0.35), transparent 60%),
+    radial-gradient(160% 260% at 100% 100%, rgba(236, 72, 153, 0.40), transparent 65%),
+    linear-gradient(135deg, #1e1b4b, #020617, #4c1d95);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
