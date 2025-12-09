@@ -133,3 +133,21 @@
   background-clip: text;
   color: transparent;
 }
+
+/* Números del bloque de ejemplo (degradado oscuro tipo CTA) */
+.sal-metric {
+  font-weight: 300;
+  letter-spacing: -0.03em;
+
+  background-image:
+    radial-gradient(circle at 5% 0%, rgba(180,199,255,0.95), transparent 60%),
+    radial-gradient(circle at 95% 30%, rgba(244,114,182,0.95), transparent 60%),
+    radial-gradient(circle at 10% 120%, rgba(56,189,248,0.9), transparent 60%),
+    linear-gradient(120deg, #020617 0%, #020617 25%, #1e293b 50%, #1d4ed8 80%, #a855f7 100%);
+  background-size: 190% 190%;
+  background-position: 50% 35%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
