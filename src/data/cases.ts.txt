@@ -1,0 +1,100 @@
+export type CaseStudy = {
+  id: string;
+  title: string;
+  tag: "SaaS" | "E-commerce" | "Agencia" | "B2B Ads" | "Landing" | "Precio" | "Caso extremo";
+  setup: string;
+  highlights: string[];
+};
+
+export const CASES: CaseStudy[] = [
+  {
+    id: "toolspace",
+    title: "ToolSpace — SaaS B2B (mensajes para agendar demo)",
+    tag: "SaaS",
+    setup: "Comparativa de mensajes + ranking por intención / fricción. (Caso ya en la home).",
+    highlights: [
+      "Caso base en la web: sirve como ‘teaser’ visual.",
+      "Objetivo: priorizar qué copy testear primero en tráfico real."
+    ]
+  },
+  {
+    id: "elite-pt",
+    title: "Elite PT — Cliente difícil (cero datos, nicho raro)",
+    tag: "Caso extremo",
+    setup: "1.000 perfiles · 5 segmentos · 3 mensajes (A/B/C). Construcción desde cero.",
+    highlights: [
+      "Ganador por WinShare: Mensaje 1 (ahorro de tiempo).",
+      "El caso prueba robustez: sin histórico, sin data previa, con ICP raro."
+    ]
+  },
+  {
+    id: "sensibilidad-precio",
+    title: "Sensibilidad al precio — mismo producto, 3 mensajes",
+    tag: "Precio",
+    setup: "8.000 perfiles · 2 segmentos · 3 mensajes (A/B/C).",
+    highlights: [
+      "Ganador en clic/exploración: Mensaje C (CTA +25,9%).",
+      "Ganador en ‘agendar demo’ y compra estimada: Mensaje B (conv. estimada 3,8% vs 1,9% baseline)."
+    ]
+  },
+  {
+    id: "landing-optimization",
+    title: "Landing Optimization — 18 variantes (H1/H2/CTA)",
+    tag: "Landing",
+    setup: "8.000 visitas · 18 combinaciones · decisión por objetivo (clic vs conversión).",
+    highlights: [
+      "No hay ‘ganador mágico’: hay empates y trade-offs según objetivo.",
+      "Útil para escoger qué versión merece tráfico real primero."
+    ]
+  },
+  {
+    id: "b2b-ads-copytesting",
+    title: "Copy Testing B2B Ads — 5 audiencias (profundo)",
+    tag: "B2B Ads",
+    setup: "6.000 perfiles · 5 audiencias · 3 mensajes (M1/M2/M3).",
+    highlights: [
+      "Ganador principal (volumen + ROI): M2 (Reducir CPA 90 días).",
+      "WinShare compra ≈ 0,457 · Expected demo ≈ 0,149 · Expected compra ≈ 0,062 · Expected clic ≈ 0,263."
+    ]
+  },
+  {
+    id: "ugc-agencia",
+    title: "Agencia UGC — 5 creatividades + test de estabilidad (seeds)",
+    tag: "Agencia",
+    setup: "4.000 perfiles · 4 segmentos · 5 creatividades. Comparativa seed123 vs seed589 + ranking final creatividades.",
+    highlights: [
+      "Seed-test: el ‘ganador’ puede cambiar en compra, pero el patrón general se mantiene (sirve para medir estabilidad).",
+      "Creatividades: ganador por WinShare compra (5 creatives test)."
+    ]
+  },
+  {
+    id: "skincare-ecom",
+    title: "Skincare E-commerce — fricción emocional + drivers por segmento",
+    tag: "E-commerce",
+    setup: "4.000 perfiles · 4 segmentos · 3 mensajes. Incluye deep-dive de drivers (otro PDF).",
+    highlights: [
+      "Ganador en compras: Mensaje B (‘riesgo cero + evidencia’) con purchase rate estimado ≈ 0,45%.",
+      "Drivers por segmento: mapea qué dispara clic vs compra y por qué."
+    ]
+  },
+  {
+    id: "saas-3roles",
+    title: "SaaS 3 roles — 4 audiencias (Founder/PM/Support)",
+    tag: "SaaS",
+    setup: "3 roles · 4 audiencias (seeds) · 3 mensajes (A/B/C).",
+    highlights: [
+      "Ganador global en volumen de leads (acumulado): Mensaje A.",
+      "Ganadores por seed difieren: útil para ver sensibilidad por audiencia."
+    ]
+  },
+  {
+    id: "agencia-marketing",
+    title: "Agencia Marketing (E-commerce) — 5 mensajes, objetivo leads",
+    tag: "Agencia",
+    setup: "9.000 perfiles · 5 mensajes. Métricas: Lead rate / click / compra (simulado).",
+    highlights: [
+      "Mejor lead rate reportado: ≈ 0,55% (mensaje orientado a ROAS).",
+      "Caso típico agencia: priorizar oferta/mensaje para captación antes de gastar."
+    ]
+  }
+];
