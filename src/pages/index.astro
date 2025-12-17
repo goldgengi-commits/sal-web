@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { heroCases, featuredCases } from "../data/cases";
+import { cases, heroCases, featuredCases } from "../data/cases";
 
 const brand = "Synthetic Audience Lab";
 const email = "syntheticaudiencelab@hotmail.com";
@@ -23,7 +23,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
           <a href="#que-es" class="hover:text-white">Qué es</a>
           <a href="#validacion" class="hover:text-white">Cómo se valida</a>
           <a href="/privacidad" class="hover:text-white">Privacidad</a>
-          <a href="/casos/" class="hover:text-white">Casos</a>
+          <a href={`/casos/${c.slug}/`} class="hover:text-white">Casos</a>
           <a href="#para-quien" class="hover:text-white">Para quién</a>
           <a href="#faq" class="hover:text-white">FAQ</a>
         </nav>
@@ -103,54 +103,50 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
           </div>
         </div>
 
-        <!-- RIGHT: rotador 3 dashboards -->
-        <div class="sal-animate-fade-up flex justify-end">
-          <div class="relative w-full max-w-2xl sal-hero-rotator">
-            {heroCases.map((c, i) => (
-              <a
-                href={`/casos#${c.id}`}
-                aria-label={`Ver caso: ${c.title}`}
-                class={`sal-hero-slide is-${i + 1} relative overflow-hidden rounded-3xl border border-zinc-800
-                  bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70
-                  p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]`}
-              >
-                <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
-                  <div class="absolute -top-24 left-1/2 h-56 w-[30rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
-                  <div class="absolute -bottom-24 right-[-70px] h-60 w-60 rounded-full bg-indigo-500/22 blur-3xl"></div>
+        <!-- RIGHT: dashboards rotando -->
+<div class="sal-animate-fade-up flex justify-end">
+  <div class="relative w-full max-w-2xl">
+    <!-- overlay clickable: todo el panel va a /casos -->
+    <a href="/casos/" class="absolute inset-0 z-20" aria-label="Ver casos"></a>
+
+    <div class="sal-hero-rotator">
+      {cases.filter(c => c.featured).slice(0,3).map((c) => (
+        <div
+          class="sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]"
+          style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
+        >
+          <div class="sal-accent-inner space-y-5">
+            <div class="flex items-center justify-between text-xs text-zinc-300">
+              <span class="tracking-[0.25em] uppercase">Simulación · 8.000 perfiles</span>
+              <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
+                {c.winNote ?? "Ver casos"}
+              </span>
+            </div>
+
+            <div class="text-sm text-zinc-300">
+              <div class="text-base md:text-lg font-medium text-zinc-100">{c.title}</div>
+              <p class="mt-1 text-xs text-zinc-400">{c.subtitle}</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
+              {c.kpis.slice(0,3).map((k) => (
+                <div class="border-l border-zinc-700/80 pl-4">
+                  <div class="text-[11px] text-zinc-400">{k.label}</div>
+                  <div class="mt-1 text-2xl md:text-3xl font-light leading-none">{k.value}</div>
+                  <div class="mt-2 text-[11px] text-zinc-500">{k.note ?? "—"}</div>
                 </div>
+              ))}
+            </div>
 
-                <div class="relative space-y-5">
-                  <div class="flex items-center justify-between text-xs text-zinc-300">
-                    <span class="tracking-[0.25em] uppercase">Simulación · {c.audience}</span>
-                    <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
-                      {c.badge}
-                    </span>
-                  </div>
-
-                  <div class="text-sm text-zinc-300">
-                    <div class="text-base md:text-lg font-medium text-zinc-100">{c.title}</div>
-                    <p class="mt-1 text-xs text-zinc-400">{c.subtitle}</p>
-                  </div>
-
-                  <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
-                    {c.metrics.map((m) => (
-                      <div class="border-l border-zinc-700/80 pl-4">
-                        <div class="text-[11px] text-zinc-400">{m.label}</div>
-                        <div class="mt-1 text-2xl md:text-3xl font-light leading-none">{m.value}</div>
-                        <div class="mt-2 text-[11px] text-zinc-500">{m.note}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div class="pt-2 text-xs text-zinc-400 underline underline-offset-4">
-                    Ver casos →
-                  </div>
-                </div>
-              </a>
-            ))}
+            <div class="pt-2 text-sm text-zinc-300 underline underline-offset-4">
+              Ver casos →
+            </div>
           </div>
         </div>
-
+      ))}
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
@@ -323,7 +319,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             ))}
           </div>
 
-          <a href="/casos" class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver los 9 casos</a>
+          <a href={`/casos/${c.slug}/`} class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver los 9 casos</a>
         </div>
       </div>
     </section>

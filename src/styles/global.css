@@ -195,3 +195,55 @@
   .sal-hero-slide.is-1 { opacity: 1; visibility: visible; transform: none; position: relative; }
   .sal-hero-slide.is-2, .sal-hero-slide.is-3 { display: none; }
 }
+
+/* ====== Cards con acento por caso (glow sutil) ====== */
+.sal-accent-card {
+  position: relative;
+  overflow: hidden;
+}
+.sal-accent-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  opacity: 0.85;
+  background:
+    radial-gradient(120% 140% at 12% 0%, var(--a), transparent 62%),
+    radial-gradient(120% 140% at 100% 100%, var(--b), transparent 62%),
+    radial-gradient(120% 140% at 40% 120%, var(--c), transparent 65%);
+  filter: blur(18px);
+}
+.sal-accent-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ====== Hero rotator (3 slides) ====== */
+.sal-hero-rotator {
+  position: relative;
+  height: 100%;
+  min-height: 260px;
+}
+.sal-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px) scale(0.99);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  animation: salHeroRotate 18s infinite;
+}
+.sal-hero-slide:nth-child(1) { animation-delay: 0s; }
+.sal-hero-slide:nth-child(2) { animation-delay: 6s; }
+.sal-hero-slide:nth-child(3) { animation-delay: 12s; }
+
+@keyframes salHeroRotate {
+  0%   { opacity: 0; transform: translateY(10px) scale(0.99); }
+  8%   { opacity: 1; transform: translateY(0) scale(1); }
+  33%  { opacity: 1; transform: translateY(0) scale(1); }
+  45%  { opacity: 0; transform: translateY(-6px) scale(0.99); }
+  100% { opacity: 0; transform: translateY(-6px) scale(0.99); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sal-hero-slide { animation: none; opacity: 1; position: relative; }
+}
