@@ -1,6 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { cases, heroCases, featuredCases } from "../data/cases";
+import { cases } from "../data/cases";
+
+// Derivados aquí (no dependes de exports)
+const heroCases = cases.filter(c => c.featured).slice(0, 3);
+const featuredCases = cases.filter(c => c.featured).slice(0, 3);
+
 
 const brand = "Synthetic Audience Lab";
 const email = "syntheticaudiencelab@hotmail.com";
