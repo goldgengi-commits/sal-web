@@ -1,227 +1,212 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { heroCases, featuredCases } from "../data/cases";
 
 const brand = "Synthetic Audience Lab";
-const email = "syntheticaudiencelab@hotmail.com"; //
-const ctaLabel = "Contacta con nosotros";
+const email = "syntheticaudiencelab@hotmail.com";
 const mailtoSubject = "Demo — Synthetic Audience Lab";
 const mailtoBody =
   "Hola,\n\nQuiero agendar una demo.\n\nEmpresa:\nWeb:\nQué estás probando (ads/landing/mensajes):\nPresupuesto mensual aproximado en ads:\n\nGracias.";
 const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
-
-const showCase = true;
-const caseIsSimulation = true; // pon false cuando sea caso real demostrable
 ---
 
 <BaseLayout title={brand}>
   <header class="sticky top-0 z-50 border-b border-zinc-900/70 bg-zinc-950/60 backdrop-blur">
-  <div class="mx-auto max-w-6xl px-6">
-    <div class="flex h-14 items-center justify-between">
-      <a href="#" class="text-sm font-medium text-zinc-200 hover:text-white">
-        {brand}
-      </a>
-
-      <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
-        <a href="#problema" class="hover:text-white">Problema</a>
-        <a href="#que-es" class="hover:text-white">Qué es</a>
-        <a href="#validacion" class="hover:text-white">Cómo se valida</a>
-        <a href="/privacidad" class="hover:text-white">Privacidad</a>
-        <a href="#casos" class="hover:text-white">Casos</a>
-        <a href="#para-quien" class="hover:text-white">Para quién</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <button
-  type="button"
-  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-  data-cal-namespace="salDemo"
-  data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-xs font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition sal-cta-nav"
->
-  Agendar demo
-</button>
-
-        <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
-          Contacto
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex h-14 items-center justify-between">
+        <a href="#" class="text-sm font-medium text-zinc-200 hover:text-white">
+          {brand}
         </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
+          <a href="#problema" class="hover:text-white">Problema</a>
+          <a href="#que-es" class="hover:text-white">Qué es</a>
+          <a href="#validacion" class="hover:text-white">Cómo se valida</a>
+          <a href="/privacidad" class="hover:text-white">Privacidad</a>
+          <a href="/casos/" class="hover:text-white">Casos</a>
+          <a href="#para-quien" class="hover:text-white">Para quién</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+            data-cal-namespace="salDemo"
+            data-cal-config='{"layout":"month_view"}'
+            class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-xs font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition sal-cta-nav"
+          >
+            Agendar demo
+          </button>
+
+          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
+            Contacto
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <main class="mx-auto max-w-6xl px-6">
 
-<!-- 1) HERO -->
-<section class="relative py-16 md:py-24">
-  <div class="grid items-center gap-10 lg:gap-12 md:grid-cols-[1.05fr_1.1fr]">
-    <!-- LEFT: texto + CTAs -->
-    <div class="max-w-2xl sal-animate-fade-up">
-      <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
-        IA aplicada a marketing para priorizar creatividades antes de gastar en Ads.
-      </p>
+    <!-- 1) HERO -->
+    <section class="relative py-16 md:py-24">
+      <div class="grid items-center gap-10 lg:gap-12 md:grid-cols-[1.05fr_1.1fr]">
 
-      <h1 class="mt-2 text-4xl md:text-6xl font-light leading-[1.05] tracking-tight">
-        Reduce el riesgo creativo antes de invertir en Ads.
-      </h1>
+        <!-- LEFT -->
+        <div class="max-w-2xl sal-animate-fade-up">
+          <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">
+            IA aplicada a marketing para priorizar creatividades antes de gastar en Ads.
+          </p>
 
-      <p class="mt-4 text-lg text-zinc-300">
-        Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal, no con
-        intuición.
-      </p>
+          <h1 class="mt-2 text-4xl md:text-6xl font-light leading-[1.05] tracking-tight">
+            Reduce el riesgo creativo antes de invertir en Ads.
+          </h1>
 
-      <!-- CTAs principales -->
-      <div class="mt-8 flex flex-col sm:flex-row gap-3">
-        <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-namespace="salDemo"
-          data-cal-config='{"layout":"month_view"}'
-          class="sal-cta"
-        >
-          Agendar demo
-        </button>
+          <p class="mt-4 text-lg text-zinc-300">
+            Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal, no con intuición.
+          </p>
 
-        <a
-          href="#validacion"
-          class="sal-cta sal-cta-secondary"
-        >
-          Ver método
-        </a>
-      </div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+              data-cal-namespace="salDemo"
+              data-cal-config='{"layout":"month_view"}'
+              class="sal-cta"
+            >
+              Agendar demo
+            </button>
 
-      <!-- CTA Madrid en línea propia -->
-      <p class="mt-4 text-sm text-zinc-400">
-        ¿Estás en Madrid?
-        <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
-          data-cal-namespace="salMadrid"
-          data-cal-config='{"layout":"month_view"}'
-          class="inline-flex items-center text-sm font-medium text-zinc-300 hover:text-white underline underline-offset-4 transition"
-        >
-          Reserva presencial
-        </button>
-      </p>
-
-      <!-- Chips de pricing / alcance -->
-      <div class="mt-5 flex flex-wrap gap-2 text-xs text-zinc-200">
-        <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">
-          Piloto 2.500€ + IVA
-        </span>
-        <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">
-          Incluye: 1 ICP · hasta 3 creatividades · hasta 2 segmentos
-        </span>
-        <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">
-          Entrega: 5–7 días · 1 informe + 1 llamada de decisión
-        </span>
-      </div>
-    </div>
-
-        <!-- RIGHT: dashboard / simulación -->
-    <div class="sal-animate-fade-up flex justify-end">
-      <div
-        class="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-zinc-800
-               bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70
-               p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]"
-      >
-        <!-- glow -->
-        <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
-          <div class="absolute -top-24 left-1/2 h-56 w-[30rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
-          <div class="absolute -bottom-24 right-[-70px] h-60 w-60 rounded-full bg-indigo-500/22 blur-3xl"></div>
-        </div>
-
-        <div class="relative space-y-5">
-          <div class="flex items-center justify-between text-xs text-zinc-300">
-            <span class="tracking-[0.25em] uppercase">Simulación · 8.000 perfiles</span>
-            <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
-              +21,8% conv.
-            </span>
+            <a href="#validacion" class="sal-cta sal-cta-secondary">
+              Ver método
+            </a>
           </div>
 
-          <div class="text-sm text-zinc-300">
-            <div class="text-base md:text-lg font-medium text-zinc-100">SaaS B2B · Test de mensaje</div>
-            <p class="mt-1 text-xs text-zinc-400">
-              Datos sintéticos · 3 variaciones de mensaje · ranking por intención, rechazo y fricción cognitiva.
-            </p>
-          </div>
+          <p class="mt-4 text-sm text-zinc-400">
+            ¿Estás en Madrid?
+            <button
+              type="button"
+              data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
+              data-cal-namespace="salMadrid"
+              data-cal-config='{"layout":"month_view"}'
+              class="inline-flex items-center text-sm font-medium text-zinc-300 hover:text-white underline underline-offset-4 transition"
+            >
+              Reserva presencial
+            </button>
+          </p>
 
-          <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
-            <div class="border-l border-zinc-700/80 pl-4">
-              <div class="text-[11px] text-zinc-400">Clic en CTA</div>
-              <div class="mt-1 text-2xl md:text-3xl font-light leading-none">+36,7%</div>
-              <div class="mt-2 text-[11px] text-zinc-500">Variante C vs A/B</div>
-            </div>
-            <div class="border-l border-zinc-700/80 pl-4">
-              <div class="text-[11px] text-zinc-400">Rechazo</div>
-              <div class="mt-1 text-2xl md:text-3xl font-light leading-none">−7 pts</div>
-              <div class="mt-2 text-[11px] text-zinc-500">Menos fricción</div>
-            </div>
-            <div class="border-l border-zinc-700/80 pl-4">
-              <div class="text-[11px] text-zinc-400">Tiempo en página</div>
-              <div class="mt-1 text-2xl md:text-3xl font-light leading-none">+25,9%</div>
-              <div class="mt-2 text-[11px] text-zinc-500">Más exploración útil</div>
-            </div>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs text-zinc-200">
+            <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">Piloto 2.500€ + IVA</span>
+            <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">Incluye: 1 ICP · hasta 3 creatividades · hasta 2 segmentos</span>
+            <span class="rounded-full border border-zinc-800 bg-zinc-950/60 px-4 py-1">Entrega: 5–7 días · 1 informe + 1 llamada de decisión</span>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-    <!-- 2) PROBLEMA (WHY) -->
-<section id="problema" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+        <!-- RIGHT: rotador 3 dashboards -->
+        <div class="sal-animate-fade-up flex justify-end">
+          <div class="relative w-full max-w-2xl sal-hero-rotator">
+            {heroCases.map((c, i) => (
+              <a
+                href={`/casos#${c.id}`}
+                aria-label={`Ver caso: ${c.title}`}
+                class={`sal-hero-slide is-${i + 1} relative overflow-hidden rounded-3xl border border-zinc-800
+                  bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70
+                  p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]`}
+              >
+                <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
+                  <div class="absolute -top-24 left-1/2 h-56 w-[30rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
+                  <div class="absolute -bottom-24 right-[-70px] h-60 w-60 rounded-full bg-indigo-500/22 blur-3xl"></div>
+                </div>
+
+                <div class="relative space-y-5">
+                  <div class="flex items-center justify-between text-xs text-zinc-300">
+                    <span class="tracking-[0.25em] uppercase">Simulación · {c.audience}</span>
+                    <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
+                      {c.badge}
+                    </span>
+                  </div>
+
+                  <div class="text-sm text-zinc-300">
+                    <div class="text-base md:text-lg font-medium text-zinc-100">{c.title}</div>
+                    <p class="mt-1 text-xs text-zinc-400">{c.subtitle}</p>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
+                    {c.metrics.map((m) => (
+                      <div class="border-l border-zinc-700/80 pl-4">
+                        <div class="text-[11px] text-zinc-400">{m.label}</div>
+                        <div class="mt-1 text-2xl md:text-3xl font-light leading-none">{m.value}</div>
+                        <div class="mt-2 text-[11px] text-zinc-500">{m.note}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div class="pt-2 text-xs text-zinc-400 underline underline-offset-4">
+                    Ver casos →
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2) PROBLEMA -->
+    <section id="problema" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
       <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse</h2>
+        Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse
+      </h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
         Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición, no con señal.
         Synthetic Audience Lab existe para reducir ese riesgo: probar antes de quemar.
       </p>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-    <div class="flex items-center gap-3">
-      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/>
-        </svg>
-      </div>
-      <div class="font-semibold">Tiempo perdido</div>
-    </div>
-    <p class="mt-3 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas y aprendizaje caro.</p>
-  </div>
+        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+          <div class="flex items-center gap-3">
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/>
+              </svg>
+            </div>
+            <div class="font-semibold">Tiempo perdido</div>
+          </div>
+          <p class="mt-3 text-sm text-zinc-300">Iteraciones lentas, decisiones reactivas y aprendizaje caro.</p>
+        </div>
 
-  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-    <div class="flex items-center gap-3">
-      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-      </div>
-      <div class="font-semibold">Dinero malgastado</div>
-    </div>
-    <p class="mt-3 text-sm text-zinc-300">Creatividades equivocadas, CPC inflado y presupuesto quemado.</p>
-  </div>
+        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+          <div class="flex items-center gap-3">
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="font-semibold">Dinero malgastado</div>
+          </div>
+          <p class="mt-3 text-sm text-zinc-300">Creatividades equivocadas, CPC inflado y presupuesto quemado.</p>
+        </div>
 
-  <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
-    <div class="flex items-center gap-3">
-      <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2a7 7 0 0 0-4 12c1 1 1 3 1 4h6c0-1 0-3 1-4a7 7 0 0 0-4-12Z"/>
-          <path d="M9 22h6"/>
-        </svg>
+        <div class="rounded-2xl border border-zinc-800 p-6 bg-zinc-950/40">
+          <div class="flex items-center gap-3">
+            <div class="h-9 w-9 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a7 7 0 0 0-4 12c1 1 1 3 1 4h6c0-1 0-3 1-4a7 7 0 0 0-4-12Z"/>
+                <path d="M9 22h6"/>
+              </svg>
+            </div>
+            <div class="font-semibold">Incertidumbre</div>
+          </div>
+          <p class="mt-3 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
+        </div>
       </div>
-      <div class="font-semibold">Incertidumbre</div>
-    </div>
-    <p class="mt-3 text-sm text-zinc-300">No sabes qué mensaje engancha, cuál repele y por qué.</p>
-  </div>
-</div>
     </section>
 
-    <!-- 3) QUÉ ES (WHAT) -->
+    <!-- 3) QUÉ ES -->
     <section id="que-es" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-Qué es Synthetic Audience Lab</h2>
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Qué es Synthetic Audience Lab</h2>
       <p class="mt-4 text-zinc-300 max-w-3xl">
         Tu propio laboratorio de comportamiento humano — en minutos, no en meses.
         Creamos perfiles sintéticos coherentes con tu audiencia y probamos creatividades, textos y propuesta de valor
@@ -229,278 +214,302 @@ Qué es Synthetic Audience Lab</h2>
       </p>
 
       <div class="mt-10 rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8">
-  <div class="mx-auto max-w-4xl">
-    <div class="relative grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-      <!-- flow line -->
-      <div aria-hidden="true" class="hidden md:block absolute left-0 right-0 top-1/2 -translate-y-1/2">
-        <div class="h-px w-full bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
-      </div>
+        <div class="mx-auto max-w-4xl">
+          <div class="relative grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <div aria-hidden="true" class="hidden md:block absolute left-0 right-0 top-1/2 -translate-y-1/2">
+              <div class="h-px w-full bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
+            </div>
 
-      <!-- 1 -->
-      <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
-        <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
-          <span class="text-xs text-zinc-300 font-semibold">01</span>
-        </div>
-        <div class="pt-6">
-          <div class="text-sm text-zinc-400">Generamos</div>
-          <div class="mt-2 text-lg font-semibold">Audiencia sintética</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Perfiles coherentes con motivaciones, fricciones y hábitos del ICP.
-          </p>
+            <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+              <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
+                <span class="text-xs text-zinc-300 font-semibold">01</span>
+              </div>
+              <div class="pt-6">
+                <div class="text-sm text-zinc-400">Generamos</div>
+                <div class="mt-2 text-lg font-semibold">Audiencia sintética</div>
+                <p class="mt-2 text-sm text-zinc-300">Perfiles coherentes con motivaciones, fricciones y hábitos del ICP.</p>
+              </div>
+            </div>
+
+            <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+              <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
+                <span class="text-xs text-zinc-300 font-semibold">02</span>
+              </div>
+              <div class="pt-6">
+                <div class="text-sm text-zinc-400">Simulamos</div>
+                <div class="mt-2 text-lg font-semibold">Reacción a mensajes</div>
+                <p class="mt-2 text-sm text-zinc-300">Comparamos ángulos y creatividades con intención y resistencia psicológica.</p>
+              </div>
+            </div>
+
+            <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+              <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
+                <span class="text-xs text-zinc-300 font-semibold">03</span>
+              </div>
+              <div class="pt-6">
+                <div class="text-sm text-zinc-400">Entregamos</div>
+                <div class="mt-2 text-lg font-semibold">Decisión accionable</div>
+                <p class="mt-2 text-sm text-zinc-300">Ranking + explicación: qué funciona, qué falla y por qué.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-500">
+            <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">No CTR real</span>
+            <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Ranking por variante</span>
+            <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Entrega en 5–7 días</span>
+          </div>
         </div>
       </div>
-
-      <!-- 2 -->
-      <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
-        <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
-          <span class="text-xs text-zinc-300 font-semibold">02</span>
-        </div>
-        <div class="pt-6">
-          <div class="text-sm text-zinc-400">Simulamos</div>
-          <div class="mt-2 text-lg font-semibold">Reacción a mensajes</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Comparamos ángulos y creatividades con intención y resistencia psicológica.
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="relative rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
-        <div aria-hidden="true" class="absolute -top-3 left-6 h-10 w-10 rounded-2xl border border-zinc-800 bg-white/5 grid place-items-center">
-          <span class="text-xs text-zinc-300 font-semibold">03</span>
-        </div>
-        <div class="pt-6">
-          <div class="text-sm text-zinc-400">Entregamos</div>
-          <div class="mt-2 text-lg font-semibold">Decisión accionable</div>
-          <p class="mt-2 text-sm text-zinc-300">
-            Ranking + explicación: qué funciona, qué falla y por qué.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-zinc-500">
-      <span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">No CTR real</span>
-<span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Ranking por variante</span>
-<span class="rounded-full border border-zinc-800 bg-white/5 px-3 py-1">Entrega en 5–7 días</span>
-    </div>
-  </div>
-</div>
     </section>
 
-<!-- 4) VALIDACIÓN -->
-<section id="validacion" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-  <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-Cómo se valida</h2>
-  <p class="mt-4 text-zinc-300 max-w-3xl">
-    Synthetic Audience Lab no “adivina el futuro”. Reduce incertidumbre comparando variantes y entregando un ranking
-    con señal y explicación psicológica.
-  </p>
-
-  <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">Ranking comparativo</div>
-      <div class="mt-2 font-semibold">Elige ganadores por contraste</div>
-      <p class="mt-2 text-sm text-zinc-300">No vendemos “CTR real”: comparamos variantes bajo el mismo marco.</p>
-    </div>
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">Explicación, no magia</div>
-      <div class="mt-2 font-semibold">Drivers y fricciones</div>
-      <p class="mt-2 text-sm text-zinc-300">Te decimos qué activa interés, qué genera rechazo y por qué.</p>
-    </div>
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">Validación en tráfico</div>
-      <div class="mt-2 font-semibold">Cierre del bucle</div>
-      <p class="mt-2 text-sm text-zinc-300">Cuando implementas, confirmas con datos reales y ajustas la siguiente ronda.</p>
-    </div>
-  </div>
-</section>
-
-    <!-- CASOS (TEASER) -->
-<section id="casos" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-  <div>
-    <div class="flex items-end justify-between gap-6">
-      <div>
-        <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Casos de estudio</p>
-        <h2 class="mt-3 text-2xl md:text-4xl font-light tracking-tight">Ver cómo se decide sin adivinar</h2>
-        <p class="mt-4 max-w-2xl text-zinc-300">
-          9 simulaciones con resultados reales del sistema. Comparas variantes, entiendes drivers y eliges ganadores con señal.
-        </p>
-      </div>
-
-      <a href="/casos" class="sal-cta sal-cta-secondary hidden sm:inline-flex">Ver los 9 casos</a>
-    </div>
-
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-      {/* aquí puedes renderizar 3 cards “hardcoded” o, mejor, importarlas desde cases.ts si ya lo estás usando en index */}
-      <a href="/casos" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-        <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">SaaS B2B</div>
-        <div class="mt-2 text-lg font-light text-zinc-100">Priorizar mensaje antes de comprar tráfico</div>
-        <div class="mt-4 text-sm text-zinc-400">Ver métricas y decisión recomendada →</div>
-      </a>
-
-      <a href="/casos" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-        <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">E-commerce</div>
-        <div class="mt-2 text-lg font-light text-zinc-100">Creatividades: gancho vs objeción dominante</div>
-        <div class="mt-4 text-sm text-zinc-400">Ver segmentación y drivers →</div>
-      </a>
-
-      <a href="/casos" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-        <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Agencia</div>
-        <div class="mt-2 text-lg font-light text-zinc-100">Ranking por intención + resistencia psicológica</div>
-        <div class="mt-4 text-sm text-zinc-400">Ver comparativa de variantes →</div>
-      </a>
-    </div>
-
-    <a href="/casos" class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver los 9 casos</a>
-  </div>
-</section>
-
-    <!-- 7) PARA QUIÉN -->
-<section id="para-quien" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-  <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-Para quién es</h2>
-
-  <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">SaaS</div>
-      <div class="mt-2 font-medium">Valida PV, mensajes y hero</div>
-      <p class="mt-2 text-sm text-zinc-300">Sin gastar en Ads para descubrir lo obvio tarde.</p>
-    </div>
-
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">E-commerce</div>
-      <div class="mt-2 font-medium">Elige creatividades sin quemar</div>
-      <p class="mt-2 text-sm text-zinc-300">Encuentra gancho/objeción dominante por segmento.</p>
-    </div>
-
-    <div class="rounded-2xl border border-zinc-800 p-6">
-      <div class="text-sm text-zinc-400">Agencias</div>
-      <div class="mt-2 font-medium">Servicio premium defensible</div>
-      <p class="mt-2 text-sm text-zinc-300">Vendes método + señal. No “sensaciones”.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- FAQ -->
-<section id="faq" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-  <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-FAQ</h2>
-
-  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
-      <div class="font-medium">¿Esto es CTR / conversión real?</div>
-      <p class="mt-2 text-sm text-zinc-300">
-        No. Son <span class="text-zinc-100 font-medium">scores comparativos</span> (0–10) para evaluar variantes bajo el mismo marco.
-        Sirven para priorizar qué testear primero en tráfico real.
-      </p>
-    </div>
-
-    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
-      <div class="font-medium">¿Por qué a veces los resultados salen parecidos?</div>
-      <p class="mt-2 text-sm text-zinc-300">
-        Porque las variantes pueden estar <span class="text-zinc-100 font-medium">muy cerca en fuerza</span>.
-        En ese caso no vendemos “ganador mágico”: entregamos ranking, explicación y la siguiente iteración recomendada
-        (cambiar ángulo, headline, fricción o prueba social) para separar señales.
-      </p>
-    </div>
-
-    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
-      <div class="font-medium">¿Qué necesitas de mí para el piloto?</div>
-      <p class="mt-2 text-sm text-zinc-300">
-        URL/landing, definición del ICP, y hasta 3 mensajes o creatividades. El resto lo estructuramos nosotros.
-      </p>
-    </div>
-
-    <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
-      <div class="font-medium">¿Usáis datos personales o tracking?</div>
-      <p class="mt-2 text-sm text-zinc-300">
-        No. Trabajamos con <span class="text-zinc-100 font-medium">datos sintéticos</span>, anónimos y generados por IA.
-        Modelamos patrones, no personas.
-      </p>
-    </div>
-  </div>
-</section>
-
-    <!-- 8) CTA FINAL -->
-<section class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-  <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-indigo-600/20 via-blue-600/10 to-fuchsia-600/20">
-    <div aria-hidden="true" class="absolute inset-0">
-      <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
-      <div class="absolute -bottom-24 right-[-80px] h-72 w-72 rounded-full bg-indigo-500/15 blur-3xl"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/25"></div>
-    </div>
-
-    <div class="relative">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">
-Deja de adivinar. Empieza a entender.</h2>
-      <p class="mt-4 text-zinc-300 max-w-2xl">
-        Tu próxima campaña puede ser rentable antes de lanzarla. Si no lo es, mejor enterarte hoy.
+    <!-- 4) VALIDACIÓN -->
+    <section id="validacion" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Cómo se valida</h2>
+      <p class="mt-4 text-zinc-300 max-w-3xl">
+        Synthetic Audience Lab no “adivina el futuro”. Reduce incertidumbre comparando variantes y entregando un ranking
+        con señal y explicación psicológica.
       </p>
 
-      <div class="mt-8 flex flex-col sm:flex-row gap-3">
-        <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-namespace="salDemo"
-          data-cal-config='{"layout":"month_view"}'
-          class="sal-cta sal-cta-light"
-        >
-          Agendar demo
-        </button>
-
-        <button
-          type="button"
-          data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
-          data-cal-namespace="salMadrid"
-          data-cal-config='{"layout":"month_view"}'
-          class="sal-cta sal-cta-secondary"
-        >
-          Presencial (Madrid)
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9) FOOTER -->
-<footer class="border-t border-zinc-900 py-10">
-  <div class="mx-auto max-w-6xl px-6">
-    <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-      <!-- Columna izquierda: marca + enlaces -->
-      <div class="space-y-3">
-        <div class="text-sm text-zinc-400">© 2025 {brand}</div>
-
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <a class="text-zinc-300 hover:text-white" href={ctaHref}>Email</a>
-          <a
-            class="text-zinc-300 hover:text-white"
-            href="https://www.linkedin.com/in/pablo-fernández-polo"
-            target="_blank"
-            rel="noopener"
-          >
-            LinkedIn
-          </a>
-          <a class="text-zinc-300 hover:text-white" href="/privacidad">Privacidad</a>
-          <a class="text-zinc-300 hover:text-white" href="/cookies">Cookies</a>
-          <a
-            class="text-zinc-300 hover:text-white whitespace-nowrap"
-            href="/aviso-legal"
-          >
-            Aviso legal
-          </a>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">Ranking comparativo</div>
+          <div class="mt-2 font-semibold">Elige ganadores por contraste</div>
+          <p class="mt-2 text-sm text-zinc-300">No vendemos “CTR real”: comparamos variantes bajo el mismo marco.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">Explicación, no magia</div>
+          <div class="mt-2 font-semibold">Drivers y fricciones</div>
+          <p class="mt-2 text-sm text-zinc-300">Te decimos qué activa interés, qué genera rechazo y por qué.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">Validación en tráfico</div>
+          <div class="mt-2 font-semibold">Cierre del bucle</div>
+          <p class="mt-2 text-sm text-zinc-300">Cuando implementas, confirmas con datos reales y ajustas la siguiente ronda.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Columna derecha: mensaje de privacidad -->
-      <p class="text-xs text-zinc-500 md:text-right md:max-w-sm">
-        Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni
-        rastreamos usuarios reales.
+    <!-- CASOS (TEASER) -->
+    <section class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-70">
+          <div class="absolute -top-20 left-1/2 h-56 w-[34rem] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+          <div class="absolute -bottom-20 right-[-80px] h-56 w-56 rounded-full bg-indigo-500/14 blur-3xl"></div>
+        </div>
+
+        <div class="relative">
+          <div class="flex items-end justify-between gap-6">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Casos de estudio</p>
+              <h2 class="mt-3 text-2xl md:text-4xl font-light tracking-tight">Ver cómo se decide sin adivinar</h2>
+              <p class="mt-4 max-w-2xl text-zinc-300">
+                9 simulaciones con resultados reales del sistema. Comparas variantes, entiendes drivers y eliges ganadores con señal.
+              </p>
+            </div>
+
+            <a href="/casos" class="sal-cta sal-cta-secondary hidden sm:inline-flex">Ver casos en detalle</a>
+          </div>
+
+          <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {featuredCases.map((c) => (
+              <a href={`/casos#${c.id}`} class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
+                <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">{c.tag}</div>
+                <div class="mt-2 text-lg font-light text-zinc-100">{c.title}</div>
+                <div class="mt-3 text-sm text-zinc-400">{c.oneLiner}</div>
+                <div class="mt-5 text-sm text-zinc-300">{c.badge}</div>
+                <div class="mt-4 text-sm text-zinc-400">Ver métricas y decisión →</div>
+              </a>
+            ))}
+          </div>
+
+          <a href="/casos" class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver los 9 casos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) INFORME (sin PDF público) -->
+    <section id="informe" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Cómo se ve una entrega</h2>
+      <p class="mt-4 text-zinc-300 max-w-3xl">
+        Cada entrega incluye: análisis psicológico, simulaciones, fricción cognitiva, creatividad/copy ganadores
+        y recomendación estratégica para decidir, no opinar.
       </p>
-    </div>
-  </div>
-</footer>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-stretch">
+        <div class="relative h-full min-h-[360px] rounded-3xl border border-zinc-800 bg-zinc-950/40 p-8 flex flex-col">
+          <div>
+            <h3 class="text-sm font-medium text-zinc-100">Qué incluye cada simulación</h3>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-200">
+              <li>• Drivers y fricciones por segmento.</li>
+              <li>• Comparativa de mensajes, ángulos y creatividades.</li>
+              <li>• Ranking 0–10 por métrica (clic, demo, rechazo...).</li>
+              <li>• Explicación psicológica y recomendaciones accionables.</li>
+            </ul>
+          </div>
+
+          <div class="mt-auto pt-7">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button
+                type="button"
+                data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+                data-cal-namespace="salDemo"
+                data-cal-config='{"layout":"month_view"}'
+                class="sal-cta"
+              >
+                Agendar demo
+              </button>
+
+              <a href="/casos" class="sal-cta sal-cta-secondary">
+                Ver casos (datos reales)
+              </a>
+            </div>
+
+            <p class="mt-5 text-xs text-zinc-500 max-w-md">
+              Nota: los scores 0–10 son intención comparativa, no métricas reales de plataforma.
+              Sirven para priorizar variantes antes de invertir en tráfico.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative h-full min-h-[360px] rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 flex items-center justify-center">
+          <div class="relative w-full max-w-md h-full max-h-[420px] rounded-2xl border border-zinc-800 bg-zinc-950 overflow-hidden">
+            <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+              <div class="absolute -top-16 left-1/2 h-40 w-56 -translate-x-1/2 rounded-full bg-indigo-500/25 blur-3xl"></div>
+              <div class="absolute bottom-[-24px] right-[-16px] h-44 w-44 rounded-full bg-fuchsia-500/25 blur-3xl"></div>
+            </div>
+
+            <img
+              src="/report-preview.png"
+              alt="Preview de informe (redactado en demo)"
+              class="relative z-10 h-full w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) PARA QUIÉN -->
+    <section id="para-quien" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Para quién es</h2>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">SaaS</div>
+          <div class="mt-2 font-medium">Valida PV, mensajes y hero</div>
+          <p class="mt-2 text-sm text-zinc-300">Sin gastar en Ads para descubrir lo obvio tarde.</p>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">E-commerce</div>
+          <div class="mt-2 font-medium">Elige creatividades sin quemar</div>
+          <p class="mt-2 text-sm text-zinc-300">Encuentra gancho/objeción dominante por segmento.</p>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 p-6">
+          <div class="text-sm text-zinc-400">Agencias</div>
+          <div class="mt-2 font-medium">Servicio premium defensible</div>
+          <p class="mt-2 text-sm text-zinc-300">Vendes método + señal. No “sensaciones”.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <h2 class="text-2xl md:text-3xl font-light tracking-tight">FAQ</h2>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+          <div class="font-medium">¿Esto es CTR / conversión real?</div>
+          <p class="mt-2 text-sm text-zinc-300">
+            No. Son <span class="text-zinc-100 font-medium">scores comparativos</span> (0–10) para evaluar variantes bajo el mismo marco.
+            Sirven para priorizar qué testear primero en tráfico real.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+          <div class="font-medium">¿Por qué a veces los resultados salen parecidos?</div>
+          <p class="mt-2 text-sm text-zinc-300">
+            Porque las variantes pueden estar <span class="text-zinc-100 font-medium">muy cerca en fuerza</span>.
+            En ese caso entregamos ranking, explicación y siguiente iteración recomendada para separar señales.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+          <div class="font-medium">¿Qué necesitas de mí para el piloto?</div>
+          <p class="mt-2 text-sm text-zinc-300">
+            URL/landing, definición del ICP, y hasta 3 mensajes o creatividades. El resto lo estructuramos nosotros.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-6">
+          <div class="font-medium">¿Usáis datos personales o tracking?</div>
+          <p class="mt-2 text-sm text-zinc-300">
+            No. Trabajamos con <span class="text-zinc-100 font-medium">datos sintéticos</span>, anónimos y generados por IA.
+            Modelamos patrones, no personas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 border-t border-zinc-900 sal-animate-fade-up">
+      <div class="relative overflow-hidden rounded-2xl border border-zinc-800 p-10 bg-gradient-to-br from-indigo-600/20 via-blue-600/10 to-fuchsia-600/20">
+        <div aria-hidden="true" class="absolute inset-0">
+          <div class="absolute -top-24 left-1/2 h-72 w-[34rem] -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-3xl"></div>
+          <div class="absolute -bottom-24 right-[-80px] h-72 w-72 rounded-full bg-indigo-500/15 blur-3xl"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/25"></div>
+        </div>
+
+        <div class="relative">
+          <h2 class="text-2xl md:text-3xl font-light tracking-tight">Deja de adivinar. Empieza a entender.</h2>
+          <p class="mt-4 text-zinc-300 max-w-2xl">
+            Tu próxima campaña puede ser rentable antes de lanzarla. Si no lo es, mejor enterarte hoy.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+              data-cal-namespace="salDemo"
+              data-cal-config='{"layout":"month_view"}'
+              class="sal-cta sal-cta-light"
+            >
+              Agendar demo
+            </button>
+
+            <a href="/casos" class="sal-cta sal-cta-secondary">
+              Ver casos (9)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-900 py-10">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div class="space-y-3">
+            <div class="text-sm text-zinc-400">© 2025 {brand}</div>
+
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              <a class="text-zinc-300 hover:text-white" href={ctaHref}>Email</a>
+              <a class="text-zinc-300 hover:text-white" href="https://www.linkedin.com/in/pablo-fernández-polo" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="text-zinc-300 hover:text-white" href="/privacidad">Privacidad</a>
+              <a class="text-zinc-300 hover:text-white" href="/cookies">Cookies</a>
+              <a class="text-zinc-300 hover:text-white whitespace-nowrap" href="/aviso-legal">Aviso legal</a>
+            </div>
+          </div>
+
+          <p class="text-xs text-zinc-500 md:text-right md:max-w-sm">
+            Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni rastreamos usuarios reales.
+          </p>
+        </div>
+      </div>
+    </footer>
+
   </main>
 </BaseLayout>
 

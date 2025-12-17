@@ -2,285 +2,130 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const brand = "Synthetic Audience Lab";
-const email = "syntheticaudiencelab@hotmail.com";
-const mailtoSubject = "Demo — Synthetic Audience Lab";
-const mailtoBody =
-  "Hola,\n\nQuiero agendar una demo.\n\nEmpresa:\nWeb:\nQué estás probando (ads/landing/mensajes):\nPresupuesto mensual aproximado en ads:\n\nGracias.";
-const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+
+const CASES = [
+  {
+    slug: "toolspace",
+    tag: "SaaS",
+    title: "ToolSpace — SaaS B2B",
+    desc: "Priorizar mensaje antes de comprar tráfico.",
+  },
+  {
+    slug: "elite-pt",
+    tag: "Caso extremo",
+    title: "Elite PT — Cliente difícil",
+    desc: "Construcción de perfiles desde cero (info mínima).",
+  },
+  {
+    slug: "precio",
+    tag: "E-commerce",
+    title: "Sensibilidad al precio",
+    desc: "Segmentos por tolerancia y respuesta a precio.",
+  },
+  {
+    slug: "landing",
+    tag: "Landing",
+    title: "Landing Optimization",
+    desc: "Qué frena, qué convierte y por qué.",
+  },
+  {
+    slug: "b2b-ads",
+    tag: "B2B Ads",
+    title: "B2B Ads — Copy testing",
+    desc: "5 audiencias + ranking por intención / rechazo.",
+  },
+  {
+    slug: "ugc",
+    tag: "UGC",
+    title: "UGC — Creatividades",
+    desc: "Comparativa de variantes y consistencia.",
+  },
+  {
+    slug: "skincare",
+    tag: "Skincare",
+    title: "Skincare — Fricción emocional",
+    desc: "Drivers por segmento y fricciones dominantes.",
+  },
+  {
+    slug: "saas-roles",
+    tag: "SaaS",
+    title: "SaaS — 3 roles / 4 audiencias",
+    desc: "Diferencias reales por rol en el funnel.",
+  },
+  {
+    slug: "agencia",
+    tag: "Agencia",
+    title: "Agencia (E-commerce)",
+    desc: "Cómo se vende método y señal, no opiniones.",
+  },
+];
 ---
 
-<BaseLayout title={`Casos de estudio · ${brand}`}>
-  <header class="sticky top-0 z-50 border-b border-zinc-900/70 bg-zinc-950/60 backdrop-blur">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="flex h-14 items-center justify-between">
-        <a href="/" class="text-sm font-medium text-zinc-200 hover:text-white">
-          {brand}
-        </a>
-
-        <!-- En /casos, los links a secciones del home deben ir con /#... -->
-        <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
-          <a href="/#problema" class="hover:text-white">Problema</a>
-          <a href="/#que-es" class="hover:text-white">Qué es</a>
-          <a href="/#validacion" class="hover:text-white">Cómo se valida</a>
-          <a href="/#privacidad" class="hover:text-white">Privacidad</a>
-          <a href="/casos" class="text-zinc-100">Casos</a>
-          <a href="/#para-quien" class="hover:text-white">Para quién</a>
-          <a href="/#faq" class="hover:text-white">FAQ</a>
-        </nav>
-
-        <div class="flex items-center gap-3">
-          <button
-            type="button"
-            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-            data-cal-namespace="salDemo"
-            data-cal-config='{"layout":"month_view"}'
-            class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-xs font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition sal-cta-nav"
-          >
-            Agendar demo
-          </button>
-
-          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
-            Contacto
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="mx-auto max-w-6xl px-6">
-    <section class="py-16 md:py-20 sal-animate-fade-up">
+<BaseLayout title={`Casos de estudio — ${brand}`}>
+  <main class="mx-auto max-w-6xl px-6 py-16">
+    <header class="sal-animate-fade-up">
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Casos de estudio</p>
       <h1 class="mt-3 text-3xl md:text-5xl font-light tracking-tight">
-        9 simulaciones con resultados reales del sistema
+        9 casos en detalle
       </h1>
-      <p class="mt-4 text-zinc-300 max-w-3xl">
-        Datos sintéticos y scores comparativos (no CTR real). Sirven para priorizar variantes antes de gastar en tráfico.
+      <p class="mt-4 max-w-3xl text-zinc-300">
+        Aquí es donde se ve la parte técnica: qué se simuló, qué ganó y por qué.
       </p>
 
-      <!-- GRID -->
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <a href="#agencia-ads-b2b" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Agencia Ads B2B</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Copy testing · 5 audiencias</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver métricas y ganador →</div>
-        </a>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="/" class="sal-cta sal-cta-secondary">Volver a la home</a>
 
-        <a href="#toolspace" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">SaaS (ToolSpace)</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Priorizar mensaje antes de comprar tráfico</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver resumen →</div>
-        </a>
-
-        <a href="#landing" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Landing Page</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Optimización · estructura vs headline</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver decisión por objetivo →</div>
-        </a>
-
-        <a href="#saas-roles" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">SaaS</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">3 roles · 4 audiencias</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver hallazgos →</div>
-        </a>
-
-        <a href="#skincare" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Skincare E-commerce</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Fricción emocional · segmentos</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver drivers →</div>
-        </a>
-
-        <a href="#elite-pt" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Elite PT</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Cliente difícil · info mínima</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver enfoque →</div>
-        </a>
-
-        <a href="#precio" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Sensibilidad precio</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Price framing · elasticidad</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver notas →</div>
-        </a>
-
-        <a href="#ugc" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Agencia UGC</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Comparativa + creatividades</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver comparativa →</div>
-        </a>
-
-        <a href="#agencia-marketing" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">Agencia Marketing</div>
-          <div class="mt-2 text-lg font-light text-zinc-100">Agencia e-commerce</div>
-          <div class="mt-4 text-sm text-zinc-400">Ver resumen →</div>
-        </a>
+        <button
+          type="button"
+          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-namespace="salDemo"
+          data-cal-config='{"layout":"month_view"}'
+          class="sal-cta"
+        >
+          Agendar demo
+        </button>
       </div>
+    </header>
+
+    <section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 sal-animate-fade-up">
+      {CASES.map((c) => (
+        <a
+          href={`#${c.slug}`}
+          class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition"
+        >
+          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">{c.tag}</div>
+          <div class="mt-2 text-lg font-light text-zinc-100">{c.title}</div>
+          <div class="mt-3 text-sm text-zinc-400">{c.desc}</div>
+          <div class="mt-5 text-sm text-zinc-300">Ver detalles →</div>
+        </a>
+      ))}
     </section>
 
-    <!-- DETALLES (ponemos números solo donde los tengo súper claros) -->
-    <section id="agencia-ads-b2b" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Agencia Ads B2B · Copy testing (5 audiencias)</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Comparativa de 3 mensajes con 5 audiencias. Objetivo: priorizar el copy con mejor performance esperada.
-      </p>
+    <section class="mt-14 space-y-10 sal-animate-fade-up">
+      {CASES.map((c) => (
+        <article id={c.slug} class="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8 scroll-mt-24">
+          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">{c.tag}</div>
+          <h2 class="mt-2 text-2xl md:text-3xl font-light tracking-tight">{c.title}</h2>
+          <p class="mt-4 text-zinc-300 max-w-3xl">
+            {c.desc}
+          </p>
 
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-4 gap-4">
-        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-5">
-          <div class="text-xs text-zinc-400">N</div>
-          <div class="mt-1 text-xl font-light sal-metric">8.000</div>
-          <div class="mt-1 text-xs text-zinc-500">perfiles / aud.</div>
-        </div>
-        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-5">
-          <div class="text-xs text-zinc-400">WinShare</div>
-          <div class="mt-1 text-xl font-light sal-metric">38,44%</div>
-          <div class="mt-1 text-xs text-zinc-500">mensaje M2</div>
-        </div>
-        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-5">
-          <div class="text-xs text-zinc-400">ROI</div>
-          <div class="mt-1 text-xl font-light sal-metric">57,41</div>
-          <div class="mt-1 text-xs text-zinc-500">mensaje M2</div>
-        </div>
-        <div class="rounded-2xl border border-zinc-800 bg-zinc-950/30 p-5">
-          <div class="text-xs text-zinc-400">eCPA</div>
-          <div class="mt-1 text-xl font-light sal-metric">66,77</div>
-          <div class="mt-1 text-xs text-zinc-500">mensaje M2</div>
-        </div>
-      </div>
-
-      <p class="mt-6 text-sm text-zinc-400">
-        Ganador recomendado: <span class="text-zinc-100">M2</span> (reducción de CPA / eficiencia).
-      </p>
-    </section>
-
-    <section id="toolspace" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">ToolSpace · SaaS B2B</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Caso base (el que ya tienes en la web). Lo dejamos como “default” del sistema.
-      </p>
-    </section>
-
-    <section id="landing" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Landing Page · Optimization</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Comparativa por objetivo: volumen vs eficiencia vs ROI. Útil para decidir estructura/hero sin tocar Ads.
-      </p>
-    </section>
-
-    <section id="saas-roles" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">SaaS · 3 roles / 4 audiencias</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Founder / PM / CS Lead. 3 mensajes A/B/C. En el reporte, el ganador global en volumen de leads fue el Mensaje A.
-      </p>
-    </section>
-
-    <section id="skincare" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Skincare E-commerce · Fricción emocional</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Segmentación por fricción y drivers. Ideal para creatividades UGC y ángulos de objeción.
-      </p>
-    </section>
-
-    <section id="elite-pt" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Elite PT · Cliente difícil</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Nicho raro, poca info, sin datos previos. El objetivo aquí es demostrar que el sistema “aguanta” en condiciones malas.
-      </p>
-    </section>
-
-    <section id="precio" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Sensibilidad precio</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Price framing y respuesta por segmento. Lo dejamos listo para volcar métricas finas cuando quieras.
-      </p>
-    </section>
-
-    <section id="ugc" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Agencia UGC</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Comparativa seed vs seed + reporte de creatividades. (Caso doble).
-      </p>
-    </section>
-
-    <section id="agencia-marketing" class="py-12 border-t border-zinc-900 sal-animate-fade-up">
-      <h2 class="text-2xl md:text-3xl font-light tracking-tight">Agencia de Marketing · E-commerce</h2>
-      <p class="mt-3 text-zinc-300 max-w-3xl">
-        Caso orientado a servicio: cómo vender “decisión con señal” en formato entregable.
-      </p>
-    </section>
-
-    <section class="py-16 border-t border-zinc-900 sal-animate-fade-up">
-      <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-10">
-        <h2 class="text-2xl md:text-3xl font-light tracking-tight">¿Quieres que lo apliquemos a tu caso?</h2>
-        <p class="mt-4 text-zinc-300 max-w-2xl">
-          Te devolvemos ranking, drivers y recomendación para decidir qué lanzar primero.
-        </p>
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <button
-            type="button"
-            data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-            data-cal-namespace="salDemo"
-            data-cal-config='{"layout":"month_view"}'
-            class="sal-cta"
-          >
-            Agendar demo
-          </button>
-          <a href={ctaHref} class="sal-cta sal-cta-secondary">Contactar por email</a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="border-t border-zinc-900 py-10">
-      <div class="mx-auto max-w-6xl px-6">
-        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-          <div class="space-y-3">
-            <div class="text-sm text-zinc-400">© 2025 {brand}</div>
-            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <a class="text-zinc-300 hover:text-white" href={ctaHref}>Email</a>
-              <a class="text-zinc-300 hover:text-white" href="https://www.linkedin.com/in/pablo-fernández-polo" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="text-zinc-300 hover:text-white" href="/privacidad">Privacidad</a>
-              <a class="text-zinc-300 hover:text-white" href="/cookies">Cookies</a>
-              <a class="text-zinc-300 hover:text-white whitespace-nowrap" href="/aviso-legal">Aviso legal</a>
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+              <div class="text-xs text-zinc-400">Ganador</div>
+              <div class="mt-2 text-sm text-zinc-200">Pendiente de volcar datos reales</div>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+              <div class="text-xs text-zinc-400">Driver clave</div>
+              <div class="mt-2 text-sm text-zinc-200">Pendiente</div>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
+              <div class="text-xs text-zinc-400">Recomendación</div>
+              <div class="mt-2 text-sm text-zinc-200">Pendiente</div>
             </div>
           </div>
-
-          <p class="text-xs text-zinc-500 md:text-right md:max-w-sm">
-            Privacidad: trabajamos exclusivamente con datos sintéticos. No utilizamos información personal ni rastreamos usuarios reales.
-          </p>
-        </div>
-      </div>
-    </footer>
+        </article>
+      ))}
+    </section>
   </main>
 </BaseLayout>
-
-<script is:inline>
-(function (C, A, L) {
-  let p = function (a, ar) { a.q.push(ar); };
-  let d = C.document;
-  C.Cal = C.Cal || function () {
-    let cal = C.Cal;
-    let ar = arguments;
-    if (!cal.loaded) {
-      cal.ns = {};
-      cal.q = cal.q || [];
-      d.head.appendChild(d.createElement("script")).src = A;
-      cal.loaded = true;
-    }
-    if (ar[0] === L) {
-      const api = function () { p(api, arguments); };
-      const namespace = ar[1];
-      api.q = api.q || [];
-      if (typeof namespace === "string") {
-        cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar);
-        p(cal, ["initNamespace", namespace]);
-      } else p(cal, ar);
-      return;
-    }
-    p(cal, ar);
-  };
-})(window, "https://app.cal.com/embed/embed.js", "init");
-
-Cal("init", "salDemo", { origin: "https://cal.com" });
-Cal.ns["salDemo"]("ui", { theme: "dark", layout: "month_view" });
-
-Cal("init", "salMadrid", { origin: "https://cal.com" });
-Cal.ns["salMadrid"]("ui", { theme: "dark", layout: "month_view" });
-</script>
