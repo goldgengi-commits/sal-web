@@ -113,8 +113,8 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
     <!-- overlay clickable: todo el panel va a /casos -->
     <a href="/casos/" class="absolute inset-0 z-20" aria-label="Ver casos"></a>
 
-    <div class="sal-hero-rotator">
-      {cases.filter(c => c.featured).slice(0,3).map((c) => (
+    <div class="sal-hero-rotator relative h-[360px] md:h-[420px]">
+  {heroCases.map((c) => (
         <div
           class="sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]"
           style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
@@ -450,38 +450,3 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
   </main>
 </BaseLayout>
-
-<script is:inline>
-(function (C, A, L) {
-  let p = function (a, ar) { a.q.push(ar); };
-  let d = C.document;
-  C.Cal = C.Cal || function () {
-    let cal = C.Cal;
-    let ar = arguments;
-    if (!cal.loaded) {
-      cal.ns = {};
-      cal.q = cal.q || [];
-      d.head.appendChild(d.createElement("script")).src = A;
-      cal.loaded = true;
-    }
-    if (ar[0] === L) {
-      const api = function () { p(api, arguments); };
-      const namespace = ar[1];
-      api.q = api.q || [];
-      if (typeof namespace === "string") {
-        cal.ns[namespace] = cal.ns[namespace] || api;
-        p(cal.ns[namespace], ar);
-        p(cal, ["initNamespace", namespace]);
-      } else p(cal, ar);
-      return;
-    }
-    p(cal, ar);
-  };
-})(window, "https://app.cal.com/embed/embed.js", "init");
-
-Cal("init", "salDemo", { origin: "https://cal.com" });
-Cal.ns["salDemo"]("ui", { theme: "dark", layout: "month_view" });
-
-Cal("init", "salMadrid", { origin: "https://cal.com" });
-Cal.ns["salMadrid"]("ui", { theme: "dark", layout: "month_view" });
-</script>

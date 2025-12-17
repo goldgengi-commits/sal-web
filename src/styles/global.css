@@ -247,3 +247,25 @@
 @media (prefers-reduced-motion: reduce) {
   .sal-hero-slide { animation: none; opacity: 1; position: relative; }
 }
+
+.sal-hero-slide { 
+  position: absolute; inset: 0; 
+  opacity: 0;
+  transform: translateY(10px) scale(.99);
+  animation: salHero 9s infinite;
+}
+.sal-hero-slide:nth-child(1){ animation-delay: 0s; }
+.sal-hero-slide:nth-child(2){ animation-delay: 3s; }
+.sal-hero-slide:nth-child(3){ animation-delay: 6s; }
+
+@keyframes salHero{
+  0%{opacity:0; transform:translateY(10px) scale(.99)}
+  10%{opacity:1; transform:translateY(0) scale(1)}
+  32%{opacity:1}
+  42%{opacity:0}
+  100%{opacity:0}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .sal-hero-slide{ position:static; opacity:1; transform:none; animation:none; }
+}
