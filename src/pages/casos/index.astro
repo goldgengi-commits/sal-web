@@ -1,73 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { cases as CASES } from "../../data/cases";
 
 const brand = "Synthetic Audience Lab";
-
-const CASES = [
-  {
-    slug: "toolspace",
-    tag: "SaaS",
-    title: "ToolSpace — SaaS B2B",
-    desc: "Priorizar mensaje antes de comprar tráfico.",
-  },
-  {
-    slug: "elite-pt",
-    tag: "Caso extremo",
-    title: "Elite PT — Cliente difícil",
-    desc: "Construcción de perfiles desde cero (info mínima).",
-  },
-  {
-    slug: "precio",
-    tag: "E-commerce",
-    title: "Sensibilidad al precio",
-    desc: "Segmentos por tolerancia y respuesta a precio.",
-  },
-  {
-    slug: "landing",
-    tag: "Landing",
-    title: "Landing Optimization",
-    desc: "Qué frena, qué convierte y por qué.",
-  },
-  {
-    slug: "b2b-ads",
-    tag: "B2B Ads",
-    title: "B2B Ads — Copy testing",
-    desc: "5 audiencias + ranking por intención / rechazo.",
-  },
-  {
-    slug: "ugc",
-    tag: "UGC",
-    title: "UGC — Creatividades",
-    desc: "Comparativa de variantes y consistencia.",
-  },
-  {
-    slug: "skincare",
-    tag: "Skincare",
-    title: "Skincare — Fricción emocional",
-    desc: "Drivers por segmento y fricciones dominantes.",
-  },
-  {
-    slug: "saas-roles",
-    tag: "SaaS",
-    title: "SaaS — 3 roles / 4 audiencias",
-    desc: "Diferencias reales por rol en el funnel.",
-  },
-  {
-    slug: "agencia",
-    tag: "Agencia",
-    title: "Agencia (E-commerce)",
-    desc: "Cómo se vende método y señal, no opiniones.",
-  },
-];
 ---
 
 <BaseLayout title={`Casos de estudio — ${brand}`}>
   <main class="mx-auto max-w-6xl px-6 py-16">
     <header class="sal-animate-fade-up">
       <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">Casos de estudio</p>
-      <h1 class="mt-3 text-3xl md:text-5xl font-light tracking-tight">
-        9 casos en detalle
-      </h1>
+      <h1 class="mt-3 text-3xl md:text-5xl font-light tracking-tight">9 casos en detalle</h1>
       <p class="mt-4 max-w-3xl text-zinc-300">
         Aquí es donde se ve la parte técnica: qué se simuló, qué ganó y por qué.
       </p>
@@ -75,56 +17,29 @@ const CASES = [
       <div class="mt-8 flex flex-col sm:flex-row gap-3">
         <a href="/" class="sal-cta sal-cta-secondary">Volver a la home</a>
 
-        <button
-  type="button"
-  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-  data-cal-namespace="salDemo"
-  data-cal-config='{"layout":"month_view"}'
-  class="sal-cta"
->
-  Agendar demo
-</button>
+        <a
+          href="https://cal.com/syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+          data-cal-namespace="salDemo"
+          data-cal-config='{"layout":"month_view"}'
+          class="sal-cta"
+        >
+          Agendar demo
+        </a>
       </div>
     </header>
 
     <section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 sal-animate-fade-up">
       {CASES.map((c) => (
         <a
-          href={`#${c.slug}`}
+          href={`/casos/${c.slug}/`}
           class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition"
         >
           <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">{c.tag}</div>
           <div class="mt-2 text-lg font-light text-zinc-100">{c.title}</div>
-          <div class="mt-3 text-sm text-zinc-400">{c.desc}</div>
+          <div class="mt-3 text-sm text-zinc-400">{c.subtitle}</div>
           <div class="mt-5 text-sm text-zinc-300">Ver detalles →</div>
         </a>
-      ))}
-    </section>
-
-    <section class="mt-14 space-y-10 sal-animate-fade-up">
-      {CASES.map((c) => (
-        <article id={c.slug} class="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8 scroll-mt-24">
-          <div class="text-xs uppercase tracking-[0.2em] text-zinc-400">{c.tag}</div>
-          <h2 class="mt-2 text-2xl md:text-3xl font-light tracking-tight">{c.title}</h2>
-          <p class="mt-4 text-zinc-300 max-w-3xl">
-            {c.desc}
-          </p>
-
-          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
-              <div class="text-xs text-zinc-400">Ganador</div>
-              <div class="mt-2 text-sm text-zinc-200">Pendiente de volcar datos reales</div>
-            </div>
-            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
-              <div class="text-xs text-zinc-400">Driver clave</div>
-              <div class="mt-2 text-sm text-zinc-200">Pendiente</div>
-            </div>
-            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4">
-              <div class="text-xs text-zinc-400">Recomendación</div>
-              <div class="mt-2 text-sm text-zinc-200">Pendiente</div>
-            </div>
-          </div>
-        </article>
       ))}
     </section>
   </main>

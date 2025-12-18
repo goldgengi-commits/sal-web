@@ -269,3 +269,41 @@
 @media (prefers-reduced-motion: reduce){
   .sal-hero-slide{ position:static; opacity:1; transform:none; animation:none; }
 }
+
+.sal-hero-rotator{
+  position:relative;
+  min-height:340px;
+}
+
+.sal-hero-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform: translateY(10px) scale(.985);
+  animation: salHero 12s infinite;
+  animation-fill-mode: both;
+}
+
+.sal-hero-slide:nth-child(1){ animation-delay: 0s; }
+.sal-hero-slide:nth-child(2){ animation-delay: 4s; }
+.sal-hero-slide:nth-child(3){ animation-delay: 8s; }
+
+/* fallback: que nunca quede “en blanco” antes de la animación */
+.sal-hero-slide:first-child{ opacity:1; }
+
+@keyframes salHero{
+  0%   { opacity:0; transform: translateY(10px) scale(.985); }
+  8%   { opacity:1; transform: translateY(0) scale(1); }
+  30%  { opacity:1; transform: translateY(0) scale(1); }
+  38%  { opacity:0; transform: translateY(-6px) scale(.99); }
+  100% { opacity:0; }
+}
+
+/* Para que cada caso tenga su color (usa tus --a/--b/--c) */
+.sal-accent-card{
+  background:
+    radial-gradient(800px circle at 20% 10%, var(--a), transparent 55%),
+    radial-gradient(800px circle at 80% 40%, var(--b), transparent 55%),
+    radial-gradient(700px circle at 35% 90%, var(--c), transparent 60%),
+    rgba(9,9,11,0.55);
+}

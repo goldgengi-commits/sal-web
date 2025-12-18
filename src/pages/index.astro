@@ -116,7 +116,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
     <div class="sal-hero-rotator relative h-[360px] md:h-[420px]">
   {heroCases.map((c) => (
         <div
-          class="sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]"
+          class="sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 bg-zinc-950/40 via-slate-900 to-fuchsia-900/70 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)]"
           style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
         >
           <div class="sal-accent-inner space-y-5">
@@ -308,9 +308,6 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
               </p>
             </div>
 
-            <a href="/casos/" class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver casos en detalle</a>
-          </div>
-
           <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
             {featuredCases.map((c) => (
               <a href="/casos/" class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition">
@@ -323,8 +320,6 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             ))}
           </div>
 
-          <a href="/casos/" class="sal-cta sal-cta-secondary mt-8 inline-flex sm:hidden">Ver casos en detalle</a>
-        </div>
       </div>
     </section>
 
