@@ -1,8 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { cases as CASES } from "../../data/cases";
+import { cases } from "../../data/cases";
 
 const brand = "Synthetic Audience Lab";
+
+const calDemo = "syntheticaudiencelab/demo-videollamada-20-min";
+const calDemoHref = `https://cal.com/${calDemo}`;
 ---
 
 <BaseLayout title={`Casos de estudio — ${brand}`}>
@@ -14,23 +17,25 @@ const brand = "Synthetic Audience Lab";
         Aquí es donde se ve la parte técnica: qué se simuló, qué ganó y por qué.
       </p>
 
-      <div class="mt-8 flex flex-col sm:flex-row gap-3">
-        <a href="/" class="sal-cta sal-cta-secondary">Volver a la home</a>
+      <a href="/" class="sal-back inline-flex items-center gap-2 text-sm text-zinc-300 hover:text-white">
+  <span>Volver</span>
+  <span class="sal-back-arrow">→</span>
+</a>
 
-        <a
-          href="https://cal.com/syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
-          data-cal-namespace="salDemo"
-          data-cal-config='{"layout":"month_view"}'
-          class="sal-cta"
-        >
-          Agendar demo
-        </a>
+        <button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
+  data-cal-namespace="salDemo"
+  data-cal-config='{"layout":"month_view"}'
+  class="sal-cta"
+>
+  Agendar demo
+</button>
       </div>
     </header>
 
     <section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 sal-animate-fade-up">
-      {CASES.map((c) => (
+      {cases.map((c) => (
         <a
           href={`/casos/${c.slug}/`}
           class="rounded-3xl border border-zinc-800 bg-zinc-950/40 p-6 hover:bg-zinc-950/55 transition"
@@ -44,3 +49,4 @@ const brand = "Synthetic Audience Lab";
     </section>
   </main>
 </BaseLayout>
+

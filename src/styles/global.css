@@ -345,3 +345,22 @@
 .sal-accent-inner {
   /* sutil capa interna para profundidad */
 }
+
+/* HERO rotator FIX (usa clases nuevas para no pelearte con CSS viejo) */
+.sal-hero-rotator2 { position: relative; overflow: hidden; }
+
+.sal-hero-panel {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.sal-hero-panel.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sal-back-arrow { display:inline-block; transition: transform 220ms ease, opacity 220ms ease; }
+.sal-back:hover .sal-back-arrow { transform: translateX(6px); opacity: 0.95; }
