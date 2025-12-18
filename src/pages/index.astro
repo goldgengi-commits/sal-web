@@ -38,15 +38,15 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         </nav>
 
         <div class="flex items-center gap-3">
-         <a
-  href={calDemoHref}
-  data-cal-link={calDemo}
+         <button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
   data-cal-namespace="salDemo"
   data-cal-config='{"layout":"month_view"}'
-  class="inline-flex items-center justify-center rounded-full border border-violet-500/35 bg-zinc-950/55 px-4 py-2 text-xs font-semibold text-white shadow-[0_18px_60px_-45px_rgba(139,92,246,0.55)] backdrop-blur hover:bg-zinc-950/75 hover:border-violet-400/55 transition sal-cta-nav"
+  class="sal-cta"
 >
   Agendar demo
-</a>
+</button>
 
           <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
             Contacto
@@ -77,15 +77,15 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
           </p>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-  href={calDemoHref}
-  data-cal-link={calDemo}
+            <button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
   data-cal-namespace="salDemo"
   data-cal-config='{"layout":"month_view"}'
   class="sal-cta"
 >
   Agendar demo
-</a>
+</button>
 
             <a href="#validacion" class="sal-cta sal-cta-secondary">
               Ver método
@@ -94,15 +94,15 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
           <p class="mt-4 text-sm text-zinc-400">
             ¿Estás en Madrid?
-            <a
-  href={calMadridHref}
-  data-cal-link={calMadrid}
+            <button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
   data-cal-namespace="salMadrid"
   data-cal-config='{"layout":"month_view"}'
   class="inline-flex items-center text-sm font-medium text-zinc-300 hover:text-white underline underline-offset-4 transition"
 >
   Reserva presencial
-</a>
+</button>
           </p>
 
           <div class="mt-5 flex flex-wrap gap-2 text-xs text-zinc-200">
@@ -117,41 +117,39 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
   <div class="relative w-full max-w-2xl">
     <div class="sal-hero-rotator relative h-[360px] md:h-[420px]">
       {heroCases.map((c, i) => (
-        <a
-          href={`/casos/${c.slug}/`}
-          class={`sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 bg-gradient-to-br from-indigo-900/70 via-slate-900 to-fuchsia-900/70 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)] ${i === 0 ? "is-active" : ""}`}
-          style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
-          aria-label={`Ver caso: ${c.title}`}
-        >
-          <div class="sal-accent-inner space-y-5">
-            <div class="flex items-center justify-between text-xs text-zinc-300">
-              <span class="tracking-[0.25em] uppercase">Simulación · 8.000 perfiles</span>
-              <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
-                {c.winNote ?? "Ver casos"}
-              </span>
-            </div>
+  <div
+    class={`sal-hero-slide sal-accent-card rounded-3xl border border-zinc-800 p-7 md:p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,1)] ${i === 0 ? "is-active" : ""}`}
+    style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
+  >
+    <div class="sal-accent-inner space-y-5">
+      <div class="flex items-center justify-between text-xs text-zinc-300">
+        <span class="tracking-[0.25em] uppercase">Simulación · 8.000 perfiles</span>
+        <span class="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-medium text-emerald-300">
+          {c.winNote ?? "Ver casos"}
+        </span>
+      </div>
 
-            <div class="text-sm text-zinc-300">
-              <div class="text-base md:text-lg font-medium text-zinc-100">{c.title}</div>
-              <p class="mt-1 text-xs text-zinc-400">{c.subtitle}</p>
-            </div>
+      <div class="text-sm text-zinc-300">
+        <div class="text-base md:text-lg font-medium text-zinc-100">{c.title}</div>
+        <p class="mt-1 text-xs text-zinc-400">{c.subtitle}</p>
+      </div>
 
-            <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
-              {c.kpis.slice(0, 3).map((k) => (
-                <div class="border-l border-zinc-700/80 pl-4">
-                  <div class="text-[11px] text-zinc-400">{k.label}</div>
-                  <div class="mt-1 text-2xl md:text-3xl font-light leading-none">{k.value}</div>
-                  <div class="mt-2 text-[11px] text-zinc-500">{k.note ?? "—"}</div>
-                </div>
-              ))}
-            </div>
-
-            <div class="pt-2 text-sm text-zinc-300 underline underline-offset-4">
-              Ver caso →
-            </div>
+      <div class="grid grid-cols-3 gap-4 pt-3 text-zinc-100">
+        {c.kpis.slice(0, 3).map((k) => (
+          <div class="border-l border-zinc-700/80 pl-4">
+            <div class="text-[11px] text-zinc-400">{k.label}</div>
+            <div class="mt-1 text-2xl md:text-3xl font-light leading-none">{k.value}</div>
+            <div class="mt-2 text-[11px] text-zinc-500">{k.note ?? "—"}</div>
           </div>
-        </a>
-      ))}
+        ))}
+      </div>
+
+      <div class="pt-2 text-sm text-zinc-300 underline underline-offset-4">
+        Ver casos →
+      </div>
+    </div>
+  </div>
+))}
     </div>
   </div>
 </div>
@@ -406,15 +404,15 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
           </p>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-  href={calDemoHref}
-  data-cal-link={calDemo}
+            <button
+  type="button"
+  data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
   data-cal-namespace="salDemo"
   data-cal-config='{"layout":"month_view"}'
-  class="sal-cta sal-cta-light"
+  class="sal-cta"
 >
   Agendar demo
-</a>
+</button>
 
             <a href="/casos" class="sal-cta sal-cta-secondary">
               Ver casos (9)

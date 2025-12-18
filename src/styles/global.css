@@ -307,3 +307,41 @@
     radial-gradient(700px circle at 35% 90%, var(--c), transparent 60%),
     rgba(9,9,11,0.55);
 }
+
+.sal-hero-slide { opacity: 0; transform: translateY(8px); position: absolute; inset: 0; transition: opacity .6s ease, transform .6s ease; }
+.sal-hero-slide.is-active { opacity: 1; transform: none; }
+.sal-hero-rotator { position: relative; }
+
+/* HERO rotator: si esto falta, verás “nada” */
+.sal-hero-rotator {
+  position: relative;
+  overflow: hidden;
+}
+
+.sal-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition: opacity 520ms ease, transform 520ms ease;
+  pointer-events: none;
+}
+
+.sal-hero-slide.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Fondo “premium” por accents */
+.sal-accent-card {
+  background:
+    radial-gradient(1000px circle at 10% 10%, var(--a), transparent 55%),
+    radial-gradient(900px circle at 90% 20%, var(--b), transparent 55%),
+    radial-gradient(900px circle at 50% 100%, var(--c), transparent 60%),
+    rgba(9, 9, 11, 0.55);
+}
+
+.sal-accent-inner {
+  /* sutil capa interna para profundidad */
+}
