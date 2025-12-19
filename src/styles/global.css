@@ -87,29 +87,37 @@
   border-color: rgba(255,255,255,0.3);
 }
 
-/* === HERO ROTATOR (FIX LÓGICO) === */
-/* Quitamos animaciones CSS infinitas. Dejamos que JS controle el estado */
-
+/* === HERO ROTATOR (LIMPIO) === */
 .sal-hero-rotator {
   position: relative;
-  overflow: visible; /* Permitimos ver sombras */
+  /* Altura fija mínima para evitar saltos de layout */
+  min-height: 420px; 
+  display: grid;
+  place-items: center;
   perspective: 1000px;
 }
 
 .sal-hero-slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* ESTADO INACTIVO (Invisible) */
   opacity: 0;
-  /* Estado inicial: un poco abajo y más pequeño */
-  transform: translateY(20px) scale(0.96); 
+  /* Empieza un pelín más pequeño y abajo */
+  transform: translateY(8px) scale(0.98); 
+  
+  /* Transición suave tipo Apple */
   transition: 
-    opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
-    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
   pointer-events: none;
   z-index: 0;
 }
 
-/* Clase activa controlada por JS */
+/* ESTADO ACTIVO (Visible) */
 .sal-hero-slide.is-active {
   opacity: 1;
   transform: translateY(0) scale(1);
