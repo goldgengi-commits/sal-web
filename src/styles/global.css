@@ -10,7 +10,7 @@
   }
 }
 
-/* === ANIMACIONES (Fade Up básico) === */
+/* === ANIMACIONES FADE SIMPLE === */
 .sal-animate-fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -27,8 +27,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.5rem; /* Padding fino */
-  height: 2.5rem; /* Altura forzada 40px (h-10) para evitar gordura */
+  padding: 0.5rem 1.5rem;
+  height: 2.5rem;
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -37,6 +37,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .sal-cta:hover {
   background-color: #262626;
@@ -45,22 +46,30 @@
 }
 .sal-cta:active { transform: scale(0.98); }
 
-/* === HERO ROTATOR (FIX DEFINITIVO) === */
+.sal-cta-secondary {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+.sal-cta-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* === HERO ROTATOR: FIX APLASTAMIENTO === */
+/* Quitamos display: flex para evitar colapso de columnas */
+
 .sal-hero-rotator {
   position: relative;
   width: 100%;
-  /* Usamos HEIGHT fijo, no min-height, para imponer el tamaño */
-  height: 500px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  margin-top: 2rem;
+  display: block; /* IMPORTANTE: Bloque, no flex */
+  /* Altura fija para evitar saltos, ajustada a la tarjeta */
+  height: 480px; 
 }
 
 @media (min-width: 768px) {
   .sal-hero-rotator {
-    height: 600px !important; /* Altura masiva en escritorio */
+    height: 550px !important;
   }
 }
 
@@ -70,43 +79,37 @@
   width: 100%;
   height: 100%;
   
-  /* ESTADO INACTIVO: Solo escala, CERO movimiento vertical */
+  /* ESTADO INACTIVO: Solo opacidad 0. SIN MOVIMIENTO. */
   opacity: 0;
-  transform: scale(0.95) !important; 
-  filter: blur(10px);
   pointer-events: none;
   z-index: 0;
   
-  /* Transición "Apple": lenta y suave */
-  transition: 
-    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), 
-    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
-    filter 0.7s ease;
+  /* Transición pura de opacidad */
+  transition: opacity 0.6s ease-in-out;
 }
 
 /* ESTADO ACTIVO */
 .sal-hero-slide.is-active {
   opacity: 1;
-  transform: scale(1) !important;
-  filter: blur(0px);
   pointer-events: auto;
   z-index: 10;
 }
 
-/* Tarjeta interna que ocupa todo el espacio */
+/* Tarjeta interna */
 .sal-accent-card {
   position: relative;
   overflow: hidden;
   background-color: #0a0a0a;
-  height: 100%; /* Llenar el contenedor padre */
+  height: 100%;
   width: 100%;
-  border-radius: 1.5rem; /* Bordes redondeados modernos */
+  border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar contenido verticalmente */
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.05); /* Borde sutil para definir límites */
 }
 
-/* El Glow */
+/* El Glow de fondo */
 .sal-accent-card::before {
   content: "";
   position: absolute;
@@ -117,13 +120,13 @@
     radial-gradient(circle at 50% 50%, var(--a), transparent 50%),
     radial-gradient(circle at 80% 20%, var(--b), transparent 50%),
     radial-gradient(circle at 20% 80%, var(--c), transparent 50%);
-  opacity: 0.4;
-  filter: blur(90px);
+  opacity: 0.25; /* Bajamos un poco la intensidad para leer mejor */
+  filter: blur(80px);
   pointer-events: none;
 }
 
 .sal-accent-inner {
   position: relative;
   z-index: 2;
-  padding: 3rem; /* Padding generoso */
+  padding: 2.5rem; /* Espacio interno para que el texto no toque bordes */
 }
