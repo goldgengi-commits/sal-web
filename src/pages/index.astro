@@ -22,7 +22,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
           {brand}
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
+        <nav class="hidden md:flex items-center gap-10 text-sm text-zinc-300">
           <a href="#problema" class="hover:text-white transition-colors cursor-pointer">Problema</a>
           <a href="#metodo" class="hover:text-white transition-colors cursor-pointer">Método</a>
           <a href="/casos/" class="hover:text-white transition-colors cursor-pointer">Casos</a>
@@ -259,9 +259,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             <h2 class="text-3xl md:text-4xl font-light text-white">Más simulaciones</h2>
             <p class="mt-2 text-zinc-400">Resultados recientes por sector.</p>
           </div>
+          
           <a href="/casos/" class="group hidden md:inline-flex items-center text-sm text-zinc-300 hover:text-white transition cursor-pointer">
             Ver todos los casos 
-            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
+            <span class="ml-2 font-medium">
+              <span class="sal-arrow-dash">-</span>&gt;
+            </span>
           </a>
         </div>
 
@@ -272,8 +275,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
                 <div class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{c.tag}</div>
                 <h3 class="mt-4 text-xl font-medium text-zinc-100 group-hover:text-white">{c.title}</h3>
                 <p class="mt-3 text-sm text-zinc-400 line-clamp-3 leading-relaxed">{c.subtitle}</p>
-                <div class="mt-6 text-xs font-medium text-white underline decoration-zinc-700 underline-offset-4 group-hover:decoration-white transition">
+                
+                <div class="mt-6 text-xs font-medium text-white underline decoration-zinc-700 underline-offset-4 group-hover:decoration-white transition inline-flex items-center">
                   Leer análisis
+                  <span class="ml-1.5 font-normal no-underline">
+                     <span class="sal-arrow-dash">-</span>&gt;
+                  </span>
                 </div>
               </div>
             </a>

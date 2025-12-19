@@ -8,7 +8,7 @@
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tighter text-white;
   }
-  /* FIX: Forzar cursor pointer en botones */
+  /* Forzar cursor mano en todos los botones */
   button {
     cursor: pointer;
   }
@@ -26,7 +26,7 @@
   transform: translateY(0);
 }
 
-/* === BOTONES (CTAs) === */
+/* === BOTONES (CTAs) - "APPLE STYLE" (Rápido y Estático) === */
 .sal-cta {
   display: inline-flex;
   align-items: center;
@@ -40,16 +40,22 @@
   background-color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.2s ease;
+  /* TRANSICIÓN RÁPIDA (0.15s) y SOLO de colores/borde/sombra */
+  transition: background-color 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out;
   white-space: nowrap;
-  cursor: pointer !important; /* FIX CURSOR */
+  cursor: pointer !important;
 }
+
 .sal-cta:hover {
   background-color: #262626;
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.25);
+  /* ELIMINADO: transform: translateY(-1px); (Ahora es estático) */
 }
-.sal-cta:active { transform: scale(0.98); }
+
+.sal-cta:active { 
+  transform: scale(0.98); /* Click sutil sí mantenemos */
+  transition-duration: 0.05s;
+}
 
 .sal-cta-secondary {
   background-color: transparent;
@@ -57,13 +63,30 @@
   box-shadow: none;
 }
 .sal-cta-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* FIX: Botón Nav específico */
 .sal-cta-nav {
   cursor: pointer !important;
+}
+
+/* === ANIMACIÓN FLECHA MAGNÉTICA (> a ->) === */
+/* El guion está oculto y se expande en hover */
+.sal-arrow-dash {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin-right: 1px; 
+}
+
+/* Al hacer hover en el contenedor padre (.group), el guion crece */
+.group:hover .sal-arrow-dash {
+  width: 7px; /* Ancho del guion */
+  opacity: 1;
 }
 
 /* === HERO ROTATOR === */
