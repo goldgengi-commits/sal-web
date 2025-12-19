@@ -1,105 +1,66 @@
 @import "tailwindcss";
 
 @layer base {
-  /* Forzamos el fondo negro profundo premium aquí para asegurar consistencia */
   body {
-    background-color: #050505; /* Negro profundo, no gris azulado */
-    color: #a1a1aa; /* Zinc-400 por defecto para textos largos */
+    background-color: #050505;
+    color: #a1a1aa;
   }
-  
-  /* Títulos con tracking apretado por defecto para look moderno */
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tighter text-white;
   }
 }
 
-/* === ANIMACIONES DE ENTRADA (FADE UP) === */
+/* === ANIMACIONES (Fade Up básico) === */
 .sal-animate-fade-up {
   opacity: 0;
-  transform: translateY(16px); /* Un poco más de recorrido */
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   will-change: opacity, transform;
 }
-
 .sal-animate-fade-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* === BOTONES (CTAs) ESTILO "CLEAN" === */
-/* Eliminamos el arcoíris. Usamos luz y borde sutil */
-
+/* === BOTONES (CTAs) === */
 .sal-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem; /* Padding fino */
+  height: 2.5rem; /* Altura forzada 40px (h-10) para evitar gordura */
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fff;
-  position: relative;
-  overflow: hidden;
-  background-color: #171717; /* Neutral-900 */
+  background-color: #171717;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Brillo superior interno */
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
 }
-
 .sal-cta:hover {
-  background-color: #262626; /* Un tono más claro */
+  background-color: #262626;
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
-  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.05);
 }
+.sal-cta:active { transform: scale(0.98); }
 
-.sal-cta:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.sal-cta:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-/* Variante secundaria (Bordes solo, fondo transparente) */
-.sal-cta-secondary {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: none;
-}
-
-.sal-cta-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-/* Botón Nav (Pequeño) */
-.sal-cta-nav {
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.03);
-}
-.sal-cta-nav:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.3);
-}
-
-/* === HERO ROTATOR: FORZADO === */
+/* === HERO ROTATOR (FIX DEFINITIVO) === */
 .sal-hero-rotator {
   position: relative;
-  /* Forzamos altura mínima de 600px en escritorio para que sea ENORME */
-  min-height: 400px; 
-  display: grid;
-  place-items: center;
+  width: 100%;
+  /* Usamos HEIGHT fijo, no min-height, para imponer el tamaño */
+  height: 500px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   perspective: 1000px;
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
   .sal-hero-rotator {
-    min-height: 600px !important; /* Altura forzada en PC */
+    height: 600px !important; /* Altura masiva en escritorio */
   }
 }
 
@@ -109,59 +70,60 @@
   width: 100%;
   height: 100%;
   
-  /* ESTADO INACTIVO */
+  /* ESTADO INACTIVO: Solo escala, CERO movimiento vertical */
   opacity: 0;
-  /* SOLO ESCALA. Si ves que se mueve de arriba a abajo, es brujería */
-  transform: scale(0.95) translateY(0px) !important; 
-  filter: blur(8px);
-  
-  transition: 
-    opacity 0.8s ease-in-out, 
-    transform 0.8s ease-in-out,
-    filter 0.8s ease;
-    
+  transform: scale(0.95) !important; 
+  filter: blur(10px);
   pointer-events: none;
   z-index: 0;
+  
+  /* Transición "Apple": lenta y suave */
+  transition: 
+    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), 
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.7s ease;
 }
 
 /* ESTADO ACTIVO */
 .sal-hero-slide.is-active {
   opacity: 1;
-  transform: scale(1) translateY(0px) !important;
+  transform: scale(1) !important;
   filter: blur(0px);
   pointer-events: auto;
   z-index: 10;
 }
 
-/* === TARJETAS CON ACENTO DINÁMICO === */
-/* Usamos las variables --a, --b, --c que pasas en el HTML */
-
+/* Tarjeta interna que ocupa todo el espacio */
 .sal-accent-card {
   position: relative;
   overflow: hidden;
-  background-color: #0a0a0a; /* Fondo base tarjeta */
-  transition: border-color 0.3s ease;
+  background-color: #0a0a0a;
+  height: 100%; /* Llenar el contenedor padre */
+  width: 100%;
+  border-radius: 1.5rem; /* Bordes redondeados modernos */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar contenido verticalmente */
 }
 
-/* El glow de fondo generado por las variables de color */
+/* El Glow */
 .sal-accent-card::before {
   content: "";
   position: absolute;
-  inset: -50%; /* Hacemos el gradiente más grande que la caja */
+  inset: -50%;
   width: 200%;
   height: 200%;
-  pointer-events: none;
   background:
-    radial-gradient(circle at 50% 50%, var(--a), transparent 40%),
-    radial-gradient(circle at 80% 20%, var(--b), transparent 40%),
-    radial-gradient(circle at 20% 80%, var(--c), transparent 40%);
-  opacity: 0.35; /* Sutil, no neón de bar */
-  filter: blur(60px);
-  transform: translateZ(0); /* Aceleración GPU */
+    radial-gradient(circle at 50% 50%, var(--a), transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--b), transparent 50%),
+    radial-gradient(circle at 20% 80%, var(--c), transparent 50%);
+  opacity: 0.4;
+  filter: blur(90px);
+  pointer-events: none;
 }
 
-/* Contenido por encima del glow */
 .sal-accent-inner {
   position: relative;
   z-index: 2;
+  padding: 3rem; /* Padding generoso */
 }
