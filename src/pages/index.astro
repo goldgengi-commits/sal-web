@@ -23,12 +23,11 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         </a>
 
         <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
-          <a href="#problema" class="hover:text-white transition-colors">Problema</a>
-          <a href="#que-es" class="hover:text-white transition-colors">Qué es</a>
-          <a href="#validacion" class="hover:text-white transition-colors">Cómo se valida</a>
-          <a href="/casos/" class="hover:text-white transition-colors">Casos</a>
-          <a href="#para-quien" class="hover:text-white transition-colors">Para quién</a>
-          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+          <a href="#problema" class="hover:text-white transition-colors cursor-pointer">Problema</a>
+          <a href="#metodo" class="hover:text-white transition-colors cursor-pointer">Método</a>
+          <a href="/casos/" class="hover:text-white transition-colors cursor-pointer">Casos</a>
+          <a href="#para-quien" class="hover:text-white transition-colors cursor-pointer">Para quién</a>
+          <a href="#faq" class="hover:text-white transition-colors cursor-pointer">FAQ</a>
         </nav>
 
         <div class="flex items-center gap-3"> 
@@ -42,7 +41,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             Agendar demo 
           </button>
 
-          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white transition-colors">
+          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white transition-colors cursor-pointer">
             Contacto
           </a>
         </div>
@@ -80,7 +79,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
               Agendar demo
             </button>
 
-            <a href="#validacion" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/5 cursor-pointer">
+            <a href="#metodo" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/5 cursor-pointer">
               Ver método
             </a>
           </div>
@@ -117,7 +116,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
                     
                     <div class="flex items-start justify-between">
                       <div class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">
-                        Simulación · 8.000 perfiles
+                        Simulación · +30.000 perfiles
                       </div>
                       {c.winNote && (
                         <div class="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-[10px] font-bold text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.1)]">
@@ -183,8 +182,8 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="que-es" class="py-24 border-t border-zinc-900">
-      <div id="validacion" class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
+    <section id="metodo" class="py-24 border-t border-zinc-900">
+      <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <div class="md:flex md:items-end md:justify-between mb-12">
           <div class="max-w-2xl">
             <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white">Tu laboratorio de comportamiento</h2>
@@ -220,6 +219,39 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
+    <section class="py-24 border-t border-zinc-900 bg-zinc-950/20">
+      <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
+        <h2 class="text-2xl md:text-3xl font-light tracking-tight text-white mb-12">Cómo validamos la señal</h2>
+        
+        <div class="space-y-8 max-w-4xl">
+          <div class="flex gap-6 items-start">
+             <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 grid place-items-center shrink-0 text-zinc-400">
+               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+             </div>
+             <div>
+               <h3 class="text-lg font-medium text-white">Ranking comparativo (Score 0-10)</h3>
+               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">
+                 No inventamos un CTR falso. Calculamos un score de preferencia comparativa. Si la Variante A tiene un score de 8.5 y la B de 4.2, la señal es clara. Validamos por contraste, no por absoluto.
+               </p>
+             </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+             <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 grid place-items-center shrink-0 text-zinc-400">
+               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+             </div>
+             <div>
+               <h3 class="text-lg font-medium text-white">Drivers Psicológicos</h3>
+               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">
+                 Entendemos el "por qué". ¿El rechazo viene por precio o por falta de prueba social? Desglosamos la fricción para que tu siguiente iteración sea más inteligente.
+               </p>
+             </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section class="py-24 border-t border-zinc-900 bg-zinc-950/30">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <div class="flex items-end justify-between mb-12">
@@ -249,7 +281,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         </div>
         
         <div class="mt-8 md:hidden">
-           <a href="/casos/" class="text-sm text-zinc-300 underline">Ver todos los casos →</a>
+           <a href="/casos/" class="text-sm text-zinc-300 underline cursor-pointer">Ver todos los casos →</a>
         </div>
       </div>
     </section>
@@ -333,13 +365,13 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         <div class="space-y-4">
           <div class="font-medium text-white">{brand}</div>
           <div class="flex flex-col gap-2 text-zinc-500">
-            <a href={ctaHref} class="hover:text-zinc-300">Email</a>
-            <a href="https://www.linkedin.com/" target="_blank" class="hover:text-zinc-300">LinkedIn</a>
+            <a href={ctaHref} class="hover:text-zinc-300 cursor-pointer">Email</a>
+            <a href="https://www.linkedin.com/" target="_blank" class="hover:text-zinc-300 cursor-pointer">LinkedIn</a>
           </div>
         </div>
         <div class="flex flex-col gap-2 text-zinc-500 md:text-right">
-          <a href="/privacidad" class="hover:text-zinc-300">Política de Privacidad</a>
-          <a href="/aviso-legal" class="hover:text-zinc-300">Aviso Legal</a>
+          <a href="/privacidad" class="hover:text-zinc-300 cursor-pointer">Política de Privacidad</a>
+          <a href="/aviso-legal" class="hover:text-zinc-300 cursor-pointer">Aviso Legal</a>
           <p class="mt-4 text-xs opacity-50">Datos 100% sintéticos. Sin cookies de terceros.</p>
         </div>
       </div>
