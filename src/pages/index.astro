@@ -3,11 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { cases as allCases } from "../data/cases";
 
 const cases = Array.isArray(allCases) ? allCases : [];
-// Lógica: 3 para el hero, 3 para la grid de abajo
 const heroCases = cases.slice(0, 3);
 const featuredCases = cases.slice(3, 6);
 
-// Configuración de contacto
 const brand = "Synthetic Audience Lab";
 const email = "syntheticaudiencelab@hotmail.com";
 const mailtoSubject = "Demo — Synthetic Audience Lab";
@@ -25,13 +23,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         </a>
 
         <nav class="hidden md:flex items-center gap-7 text-sm text-zinc-300">
-          <a href="#problema" class="hover:text-white">Problema</a>
-          <a href="#que-es" class="hover:text-white">Qué es</a>
-          <a href="#validacion" class="hover:text-white">Cómo se valida</a>
-          <a href="/privacidad" class="hover:text-white">Privacidad</a>
-          <a href="/casos/" class="hover:text-white">Casos</a>
-          <a href="#para-quien" class="hover:text-white">Para quién</a>
-          <a href="#faq" class="hover:text-white">FAQ</a>
+          <a href="#problema" class="hover:text-white transition-colors">Problema</a>
+          <a href="#que-es" class="hover:text-white transition-colors">Qué es</a>
+          <a href="#validacion" class="hover:text-white transition-colors">Cómo se valida</a>
+          <a href="/casos/" class="hover:text-white transition-colors">Casos</a>
+          <a href="#para-quien" class="hover:text-white transition-colors">Para quién</a>
+          <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
         </nav>
 
         <div class="flex items-center gap-3"> 
@@ -40,12 +37,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
             data-cal-namespace="salDemo"
             data-cal-config='{"layout":"month_view"}'
-            class="sal-cta-nav inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold text-white transition" 
+            class="sal-cta-nav inline-flex cursor-pointer items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-xs font-medium text-white transition hover:bg-zinc-800" 
           > 
             Agendar demo 
           </button>
 
-          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white">
+          <a href={ctaHref} class="hidden lg:inline text-sm text-zinc-300 hover:text-white transition-colors">
             Contacto
           </a>
         </div>
@@ -78,12 +75,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
               data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
               data-cal-namespace="salDemo"
               data-cal-config='{"layout":"month_view"}'
-              class="sal-cta"
+              class="sal-cta cursor-pointer"
             >
               Agendar demo
             </button>
 
-            <a href="#validacion" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/5">
+            <a href="#validacion" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/5 cursor-pointer">
               Ver método
             </a>
           </div>
@@ -95,7 +92,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
               data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
               data-cal-namespace="salMadrid"
               data-cal-config='{"layout":"month_view"}'
-              class="text-zinc-300 hover:text-white underline underline-offset-4 transition"
+              class="text-zinc-300 hover:text-white underline underline-offset-4 transition cursor-pointer"
             >
               Reserva presencial
             </button>
@@ -110,13 +107,10 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         <div class="relative w-full sal-animate-fade-up">
           <div class="sal-hero-rotator">
             {heroCases.map((c, i) => (
-              /* CAPA 1: Wrapper de animación (Slide) */
               <div class={`sal-hero-slide ${i === 0 ? "is-active" : ""}`}>
-                
-                /* CAPA 2: Tarjeta Visual (Card) */
                 <a
                   href={`/casos/${c.slug}/`}
-                  class="sal-accent-card"
+                  class="sal-accent-card cursor-pointer"
                   style={`--a:${c.accent.a};--b:${c.accent.b};--c:${c.accent.c};`}
                 >
                   <div class="sal-accent-inner flex flex-col justify-between h-full">
@@ -169,61 +163,55 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
         <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
-            <div class="h-10 w-10 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center mb-6 text-zinc-400">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <div class="font-medium text-white">Tiempo perdido</div>
-            <p class="mt-3 text-sm text-zinc-400 leading-relaxed">Iteraciones lentas en Meta/Google Ads. Semanas para saber que el ángulo no funcionaba.</p>
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 01</div>
+            <div class="font-medium text-white text-lg">Tiempo perdido</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Iteraciones lentas en Meta/Google Ads. Semanas para saber que el ángulo no funcionaba.</p>
           </div>
 
           <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
-            <div class="h-10 w-10 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center mb-6 text-zinc-400">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <div class="font-medium text-white">Dinero quemado</div>
-            <p class="mt-3 text-sm text-zinc-400 leading-relaxed">Creatividades equivocadas que inflan el CPC y consumen el 40% del presupuesto inicial.</p>
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 02</div>
+            <div class="font-medium text-white text-lg">Dinero quemado</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Creatividades equivocadas que inflan el CPC y consumen el 40% del presupuesto inicial.</p>
           </div>
 
           <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
-            <div class="h-10 w-10 rounded-xl bg-white/5 border border-zinc-800 grid place-items-center mb-6 text-zinc-400">
-               <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <div class="font-medium text-white">Incertidumbre</div>
-            <p class="mt-3 text-sm text-zinc-400 leading-relaxed">No sabes qué mensaje engancha y cuál repele hasta que ya has pagado la factura.</p>
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 03</div>
+            <div class="font-medium text-white text-lg">Incertidumbre</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No sabes qué mensaje engancha y cuál repele hasta que ya has pagado la factura.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="que-es" class="py-24 border-t border-zinc-900">
-      <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
+      <div id="validacion" class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <div class="md:flex md:items-end md:justify-between mb-12">
           <div class="max-w-2xl">
             <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white">Tu laboratorio de comportamiento</h2>
             <p class="mt-4 text-lg text-zinc-400">
-              Creamos perfiles sintéticos coherentes con tu audiencia (ICP) y probamos tus mensajes en minutos, no en meses.
+              Creamos perfiles sintéticos coherentes con tu audiencia (ICP) y probamos tus mensajes en minutos.
             </p>
           </div>
         </div>
 
-        <div class="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-10">
+        <div class="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8 md:p-12">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-             <div class="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
+             <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
 
             <div class="relative z-10">
-              <div class="h-24 w-24 rounded-full border border-zinc-800 bg-zinc-900 grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">1</div>
+              <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">1</div>
               <h3 class="text-lg font-medium text-white">Generamos</h3>
               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Creamos una audiencia sintética basada en tu ICP real: miedos, deseos, fricciones y lenguaje.</p>
             </div>
 
             <div class="relative z-10">
-               <div class="h-24 w-24 rounded-full border border-zinc-800 bg-zinc-900 grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">2</div>
+               <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">2</div>
               <h3 class="text-lg font-medium text-white">Simulamos</h3>
               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exponemos tus anuncios y mensajes a estos perfiles. Medimos intención de clic y rechazo psicológico.</p>
             </div>
 
             <div class="relative z-10">
-               <div class="h-24 w-24 rounded-full border border-zinc-800 bg-zinc-900 grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">3</div>
+               <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">3</div>
               <h3 class="text-lg font-medium text-white">Entregamos</h3>
               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Un informe con ganadores claros y el "por qué". Listo para que lo implementes en Meta/Google.</p>
             </div>
@@ -239,14 +227,15 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             <h2 class="text-3xl md:text-4xl font-light text-white">Más simulaciones</h2>
             <p class="mt-2 text-zinc-400">Resultados recientes por sector.</p>
           </div>
-          <a href="/casos/" class="hidden md:inline-flex items-center text-sm text-zinc-300 hover:text-white transition">
-            Ver todos los casos →
+          <a href="/casos/" class="group hidden md:inline-flex items-center text-sm text-zinc-300 hover:text-white transition cursor-pointer">
+            Ver todos los casos 
+            <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredCases.map((c) => (
-            <a href={`/casos/${c.slug}/`} class="group block h-full">
+            <a href={`/casos/${c.slug}/`} class="group block h-full cursor-pointer">
               <div class="h-full rounded-3xl border border-zinc-800 bg-zinc-900/50 p-8 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900">
                 <div class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{c.tag}</div>
                 <h3 class="mt-4 text-xl font-medium text-zinc-100 group-hover:text-white">{c.title}</h3>
@@ -265,14 +254,35 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="faq" class="py-24 border-t border-zinc-900">
+    <section id="para-quien" class="py-24 border-t border-zinc-900">
+      <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
+        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white mb-12">Para quién es esto</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="border-l border-zinc-800 pl-8">
+            <h3 class="text-lg font-medium text-white">SaaS B2B</h3>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Valida tu propuesta de valor, mensajes de landing y ángulos antes de lanzar campañas de leads caras.</p>
+          </div>
+          <div class="border-l border-zinc-800 pl-8">
+            <h3 class="text-lg font-medium text-white">E-commerce</h3>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Descubre qué creatividad visual o hook detiene el scroll y cuál genera fricción de compra.</p>
+          </div>
+          <div class="border-l border-zinc-800 pl-8">
+            <h3 class="text-lg font-medium text-white">Agencias de Performance</h3>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Ofrece a tus clientes una validación previa a la inversión. Vende con señal, no solo con promesas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-24 border-t border-zinc-900 bg-zinc-950/30">
       <div class="mx-auto max-w-4xl px-6 sal-animate-fade-up">
         <h2 class="text-3xl font-light tracking-tight text-center mb-16">Preguntas frecuentes</h2>
 
         <div class="grid gap-6">
           <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
             <h3 class="font-medium text-zinc-200">¿Esto es CTR real?</h3>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Son <span class="text-white">scores de intención comparativa</span>. Nuestro modelo predice qué variante tiene mayor probabilidad de éxito basándose en los drivers psicológicos de tu audiencia.</p>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Son <span class="text-white">scores de intención comparativa</span>. Nuestro modelo predice qué variante tiene mayor probabilidad de éxito basándose en los drivers psicológicos.</p>
           </div>
 
           <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
@@ -282,7 +292,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
           <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
             <h3 class="font-medium text-zinc-200">¿Usáis datos personales?</h3>
-            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Trabajamos 100% con datos sintéticos. Generamos perfiles simulados que imitan el comportamiento humano sin comprometer la privacidad de nadie.</p>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Trabajamos 100% con datos sintéticos. Generamos perfiles simulados que imitan el comportamiento humano sin comprometer la privacidad.</p>
           </div>
         </div>
       </div>
@@ -290,12 +300,11 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
     <section class="py-24 border-t border-zinc-900">
       <div class="mx-auto max-w-5xl px-6">
-        <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-12 md:p-16 text-center">
-           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+        <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-b from-zinc-900 via-black to-black p-12 md:p-20 text-center shadow-2xl shadow-black">
           
           <div class="relative z-10">
             <h2 class="text-3xl md:text-5xl font-medium tracking-tighter text-white">Deja de adivinar.</h2>
-            <p class="mt-6 text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p class="mt-6 text-xl text-zinc-400 max-w-2xl mx-auto font-light">
               Tu próxima campaña puede ser rentable antes de lanzarla. <br />
               Valida tu creatividad en 5 días por 2.500€.
             </p>
@@ -306,11 +315,11 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
                 data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
                 data-cal-namespace="salDemo"
                 data-cal-config='{"layout":"month_view"}'
-                class="sal-cta"
+                class="sal-cta cursor-pointer"
               >
                 Agendar demo
               </button>
-              <a href="/casos/" class="sal-cta sal-cta-secondary">
+              <a href="/casos/" class="sal-cta sal-cta-secondary cursor-pointer">
                 Ver casos de estudio
               </a>
             </div>
@@ -343,13 +352,10 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
   (() => {
     const root = document.querySelector(".sal-hero-rotator");
     if (!root) return;
-    // Seleccionamos solo los slides directos
     const slides = Array.from(root.querySelectorAll(".sal-hero-slide"));
     if (slides.length <= 1) return;
 
     let i = 0;
-    
-    // Función para actualizar estado
     const set = (idx) => {
       slides.forEach((el, j) => {
         if (j === idx) {
@@ -360,13 +366,11 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       });
     };
 
-    // Inicializar
     set(0);
 
-    // Loop infinito
     setInterval(() => {
       i = (i + 1) % slides.length;
       set(i);
-    }, 5000); // 5 segundos por slide
+    }, 5000);
   })();
 </script>

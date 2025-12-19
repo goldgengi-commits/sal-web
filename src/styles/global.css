@@ -8,6 +8,10 @@
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tighter text-white;
   }
+  /* FIX: Forzar cursor pointer en botones */
+  button {
+    cursor: pointer;
+  }
 }
 
 /* === ANIMACIONES FADE SIMPLE === */
@@ -38,6 +42,7 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease;
   white-space: nowrap;
+  cursor: pointer !important; /* FIX CURSOR */
 }
 .sal-cta:hover {
   background-color: #262626;
@@ -56,20 +61,22 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* === HERO ROTATOR: FIX APLASTAMIENTO === */
-/* Quitamos display: flex para evitar colapso de columnas */
+/* FIX: Botón Nav específico */
+.sal-cta-nav {
+  cursor: pointer !important;
+}
 
+/* === HERO ROTATOR === */
 .sal-hero-rotator {
   position: relative;
   width: 100%;
-  display: block; /* IMPORTANTE: Bloque, no flex */
-  /* Altura fija para evitar saltos, ajustada a la tarjeta */
-  height: 480px; 
+  display: block;
+  height: 500px; 
 }
 
 @media (min-width: 768px) {
   .sal-hero-rotator {
-    height: 550px !important;
+    height: 600px !important;
   }
 }
 
@@ -78,24 +85,18 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  
-  /* ESTADO INACTIVO: Solo opacidad 0. SIN MOVIMIENTO. */
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  
-  /* Transición pura de opacidad */
   transition: opacity 0.6s ease-in-out;
 }
 
-/* ESTADO ACTIVO */
 .sal-hero-slide.is-active {
   opacity: 1;
   pointer-events: auto;
   z-index: 10;
 }
 
-/* Tarjeta interna */
 .sal-accent-card {
   position: relative;
   overflow: hidden;
@@ -106,10 +107,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.05); /* Borde sutil para definir límites */
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* El Glow de fondo */
 .sal-accent-card::before {
   content: "";
   position: absolute;
@@ -120,7 +120,7 @@
     radial-gradient(circle at 50% 50%, var(--a), transparent 50%),
     radial-gradient(circle at 80% 20%, var(--b), transparent 50%),
     radial-gradient(circle at 20% 80%, var(--c), transparent 50%);
-  opacity: 0.25; /* Bajamos un poco la intensidad para leer mejor */
+  opacity: 0.25;
   filter: blur(80px);
   pointer-events: none;
 }
@@ -128,5 +128,5 @@
 .sal-accent-inner {
   position: relative;
   z-index: 2;
-  padding: 2.5rem; /* Espacio interno para que el texto no toque bordes */
+  padding: 2.5rem;
 }
