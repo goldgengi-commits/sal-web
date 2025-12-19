@@ -2,23 +2,18 @@ export type CaseKPI = { label: string; value: string; note?: string };
 
 export type CaseStudy = {
   slug: string;
-  tag: string;          // Etiqueta pequeña (ej: SaaS, E-commerce)
-  title: string;        // Título principal
-  subtitle: string;     // Subtítulo corto
-  heroBlurb?: string;   // EL TEXTO PARA LA TARJETA DEL HERO (Nuevo)
-  kpis: CaseKPI[];      // 3 métricas clave
-  winNote?: string;     // La "pill" verde o nota de ganador
-  accent: {             // Colores del glow
-    a: string; 
-    b: string;
-    c: string;
-  };
-  featured?: boolean;   // Control interno
+  tag: string;
+  title: string;
+  subtitle: string;
+  heroBlurb?: string;
+  kpis: CaseKPI[];
+  winNote?: string;
+  accent: { a: string; b: string; c: string; };
+  featured?: boolean;
 };
 
 export const cases: CaseStudy[] = [
-  // === HERO CASES (Los 3 que salen en el rotador arriba) ===
-  
+  // === GRUPO 1: HERO (0, 1, 2) ===
   {
     slug: "toolspace-saas-b2b",
     tag: "SaaS B2B",
@@ -32,13 +27,12 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner C (Menor fricción)",
     accent: {
-      a: "rgba(129, 140, 248, 0.25)", // Indigo
+      a: "rgba(129, 140, 248, 0.25)",
       b: "rgba(99, 102, 241, 0.20)",
-      c: "rgba(168, 85, 247, 0.15)", // Purple
+      c: "rgba(168, 85, 247, 0.15)",
     },
     featured: true,
   },
-
   {
     slug: "skincare-friccion-emocional",
     tag: "E-commerce",
@@ -52,13 +46,12 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner B (Garantía)",
     accent: {
-      a: "rgba(244, 114, 182, 0.25)", // Pink
+      a: "rgba(244, 114, 182, 0.25)",
       b: "rgba(236, 72, 153, 0.20)",
-      c: "rgba(251, 113, 133, 0.15)", // Rose
+      c: "rgba(251, 113, 133, 0.15)",
     },
     featured: true,
   },
-
   {
     slug: "b2b-ads-copy-testing",
     tag: "B2B Service",
@@ -72,21 +65,19 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner M2 (Especificidad)",
     accent: {
-      a: "rgba(56, 189, 248, 0.25)", // Sky blue
+      a: "rgba(56, 189, 248, 0.25)",
       b: "rgba(14, 165, 233, 0.20)",
-      c: "rgba(2, 132, 199, 0.15)", // Blue
+      c: "rgba(2, 132, 199, 0.15)",
     },
     featured: true,
   },
 
-  // === GRID CASES (Los 3 que salen abajo, distintos) ===
-
+  // === GRUPO 2: GRID HOME (3, 4, 5) ===
   {
     slug: "elite-pt-high-ticket",
     tag: "High Ticket",
     title: "Elite PT — Cliente Difícil",
     subtitle: "Nicho sin datos previos: construcción desde cero.",
-    // En la grid no se usa heroBlurb, se usa subtitle, pero lo dejamos por si acaso
     heroBlurb: "Separación de mensajes por segmento: Performance para atletas vs. Ahorro de tiempo para entrenadores ocupados.",
     kpis: [
       { label: "Encaje", value: "M1 Time", note: "general" },
@@ -95,13 +86,12 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner Mixto (Segmentado)",
     accent: {
-      a: "rgba(16, 185, 129, 0.25)", // Emerald
+      a: "rgba(16, 185, 129, 0.25)",
       b: "rgba(5, 150, 105, 0.20)",
       c: "rgba(52, 211, 153, 0.15)",
     },
     featured: true,
   },
-
   {
     slug: "sensibilidad-precio-saas",
     tag: "Estrategia",
@@ -115,13 +105,12 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner P49 (Revenue)",
     accent: {
-      a: "rgba(251, 146, 60, 0.25)", // Orange
+      a: "rgba(251, 146, 60, 0.25)",
       b: "rgba(249, 115, 22, 0.20)",
       c: "rgba(253, 186, 116, 0.15)",
     },
     featured: true,
   },
-
   {
     slug: "saas-roles-productividad",
     tag: "SaaS / Roles",
@@ -135,9 +124,68 @@ export const cases: CaseStudy[] = [
     ],
     winNote: "Winner A (Global)",
     accent: {
-      a: "rgba(139, 92, 246, 0.25)", // Violet
+      a: "rgba(139, 92, 246, 0.25)",
       b: "rgba(124, 58, 237, 0.20)",
       c: "rgba(167, 139, 250, 0.15)",
+    },
+    featured: true,
+  },
+
+  // === GRUPO 3: RESTO (6, 7, 8) - Visibles en página Casos ===
+  {
+    slug: "agencia-ecommerce-mensajes",
+    tag: "Agencia B2B",
+    title: "Agencia E-com — Mensajes",
+    subtitle: "Performance (ROAS) vs. IA vs. Partner.",
+    heroBlurb: "M1 (ROAS) domina en conversión pura, pero M3 (IA) tiene mayor tasa de apertura. M2 (Partner) solo funciona en marcas de branding.",
+    kpis: [
+      { label: "Lead Rate", value: "0.55%", note: "M1 (Winner)" },
+      { label: "Open Rate", value: "42.1%", note: "M3 (Winner)" },
+      { label: "WinShare", value: "44.5%", note: "M1 Global" },
+    ],
+    winNote: "Winner M1 (Performance)",
+    accent: {
+      a: "rgba(6, 182, 212, 0.25)", // Cyan
+      b: "rgba(8, 145, 178, 0.20)",
+      c: "rgba(34, 211, 238, 0.15)",
+    },
+    featured: true,
+  },
+  {
+    slug: "ugc-creatividades-hooks",
+    tag: "UGC / Creative",
+    title: "UGC — 5 Estilos",
+    subtitle: "Emocional vs. Educativo vs. TikTok.",
+    heroBlurb: "Los perfiles 'Info-seekers' respondieron al educativo. Los impulsivos al formato TikTok. No hay un 'mejor UGC' universal, depende del segmento.",
+    kpis: [
+      { label: "Score", value: "99.9", note: "consistencia" },
+      { label: "P10", value: "100", note: "max score" },
+      { label: "Robustez", value: "Alta", note: "vs seeds" },
+    ],
+    winNote: "Depende del segmento",
+    accent: {
+      a: "rgba(217, 70, 239, 0.25)", // Fuchsia
+      b: "rgba(192, 38, 211, 0.20)",
+      c: "rgba(232, 121, 249, 0.15)",
+    },
+    featured: true,
+  },
+  {
+    slug: "landing-optimization-18-vars",
+    tag: "CRO / Web",
+    title: "Landing Optimization",
+    subtitle: "18 variantes de Hero + Subtítulo.",
+    heroBlurb: "Social Proof funciona peor en móvil por distracción. Search Traffic responde mejor a benchmarks. La táctica gana a la creatividad aquí.",
+    kpis: [
+      { label: "WinShare", value: "31.1%", note: "baja diff" },
+      { label: "Conversión", value: "0.47%", note: "media" },
+      { label: "Rechazo", value: "35.4%", note: "fricción" },
+    ],
+    winNote: "Táctico (Móvil vs Desktop)",
+    accent: {
+      a: "rgba(20, 184, 166, 0.25)", // Teal
+      b: "rgba(13, 148, 136, 0.20)",
+      c: "rgba(45, 212, 191, 0.15)",
     },
     featured: true,
   },
