@@ -33,7 +33,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.75rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -87,14 +87,20 @@
   border-color: rgba(255,255,255,0.3);
 }
 
-/* === HERO ROTATOR: Grande y Estático (Fade & Scale) === */
+/* === HERO ROTATOR: FORZADO === */
 .sal-hero-rotator {
   position: relative;
-  /* Altura GRANDE forzada para imponer presencia */
-  min-height: 520px; 
+  /* Forzamos altura mínima de 600px en escritorio para que sea ENORME */
+  min-height: 400px; 
   display: grid;
   place-items: center;
   perspective: 1000px;
+}
+
+@media (min-width: 768px) {
+  .sal-hero-rotator {
+    min-height: 600px !important; /* Altura forzada en PC */
+  }
 }
 
 .sal-hero-slide {
@@ -103,25 +109,25 @@
   width: 100%;
   height: 100%;
   
-  /* ESTADO INACTIVO (Invisible) */
+  /* ESTADO INACTIVO */
   opacity: 0;
-  transform: scale(0.95); /* Solo escala, SIN moverse de sitio */
-  filter: blur(8px);      /* Efecto blur al salir (muy Apple) */
+  /* SOLO ESCALA. Si ves que se mueve de arriba a abajo, es brujería */
+  transform: scale(0.95) translateY(0px) !important; 
+  filter: blur(8px);
   
-  /* Transición lenta y lujosa */
   transition: 
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s ease;
+    opacity 0.8s ease-in-out, 
+    transform 0.8s ease-in-out,
+    filter 0.8s ease;
     
   pointer-events: none;
   z-index: 0;
 }
 
-/* ESTADO ACTIVO (Visible) */
+/* ESTADO ACTIVO */
 .sal-hero-slide.is-active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0px) !important;
   filter: blur(0px);
   pointer-events: auto;
   z-index: 10;
