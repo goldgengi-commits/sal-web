@@ -87,11 +87,11 @@
   border-color: rgba(255,255,255,0.3);
 }
 
-/* === HERO ROTATOR (LIMPIO) === */
+/* === HERO ROTATOR: Grande y Estático (Solo Fade/Scale) === */
 .sal-hero-rotator {
   position: relative;
-  /* Altura fija mínima para evitar saltos de layout */
-  min-height: 420px; 
+  /* AUMENTADO: De 420px a 520px para que la tarjeta sea enorme */
+  min-height: 520px; 
   display: grid;
   place-items: center;
   perspective: 1000px;
@@ -105,13 +105,15 @@
   
   /* ESTADO INACTIVO (Invisible) */
   opacity: 0;
-  /* Empieza un pelín más pequeño y abajo */
-  transform: translateY(8px) scale(0.98); 
+  /* Solo escala, SIN movimiento vertical (translateY eliminado) */
+  transform: scale(0.94); 
+  filter: blur(4px); /* Truco Pro: un poco de blur al salir */
   
-  /* Transición suave tipo Apple */
+  /* Transición lenta y lujosa */
   transition: 
-    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.8s ease;
     
   pointer-events: none;
   z-index: 0;
@@ -120,7 +122,8 @@
 /* ESTADO ACTIVO (Visible) */
 .sal-hero-slide.is-active {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: scale(1); /* Crece a su tamaño natural */
+  filter: blur(0px);
   pointer-events: auto;
   z-index: 10;
 }
