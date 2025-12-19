@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { cases as allCases } from "../data/cases";
 
 const cases = Array.isArray(allCases) ? allCases : [];
-const heroCases = cases.filter((c) => c.featured).slice(0, 3);
-const featuredCases = cases.filter((c) => c.featured).slice(0, 3);
-const calDemo = "syntheticaudiencelab/demo-videollamada-20-min";
+const heroCases = cases.slice(0, 3); 
+
+const featuredCases = cases.slice(3, 6);const calDemo = "syntheticaudiencelab/demo-videollamada-20-min";
 const calDemoHref = `https://cal.com/${calDemo}`;
 
 const calMadrid = "syntheticaudiencelab/demo-presencial-solo-madrid-45-min";
@@ -68,9 +68,10 @@ Agendar demo
             IA aplicada a marketing para priorizar creatividades antes de gastar en Ads.
           </p>
 
-          <h1 class="mt-2 text-4xl md:text-6xl font-light leading-[1.05] tracking-tight">
-            Reduce el riesgo creativo antes de invertir en Ads.
-          </h1>
+          <h1 class="mt-4 text-5xl md:text-7xl font-medium tracking-tighter text-white leading-[1.05]">
+  Reduce el riesgo creativo <br class="hidden md:block" /> 
+  <span class="text-zinc-400">antes de invertir en Ads.</span>
+</h1>
 
           <p class="mt-4 text-lg text-zinc-300">
             Synthetic Audience Lab simula reacciones y prioriza mensajes/creatividades para que lances con señal, no con intuición.
