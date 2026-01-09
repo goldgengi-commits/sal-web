@@ -15,10 +15,29 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
 
 <BaseLayout title={brand}>
   
-  <header class="sticky top-0 z-50 border-b border-zinc-900/70 bg-zinc-950/60 backdrop-blur">
+  <style is:global>
+    body {
+      /* Imagen local en public/fondo-web.jpg */
+      background-image: url('/fondo-web.jpg');
+      background-size: cover;
+      /* 70% center desplaza el foco de la imagen hacia la derecha */
+      background-position: 70% center; 
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    
+    /* En móviles, centramos la imagen mejor */
+    @media (max-width: 768px) {
+      body {
+        background-position: center top;
+      }
+    }
+  </style>
+
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
     <div class="mx-auto max-w-6xl px-6">
       <div class="flex h-14 items-center justify-between">
-        <a href="#" class="text-sm font-medium text-zinc-200 hover:text-white">
+        <a href="#" class="text-sm font-medium text-white hover:text-zinc-300 transition-colors">
           {brand}
         </a>
 
@@ -36,7 +55,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             data-cal-link="syntheticaudiencelab/demo-videollamada-20-min"
             data-cal-namespace="salDemo"
             data-cal-config='{"layout":"month_view"}'
-            class="sal-cta-nav inline-flex cursor-pointer items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-xs font-medium text-white transition hover:bg-zinc-800" 
+            class="sal-cta-nav inline-flex cursor-pointer items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-white transition hover:bg-zinc-800" 
           > 
             Agendar demo 
           </button>
@@ -55,16 +74,16 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       <div class="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         <div class="max-w-2xl sal-animate-fade-up relative z-10">
-          <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">
+          <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium">
             IA aplicada a marketing para priorizar creatividades
           </p>
 
           <h1 class="mt-6 text-5xl md:text-7xl font-medium tracking-tighter text-white leading-[1.05]">
             Reduce el riesgo creativo <br class="hidden md:block" /> 
-            <span class="text-zinc-500">antes de invertir.</span>
+            <span class="text-zinc-400">antes de invertir.</span>
           </h1>
 
-          <p class="mt-8 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg">
+          <p class="mt-8 text-lg md:text-xl text-zinc-300 leading-relaxed max-w-lg drop-shadow-md">
             Synthetic Audience Lab simula reacciones y prioriza mensajes para que lances con señal, no con intuición.
           </p>
 
@@ -79,12 +98,12 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
               Agendar demo
             </button>
 
-            <a href="#metodo" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/5 cursor-pointer">
+            <a href="#metodo" class="sal-cta sal-cta-secondary rounded-full px-6 py-2 text-sm font-medium text-white transition hover:bg-white/10 cursor-pointer backdrop-blur-md bg-black/30">
               Ver método
             </a>
           </div>
 
-          <div class="mt-8 flex items-center gap-2 text-sm text-zinc-500">
+          <div class="mt-8 flex items-center gap-2 text-sm text-zinc-400">
              <span>¿Estás en Madrid?</span>
             <button
               type="button"
@@ -97,9 +116,9 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             </button>
           </div>
 
-          <div class="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-wider text-zinc-600">
-            <span class="border border-zinc-900 rounded-full px-3 py-1">Piloto 2.500€</span>
-            <span class="border border-zinc-900 rounded-full px-3 py-1">Entrega 5 días</span>
+          <div class="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-wider text-zinc-500">
+            <span class="border border-zinc-800 bg-black/40 backdrop-blur rounded-full px-3 py-1">Piloto 2.500€</span>
+            <span class="border border-zinc-800 bg-black/40 backdrop-blur rounded-full px-3 py-1">Entrega 5 días</span>
           </div>
         </div>
 
@@ -150,30 +169,30 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="problema" class="py-24 border-t border-zinc-900 bg-zinc-950/30">
+    <section id="problema" class="py-24 border-t border-white/5">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
-        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white max-w-3xl drop-shadow-sm">
           Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse.
         </h2>
-        <p class="mt-6 text-lg text-zinc-400 max-w-2xl">
+        <p class="mt-6 text-lg text-zinc-300 max-w-2xl drop-shadow-sm">
           Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición.
           Reducimos ese riesgo probando antes de quemar capital.
         </p>
 
         <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-black/90 backdrop-blur-sm">
              <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 01</div>
             <div class="font-medium text-white text-lg">Tiempo perdido</div>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Iteraciones lentas en Meta/Google Ads. Semanas para saber que el ángulo no funcionaba.</p>
           </div>
 
-          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-black/90 backdrop-blur-sm">
              <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 02</div>
             <div class="font-medium text-white text-lg">Dinero quemado</div>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Creatividades equivocadas que inflan el CPC y consumen el 40% del presupuesto inicial.</p>
           </div>
 
-          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-950/50">
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-black/90 backdrop-blur-sm">
              <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 03</div>
             <div class="font-medium text-white text-lg">Incertidumbre</div>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No sabes qué mensaje engancha y cuál repele hasta que ya has pagado la factura.</p>
@@ -182,18 +201,18 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="metodo" class="py-24 border-t border-zinc-900">
+    <section id="metodo" class="py-24 border-t border-white/5">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <div class="md:flex md:items-end md:justify-between mb-12">
           <div class="max-w-2xl">
-            <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white">Tu laboratorio de comportamiento</h2>
-            <p class="mt-4 text-lg text-zinc-400">
+            <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white drop-shadow-sm">Tu laboratorio de comportamiento</h2>
+            <p class="mt-4 text-lg text-zinc-300 drop-shadow-sm">
               Creamos perfiles sintéticos coherentes con tu audiencia (ICP) y probamos tus mensajes en minutos.
             </p>
           </div>
         </div>
 
-        <div class="rounded-3xl border border-zinc-800 bg-zinc-950/30 p-8 md:p-12">
+        <div class="rounded-3xl border border-zinc-800 bg-black/90 backdrop-blur-sm p-8 md:p-12">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
              <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
 
@@ -219,7 +238,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section class="py-24 border-t border-zinc-900 bg-zinc-950/20">
+    <section class="py-24 border-t border-white/5 bg-black/80 backdrop-blur-sm">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <h2 class="text-2xl md:text-3xl font-light tracking-tight text-white mb-12">Cómo validamos la señal</h2>
         
@@ -252,7 +271,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section class="py-24 border-t border-zinc-900 bg-zinc-950/30">
+    <section class="py-24 border-t border-white/5 bg-black/80 backdrop-blur-sm">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <div class="flex items-end justify-between mb-12">
           <div>
@@ -272,7 +291,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredCases.map((c) => (
             <a href={`/casos/${c.slug}/`} class="group block h-full cursor-pointer">
-              <div class="h-full rounded-3xl border border-zinc-800 bg-zinc-900/50 p-8 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900">
+              <div class="h-full rounded-3xl border border-zinc-800 bg-zinc-950 p-8 transition duration-300 hover:border-zinc-600 hover:bg-zinc-900">
                 <div class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">{c.tag}</div>
                 <h3 class="mt-4 text-xl font-medium text-zinc-100 group-hover:text-white">{c.title}</h3>
                 <p class="mt-3 text-sm text-zinc-400 line-clamp-3 leading-relaxed">{c.subtitle}</p>
@@ -295,7 +314,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="para-quien" class="py-24 border-t border-zinc-900">
+    <section id="para-quien" class="py-24 border-t border-white/5 bg-black/90 backdrop-blur-sm">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
         <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white mb-12">Para quién es esto</h2>
         
@@ -316,22 +335,22 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section id="faq" class="py-24 border-t border-zinc-900 bg-zinc-950/30">
+    <section id="faq" class="py-24 border-t border-white/5 bg-black/90 backdrop-blur-sm">
       <div class="mx-auto max-w-4xl px-6 sal-animate-fade-up">
         <h2 class="text-3xl font-light tracking-tight text-center mb-16">Preguntas frecuentes</h2>
 
         <div class="grid gap-6">
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
             <h3 class="font-medium text-zinc-200">¿Esto es CTR real?</h3>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Son <span class="text-white">scores de intención comparativa</span>. Nuestro modelo predice qué variante tiene mayor probabilidad de éxito basándose en los drivers psicológicos.</p>
           </div>
 
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
             <h3 class="font-medium text-zinc-200">¿Qué necesito para empezar el piloto?</h3>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Tu URL, una definición breve de tu cliente ideal (quién compra y por qué) y los 3 mensajes o creatividades que quieres enfrentar.</p>
           </div>
 
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-950/40 p-6">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
             <h3 class="font-medium text-zinc-200">¿Usáis datos personales?</h3>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No. Trabajamos 100% con datos sintéticos. Generamos perfiles simulados que imitan el comportamiento humano sin comprometer la privacidad.</p>
           </div>
@@ -339,7 +358,7 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
       </div>
     </section>
 
-    <section class="py-24 border-t border-zinc-900">
+    <section class="py-24 border-t border-white/5">
       <div class="mx-auto max-w-5xl px-6">
         <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-b from-zinc-900 via-black to-black p-12 md:p-20 text-center shadow-2xl shadow-black">
           
