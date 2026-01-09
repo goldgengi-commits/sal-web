@@ -2,7 +2,16 @@
 
 @layer base {
   body {
+    /* Color de respaldo por si falla la imagen */
     background-color: #050505;
+    
+    /* LA IMAGEN DEL ÁRBOL/CEREBRO LUMINOSO */
+    background-image: url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=2670&auto=format&fit=crop');
+    background-size: cover;      /* Cubre toda la pantalla */
+    background-position: center top; /* Centrada */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Se queda quieta mientras haces scroll (Efecto premium) */
+    
     color: #a1a1aa;
   }
   h1, h2, h3, h4, h5, h6 {
