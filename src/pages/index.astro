@@ -100,23 +100,33 @@ const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&bo
             </a>
           </div>
 
-          <div class="mt-8 flex items-center gap-2 text-sm text-zinc-400">
+          <div class="mt-10 flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-[10px] uppercase tracking-wider text-zinc-400">
+              <span class="border border-zinc-700 bg-zinc-900/60 backdrop-blur rounded-full px-3 py-1 text-zinc-200 font-medium">Piloto 2.500€</span>
+              <span class="border border-zinc-800 bg-zinc-900/40 backdrop-blur rounded-full px-3 py-1">Entrega 5 días</span>
+            </div>
+            
+            <p class="text-xs text-zinc-500 flex items-center gap-2">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-emerald-500/80">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Garantía de devolución si no obtenemos señal clara.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-8 border-t border-white/5 flex items-center gap-2 text-sm text-zinc-500">
              <span>¿Estás en Madrid?</span>
             <button
               type="button"
               data-cal-link="syntheticaudiencelab/demo-presencial-solo-madrid-45-min"
               data-cal-namespace="salMadrid"
               data-cal-config='{"layout":"month_view"}'
-              class="text-zinc-300 hover:text-white underline underline-offset-4 transition cursor-pointer"
+              class="text-zinc-400 hover:text-white underline underline-offset-4 transition cursor-pointer"
             >
               Reserva presencial
             </button>
           </div>
 
-          <div class="mt-8 flex flex-wrap gap-3 text-[10px] uppercase tracking-wider text-zinc-500">
-            <span class="border border-zinc-800 bg-black/40 backdrop-blur rounded-full px-3 py-1">Piloto 2.500€</span>
-            <span class="border border-zinc-800 bg-black/40 backdrop-blur rounded-full px-3 py-1">Entrega 5 días</span>
-          </div>
         </div>
 
         <div class="relative w-full sal-animate-fade-up">
