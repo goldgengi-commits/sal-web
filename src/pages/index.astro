@@ -11,10 +11,25 @@ const email = "pablo@syntheticaudiencelab.com"; // <--- CAMBIO AQUÍ
 const mailtoSubject = "Demo — Synthetic Audience Lab";
 const mailtoBody = "Hola,\n\nQuiero agendar una demo.\n\nEmpresa:\nWeb:\nQué estás probando (ads/landing/mensajes):\nPresupuesto mensual aproximado en ads:\n\nGracias.";
 const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+
+// Datos Estructurados para el Site Name en Google
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": brand,
+  "url": "https://syntheticaudiencelab.com"
+};
 ---
 
 <BaseLayout title={brand}>
   
+  <slot name="head">
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </slot>
+
   <style is:global>
     body {
       background-image: url('/fondo-web.jpg');
