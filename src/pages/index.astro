@@ -231,7 +231,7 @@ const schema = {
                     </div>
 
                     <div class="mt-8 grid grid-cols-3 gap-4">
-                      {c.metrics.map((m: { label: string; value: string; note?: string }) => (
+                      {c.metrics.map((m) => (
                         <div>
                           <div class="text-xl font-semibold text-white">{m.value}</div>
                           <div class="mt-1 text-[10px] uppercase tracking-widest text-zinc-500">{m.label}</div>
