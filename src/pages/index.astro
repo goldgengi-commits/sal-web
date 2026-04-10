@@ -7,11 +7,12 @@ const heroCases = cases.slice(0, 3);
 const featuredCases = cases.slice(3, 6);
 
 const brand = "Synthetic Audience Lab";
-const email = "pablo@syntheticaudiencelab.com";
+const email = "pablo@syntheticaudiencelab.com"; // <--- CAMBIO AQUÍ
 const mailtoSubject = "Demo — Synthetic Audience Lab";
 const mailtoBody = "Hola,\n\nQuiero agendar una demo.\n\nEmpresa:\nWeb:\nQué estás probando (ads/landing/mensajes):\nPresupuesto mensual aproximado en ads:\n\nGracias.";
 const ctaHref = `mailto:${email}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
 
+// Datos Estructurados para el Site Name en Google
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -30,50 +31,31 @@ const schema = {
   </slot>
 
   <style is:global>
-    /* ── FONDO HOME ── */
     body {
       background-image: url('/fondo-web.jpg');
       background-size: cover;
-      background-position: 80% center;
+      background-position: 80% center; 
       background-repeat: no-repeat;
-      /* fixed está roto en iOS Safari — usamos scroll siempre */
-      background-attachment: scroll;
+      background-attachment: scroll; /* fixed rompe en iOS Safari */
     }
 
-    /* En desktop recuperamos el efecto parallax si se desea */
     @media (min-width: 1024px) {
-      body {
-        background-attachment: fixed;
-      }
+      body { background-attachment: fixed; }
     }
-
+    
     @media (max-width: 768px) {
       body {
         background-position: 65% top;
       }
     }
 
-    /* ── MENÚ MÓVIL ── */
-    #mobile-menu {
-      display: none;
-    }
-    #mobile-menu.is-open {
-      display: flex;
-    }
-    /* Animar hamburger → X */
-    #burger-btn[aria-expanded="true"] .burger-line-1 {
-      transform: translateY(6px) rotate(45deg);
-    }
-    #burger-btn[aria-expanded="true"] .burger-line-2 {
-      opacity: 0;
-    }
-    #burger-btn[aria-expanded="true"] .burger-line-3 {
-      transform: translateY(-6px) rotate(-45deg);
-    }
-    .burger-line-1, .burger-line-2, .burger-line-3 {
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      transform-origin: center;
-    }
+    /* Menú móvil */
+    #mobile-menu { display: none; }
+    #mobile-menu.is-open { display: flex; }
+    #burger-btn[aria-expanded="true"] .bl1 { transform: translateY(6px) rotate(45deg); }
+    #burger-btn[aria-expanded="true"] .bl2 { opacity: 0; }
+    #burger-btn[aria-expanded="true"] .bl3 { transform: translateY(-6px) rotate(-45deg); }
+    .bl1,.bl2,.bl3 { transition: transform .2s ease, opacity .2s ease; transform-origin: center; }
   </style>
 
   <header class="sticky top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-xl">
@@ -83,7 +65,6 @@ const schema = {
           {brand}
         </a>
 
-        <!-- Nav desktop -->
         <nav class="hidden md:flex items-center gap-10 text-sm text-zinc-300">
           <a href="#problema" class="hover:text-white transition-colors cursor-pointer">Problema</a>
           <a href="#metodo" class="hover:text-white transition-colors cursor-pointer">Método</a>
@@ -107,35 +88,27 @@ const schema = {
             Contacto
           </a>
 
-          <!-- Hamburger (solo móvil) -->
-          <button
-            id="burger-btn"
-            type="button"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
-            aria-label="Abrir menú"
-            class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px] cursor-pointer"
-          >
-            <span class="burger-line-1 block w-5 h-px bg-white rounded-full"></span>
-            <span class="burger-line-2 block w-5 h-px bg-white rounded-full"></span>
-            <span class="burger-line-3 block w-5 h-px bg-white rounded-full"></span>
+          <!-- Hamburger solo móvil -->
+          <button id="burger-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú"
+            class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px] cursor-pointer">
+            <span class="bl1 block w-5 h-px bg-white rounded-full"></span>
+            <span class="bl2 block w-5 h-px bg-white rounded-full"></span>
+            <span class="bl3 block w-5 h-px bg-white rounded-full"></span>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Menú móvil desplegable -->
-    <div
-      id="mobile-menu"
-      class="md:hidden flex-col border-t border-white/10 bg-black/90 backdrop-blur-xl px-6 py-4 gap-1"
-    >
-      <a href="#problema" class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors border-b border-white/5">Problema</a>
-      <a href="#metodo"   class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors border-b border-white/5">Método</a>
-      <a href="/casos/"   class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors border-b border-white/5">Casos</a>
-      <a href="#para-quien" class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors border-b border-white/5">Para quién</a>
-      <a href="#faq"      class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors border-b border-white/5">FAQ</a>
-      <a href={ctaHref}   class="mobile-nav-link py-3 text-sm text-zinc-300 hover:text-white transition-colors">Contacto</a>
+    <div id="mobile-menu" class="md:hidden flex-col border-t border-white/10 bg-black/90 backdrop-blur-xl px-6 py-2 gap-0">
+      <a href="#problema"  class="mnl py-3 block text-sm text-zinc-300 hover:text-white border-b border-white/5">Problema</a>
+      <a href="#metodo"    class="mnl py-3 block text-sm text-zinc-300 hover:text-white border-b border-white/5">Método</a>
+      <a href="/casos/"    class="mnl py-3 block text-sm text-zinc-300 hover:text-white border-b border-white/5">Casos</a>
+      <a href="#para-quien" class="mnl py-3 block text-sm text-zinc-300 hover:text-white border-b border-white/5">Para quién</a>
+      <a href="#faq"       class="mnl py-3 block text-sm text-zinc-300 hover:text-white border-b border-white/5">FAQ</a>
+      <a href={ctaHref}    class="mnl py-3 block text-sm text-zinc-300 hover:text-white">Contacto</a>
     </div>
+
   </header>
 
   <main>
@@ -224,18 +197,17 @@ const schema = {
                       )}
                     </div>
 
-                    <div>
-                      <div class="mt-6 text-xs uppercase tracking-widest text-zinc-500">{c.tag}</div>
-                      <h2 class="mt-2 text-2xl font-medium text-white">{c.title}</h2>
-                      <p class="mt-3 text-sm text-zinc-400 leading-relaxed">{c.subtitle}</p>
+                    <div class="mt-auto mb-auto py-8">
+                      <h3 class="text-3xl md:text-4xl font-medium text-white tracking-tight">{c.title}</h3>
+                      <p class="mt-4 text-zinc-400 text-lg leading-relaxed">{c.heroBlurb}</p>
                     </div>
 
-                    <div class="mt-8 grid grid-cols-3 gap-4">
-                      {c.metrics.map((m) => (
+                    <div class="grid grid-cols-3 gap-4 border-t border-white/10 pt-6 mt-auto">
+                      {c.kpis.slice(0, 3).map((k) => (
                         <div>
-                          <div class="text-xl font-semibold text-white">{m.value}</div>
-                          <div class="mt-1 text-[10px] uppercase tracking-widest text-zinc-500">{m.label}</div>
-                          {m.note && <div class="mt-0.5 text-[10px] text-zinc-600">{m.note}</div>}
+                          <div class="text-[10px] uppercase tracking-wider text-zinc-500">{k.label}</div>
+                          <div class="mt-1 text-2xl md:text-3xl font-light text-zinc-100">{k.value}</div>
+                          <div class="mt-1 text-[10px] text-zinc-600 truncate">{k.note}</div>
                         </div>
                       ))}
                     </div>
@@ -252,24 +224,31 @@ const schema = {
 
     <section id="problema" class="py-24 border-t border-white/5 bg-zinc-950/75 backdrop-blur-xl relative z-10">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
-        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white mb-4">Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse.</h2>
-        <p class="text-zinc-400 max-w-2xl mb-16">Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición.<br/>Reducimos ese riesgo probando antes de quemar capital.</p>
+        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white max-w-3xl drop-shadow-sm">
+          Las empresas siguen gastando dinero en campañas que nunca debieron lanzarse.
+        </h2>
+        <p class="mt-6 text-lg text-zinc-300 max-w-2xl drop-shadow-sm">
+          Las pruebas A/B consumen tiempo y presupuesto. Y muchos mensajes se deciden con intuición.
+          Reducimos ese riesgo probando antes de quemar capital.
+        </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-md p-8">
-            <div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Pain Point 01</div>
-            <h3 class="text-lg font-medium text-white mb-2">Tiempo perdido</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Iteraciones lentas en Meta/Google Ads. Semanas para saber que el ángulo no funcionaba.</p>
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-900/85 backdrop-blur-md">
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 01</div>
+            <div class="font-medium text-white text-lg">Tiempo perdido</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Iteraciones lentas en Meta/Google Ads. Semanas para saber que el ángulo no funcionaba.</p>
           </div>
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-md p-8">
-            <div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Pain Point 02</div>
-            <h3 class="text-lg font-medium text-white mb-2">Dinero quemado</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Creatividades equivocadas que inflan el CPC y consumen el 40% del presupuesto inicial.</p>
+
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-900/85 backdrop-blur-md">
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 02</div>
+            <div class="font-medium text-white text-lg">Dinero quemado</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Creatividades equivocadas que inflan el CPC y consumen el 40% del presupuesto inicial.</p>
           </div>
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-md p-8">
-            <div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Pain Point 03</div>
-            <h3 class="text-lg font-medium text-white mb-2">Incertidumbre</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">No sabes qué mensaje engancha y cuál repele hasta que ya has pagado la factura.</p>
+
+          <div class="rounded-3xl border border-zinc-800 p-8 bg-zinc-900/85 backdrop-blur-md">
+             <div class="text-zinc-500 mb-4 font-mono text-xs uppercase tracking-widest">Pain Point 03</div>
+            <div class="font-medium text-white text-lg">Incertidumbre</div>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">No sabes qué mensaje engancha y cuál repele hasta que ya has pagado la factura.</p>
           </div>
         </div>
       </div>
@@ -277,37 +256,71 @@ const schema = {
 
     <section id="metodo" class="py-24 border-t border-white/5 bg-zinc-950/75 backdrop-blur-xl relative z-10">
       <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
-        <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white mb-4">Tu laboratorio de comportamiento</h2>
-        <p class="text-zinc-400 max-w-xl mb-16">Creamos perfiles sintéticos coherentes con tu audiencia (ICP) y probamos tus mensajes en minutos.</p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
-          <div class="flex flex-col gap-4">
-            <div class="text-4xl font-light text-zinc-700">01</div>
-            <h3 class="text-lg font-medium text-white">Generamos</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Creamos una audiencia sintética basada en tu ICP real: miedos, deseos, fricciones y lenguaje.</p>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="text-4xl font-light text-zinc-700">02</div>
-            <h3 class="text-lg font-medium text-white">Simulamos</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Exponemos tus anuncios y mensajes a estos perfiles. Medimos intención de clic y rechazo psicológico.</p>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div class="text-4xl font-light text-zinc-700">03</div>
-            <h3 class="text-lg font-medium text-white">Entregamos</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Un informe con ganadores claros y el "por qué". Listo para que lo implementes en Meta/Google.</p>
+        <div class="md:flex md:items-end md:justify-between mb-12">
+          <div class="max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-light tracking-tight text-white drop-shadow-sm">Tu laboratorio de comportamiento</h2>
+            <p class="mt-4 text-lg text-zinc-300 drop-shadow-sm">
+              Creamos perfiles sintéticos coherentes con tu audiencia (ICP) y probamos tus mensajes en minutos.
+            </p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-md p-8">
-            <h3 class="font-medium text-white mb-2">Ranking comparativo (Score 0-10)</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">No inventamos un CTR falso. Calculamos un score de preferencia comparativa. Si la Variante A tiene un score de 8.5 y la B de 4.2, la señal es clara. Validamos por contraste, no por absoluto.</p>
-          </div>
-          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-md p-8">
-            <h3 class="font-medium text-white mb-2">Drivers Psicológicos</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">Entendemos el "por qué". ¿El rechazo viene por precio o por falta de prueba social? Desglosamos la fricción para que tu siguiente iteración sea más inteligente.</p>
+        <div class="rounded-3xl border border-zinc-800 bg-zinc-900/85 backdrop-blur-md p-8 md:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+             <div class="hidden md:block absolute top-8 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
+
+            <div class="relative z-10">
+              <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">1</div>
+              <h3 class="text-lg font-medium text-white">Generamos</h3>
+              <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Creamos una audiencia sintética basada en tu ICP real: miedos, deseos, fricciones y lenguaje.</p>
+            </div>
+
+            <div class="relative z-10">
+               <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">2</div>
+              <h3 class="text-lg font-medium text-white">Simulamos</h3>
+              <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Exponemos tus anuncios y mensajes a estos perfiles. Medimos intención de clic y rechazo psicológico.</p>
+            </div>
+
+            <div class="relative z-10">
+               <div class="h-16 w-16 rounded-full border border-zinc-700 bg-gradient-to-br from-zinc-800 to-black grid place-items-center mb-6 text-xl font-medium text-white shadow-lg shadow-black/50">3</div>
+              <h3 class="text-lg font-medium text-white">Entregamos</h3>
+              <p class="mt-2 text-sm text-zinc-400 leading-relaxed">Un informe con ganadores claros y el "por qué". Listo para que lo implementes en Meta/Google.</p>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="py-24 border-t border-white/5 bg-zinc-950/75 backdrop-blur-xl relative z-10">
+      <div class="mx-auto max-w-6xl px-6 sal-animate-fade-up">
+        <h2 class="text-2xl md:text-3xl font-light tracking-tight text-white mb-12">Cómo validamos la señal</h2>
+        
+        <div class="space-y-8 max-w-4xl">
+          <div class="flex gap-6 items-start">
+             <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 grid place-items-center shrink-0 text-zinc-400">
+               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+             </div>
+             <div>
+               <h3 class="text-lg font-medium text-white">Ranking comparativo (Score 0-10)</h3>
+               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">
+                 No inventamos un CTR falso. Calculamos un score de preferencia comparativa. Si la Variante A tiene un score de 8.5 y la B de 4.2, la señal es clara. Validamos por contraste, no por absoluto.
+               </p>
+             </div>
+          </div>
+
+          <div class="flex gap-6 items-start">
+             <div class="h-12 w-12 rounded-xl bg-zinc-900 border border-zinc-800 grid place-items-center shrink-0 text-zinc-400">
+               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+             </div>
+             <div>
+               <h3 class="text-lg font-medium text-white">Drivers Psicológicos</h3>
+               <p class="mt-2 text-sm text-zinc-400 leading-relaxed">
+                 Entendemos el "por qué". ¿El rechazo viene por precio o por falta de prueba social? Desglosamos la fricción para que tu siguiente iteración sea más inteligente.
+               </p>
+             </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -449,7 +462,6 @@ const schema = {
 </BaseLayout>
 
 <script is:inline>
-  /* ── Hero rotator ── */
   (() => {
     const root = document.querySelector(".sal-hero-rotator");
     if (!root) return;
@@ -459,31 +471,34 @@ const schema = {
     let i = 0;
     const set = (idx) => {
       slides.forEach((el, j) => {
-        el.classList.toggle("is-active", j === idx);
+        if (j === idx) {
+          el.classList.add("is-active");
+        } else {
+          el.classList.remove("is-active");
+        }
       });
     };
 
     set(0);
-    setInterval(() => { i = (i + 1) % slides.length; set(i); }, 5000);
+
+    setInterval(() => {
+      i = (i + 1) % slides.length;
+      set(i);
+    }, 5000);
   })();
 
-  /* ── Hamburger menu ── */
+  // Hamburger
   (() => {
     const btn  = document.getElementById("burger-btn");
     const menu = document.getElementById("mobile-menu");
     if (!btn || !menu) return;
-
     btn.addEventListener("click", () => {
       const open = menu.classList.toggle("is-open");
       btn.setAttribute("aria-expanded", String(open));
     });
-
-    // Cerrar al hacer clic en un enlace del menú
-    menu.querySelectorAll(".mobile-nav-link").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("is-open");
-        btn.setAttribute("aria-expanded", "false");
-      });
-    });
+    menu.querySelectorAll(".mnl").forEach(l => l.addEventListener("click", () => {
+      menu.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    }));
   })();
 </script>
